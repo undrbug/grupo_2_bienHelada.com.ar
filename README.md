@@ -1,8 +1,11 @@
-Bienhelada - Market Place de Bebidas Alcohólicas
+Bienhelada - Market Place de Bebidas
+
 Descripción del Proyecto
+
 Bienvenidos a Bienhelada, un ecommerce dedicado a la venta de bebidas alcohólicas premium, enfocándonos en vinos regionales de la provincia de La Rioja y cervezas artesanales de diversas localidades. Nuestro objetivo es ofrecer una experiencia única a los amantes de las bebidas de calidad, destacando productos locales y artesanales que representan la riqueza y diversidad de nuestra región.
 
 Oferta de Productos y Servicios
+
 En Bienhelada podrás encontrar:
 
 Vinos Regionales: Nuestra selección incluye vinos tintos, blancos y rosados de bodegas reconocidas en La Rioja y sus alrededores. Cada vino ha sido seleccionado por su calidad y su representación auténtica de la región.
