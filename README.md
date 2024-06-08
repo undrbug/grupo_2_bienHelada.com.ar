@@ -44,6 +44,13 @@ Lucía González - Marketing y Comunicaciones: Lucía es nuestra experta en mark
 Juntos, estamos comprometidos en brindar una experiencia única y de alta calidad a nuestros clientes.
 
 
+Programa de Lealtad:
+
+Implementa un programa de fidelización para recompensar a los clientes habituales. Esto podría incluir descuentos, acceso anticipado a nuevos productos y eventos especiales.
+Ofrecer puntos por compras, reseñas y recomendaciones. Esto animaría a los clientes a interactuar con la marca y compartir su experiencia con otros.
+Ofrecer niveles de membresía exclusivos con beneficios adicionales. Esto podría incluir acceso a catas privadas, eventos especiales y productos de edición limitada.
+
+
 Nos inspiramos en sitios como:
 
 https://www.bodegassanhuberto.com.ar/inicio
