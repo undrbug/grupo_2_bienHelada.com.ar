@@ -41,7 +41,7 @@ Bienhelada está compuesto por un equipo apasionado y dedicado:
 - Tengo 24 años, soy estudiante de la Lic. en Diseño y Producción Multimedial en la Universidad Nacional de La Rioja (UNLaR). Tengo una base en programación, con conocimientos en HTML, CSS, PHP, Java y C#. Mi pasión se centra en la programación, especialmente en el desarrollo Backend, donde disfruto trabajando en la lógica y funcionalidad de las aplicaciones. 
 
 ##### Juan Manuel Torres
- - Marketing y Comunicaciones: Lucía es nuestra experta en marketing, encargada de las campañas y la presencia en redes sociales.
+ - Tengo 25 años gamer y gym rat, cursando programación en la UTN, conocí el mundo de la programacion en la pandemia, pero nunca fui constante ni le di el tiempo que merecia para aprender, me siento comodo con el front
 
 ##### Yamal Maldonado
  - Marketing y Comunicaciones: con experiencia en front-end y diseño de imagenes, y creaciones varias.
