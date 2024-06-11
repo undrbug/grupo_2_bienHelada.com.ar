@@ -44,7 +44,7 @@ Bienhelada está compuesto por un equipo apasionado y dedicado:
  - Marketing y Comunicaciones: Lucía es nuestra experta en marketing, encargada de las campañas y la presencia en redes sociales.
 
 ##### Yamal Maldonado
- - Marketing y Comunicaciones: Lucía es nuestra experta en marketing, encargada de las campañas y la presencia en redes sociales.
+ - Marketing y Comunicaciones: con experiencia en front-end y diseño de imagenes, y creaciones varias.
 
 
 Juntos, estamos comprometidos en brindar una experiencia única y de alta calidad a nuestros clientes.
