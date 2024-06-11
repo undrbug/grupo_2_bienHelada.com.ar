@@ -32,7 +32,7 @@ Primamos los envíos Seguros, implementamos métodos de envío que aseguran que 
 Bienhelada está compuesto por un equipo apasionado y dedicado:
 
 ##### Franco Gaston Aumada
-- CEO y Fundador: Con una vasta experiencia en el sector de las bebidas, Juan lidera la visión y estrategia del negocio.
+- Soy Técnico y Profesor en informática, tambien estoy con la tesis de la Lic. en Tecnología Educativa. Me inserte en el mundo de la programación y desarrollo hace un par de años comenzando con algunos cursos y de forma autodidacta. Estoy aprendiendo dia a dia lo cual me fascina. Tengo menos tiempo pero cuando me siento en frente de la PC lo aprovecho al 100 %, por ese motivo estoy agradecido con el equipo N° 2, Unos grandes compañeros para encarar este proyecto. Me interesa mucho la parte del Front =) Y aguante el vino riojano jeje :)
 
 ##### Hernán Gauna
 - Soy como un padawan dev. Aprendiendo a usar la Fuerza, explorando nuevos mundos pero seducido por el lado oscuro (backend :rofl:) y por el buen vino!
