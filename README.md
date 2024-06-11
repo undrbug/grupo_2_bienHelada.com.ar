@@ -35,7 +35,7 @@ Bienhelada está compuesto por un equipo apasionado y dedicado:
 - CEO y Fundador: Con una vasta experiencia en el sector de las bebidas, Juan lidera la visión y estrategia del negocio.
 
 ##### Hernán Gauna
-- Sommelier y Curadora de Productos: María es responsable de la selección y evaluación de los vinos y cervezas que ofrecemos.
+- Soy como un padawan dev. Aprendiendo a usar la Fuerza, explorando nuevos mundos pero seducido por el lado oscuro (backend :rofl:) y por el buen vino!
 
 ##### Israel Sebastian Gabriel Campillay
 - Tengo 24 años, soy estudiante de la Lic. en Diseño y Producción Multimedial en la Universidad Nacional de La Rioja (UNLaR). Tengo una base en programación, con conocimientos en HTML, CSS, PHP, Java y C#. Mi pasión se centra en la programación, especialmente en el desarrollo Backend, donde disfruto trabajando en la lógica y funcionalidad de las aplicaciones. 
