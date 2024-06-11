@@ -79,7 +79,5 @@ Inspirador por la manera en que presenta las ofertas de sus productos en un carr
 
 
 
-https://www.elcaminodelacerveza.com/listing/cerro-cruz-cerveceria/
 
-https://www.silocervecero.com.ar/
 
