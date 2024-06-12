@@ -44,10 +44,10 @@ Bienhelada está compuesto por un equipo apasionado y dedicado:
  - Tengo 25 años gamer y gym rat, cursando programación en la UTN, conocí el mundo de la programacion en la pandemia, pero nunca fui constante ni le di el tiempo que merecia para aprender, me siento comodo con el front
 
 ##### Yamal Maldonado
- - Marketing y Comunicaciones: con experiencia en front-end y diseño de imagenes, y creaciones varias.
+ - Depto. de Marketing y Comunicaciones: Con experiencia en front-end y diseño de imagenes, y creaciones varias, diseñador desde la cuna dispuesto a emprender diferentes desafios a diario, con conocimientos en marketing digital y organización de teams. 
 
 
-Juntos, estamos comprometidos en brindar una experiencia única y de alta calidad a nuestros clientes.
+#### Juntos, estamos comprometidos en brindar una experiencia única y de alta calidad a nuestros clientes.
 
 
 ##### Nos inspiramos en sitios como:
