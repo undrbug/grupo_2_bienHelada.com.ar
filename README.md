@@ -49,8 +49,12 @@ Bienhelada está compuesto por un equipo apasionado y dedicado:
 
 #### Juntos, estamos comprometidos en brindar una experiencia única y de alta calidad a nuestros clientes.
 
+### Enlace al figma donde hemos diseñado el wireframe del proyecto: 
 
-##### Nos inspiramos en sitios como:
+https://www.figma.com/design/NVJU8BlYiD6lDkyfiszKH2/BienHeladas?m=dev&node-id=0-1
+
+
+## Nos inspiramos en sitios como:
 
 1
 https://www.bodegassanhuberto.com.ar/inicio 
