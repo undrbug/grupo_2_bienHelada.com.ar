@@ -53,6 +53,10 @@ Bienhelada está compuesto por un equipo apasionado y dedicado:
 
 https://www.figma.com/design/NVJU8BlYiD6lDkyfiszKH2/BienHeladas?m=dev&node-id=0-1
 
+### Enlace al tablero de trabajo en Trello: 
+
+(https://trello.com/b/9P4Ln8Rx/organizacion-proyecto-integrador-dh-grupo-2)
+
 
 ## Nos inspiramos en sitios como:
 
