@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Acordarse de modificar la ruta del css cuando creemos la ruta statica -->
+    <link rel="stylesheet" href="../public/styles/styles.css">
+    <script src="https://kit.fontawesome.com/82fff5def6.js" crossorigin="anonymous"></script>
+    <title>Carrito de Compras</title>
+</head>
+
+<body>
+    <div class="cart-container">
+        <div class="cart-item">
+            <div class="product-image"></div>
+            <div class="product-details">
+                <p class="product-name">Nombre del producto</p>
+                <p class="product-description">Breve descripción</p>
+                <input type="number" class="product-quantity" value="1">
+                <p class="product-price">$57,00</p>
+                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        </div>
+        <div class="cart-item">
+            <div class="product-image"></div>
+            <div class="product-details">
+                <p class="product-name">Nombre del producto</p>
+                <p class="product-description">Breve descripción</p>
+                <input type="number" class="product-quantity" value="1">
+                <p class="product-price">$57,00</p>
+                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        </div>
+        <div class="total">
+            <p>Total a pagar: <span id="total-price">$114,00</span></p>
+        </div>
+        <button class="checkout-btn">Realizar compra</button>
+    </div>
+
+</body>
+
+</html>
