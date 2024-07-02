@@ -134,3 +134,35 @@ footer .redes{
     text-align: center;
     margin: 10px;
 }
+
+/* nav bar*/
+nav {
+    background-color: #75572f; 
+    padding: 5px; 
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    list-style-type: none;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: space-around; 
+}
+
+nav li {
+    margin: 0 10px; 
+}
+
+nav a {
+    color: white; 
+    text-decoration: none; 
+    padding: 10px 20px; 
+}
+
+nav a:hover {
+    color: rgb(70, 70, 240); 
+}
