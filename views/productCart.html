@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bien-Heladas wines&drinks | Home</title>
+    <link rel="stylesheet" href="/public/styles/style.css">
+    <link rel="stylesheet" href="/public/styles/productCart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <img class="header-logo" src="./public/img/logo-head.png" alt="BF-logo">
+            <div class="header-search">
+                <form class="header-search_form" action="#">
+                    <input placeholder="Buscar productos..." type="text"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </form>
+            </div>
+        </div>
+    </header>
+    <div class="cart-container">
+        <div class="cart-item">
+            <div class="product-image"></div>
+            <div class="product-details">
+                <p class="product-name">Nombre del producto</p>
+                <p class="product-description">Breve descripción</p>
+                <input type="number" class="product-quantity" value="1">
+                <p class="product-price">$57,00</p>
+                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        </div>
+        <div class="cart-item">
+            <div class="product-image"></div>
+            <div class="product-details">
+                <p class="product-name">Nombre del producto</p>
+                <p class="product-description">Breve descripción</p>
+                <input type="number" class="product-quantity" value="1">
+                <p class="product-price">$57,00</p>
+                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+            </div>
+        </div>
+        <div class="total">
+            <p>Total a pagar: <span id="total-price">$114,00</span></p>
+        </div>
+        <button class="checkout-btn">Realizar compra</button>
+    </div>
+</body>
+
+<footer>
+    <div class="redes">
+        <h3>Seguinos en redes sociales</h3>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+
+    </div>
+</footer>
+</html>
