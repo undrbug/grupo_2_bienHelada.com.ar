@@ -3,44 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bien-Heladas wines&drinks | Home</title>
-    <link rel="stylesheet" href="/public/styles/style.css">
-    <link rel="stylesheet" href="/public/styles/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <title>Login</title>
 </head>
 <body>
-    <header>
-        <div class="header-top">
-            <img class="header-logo" src="./public/img/logo-head.png" alt="BF-logo">
-            <div class="header-search">
-                <form class="header-search_form" action="#">
-                    <input placeholder="Buscar productos..." type="text"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                </form>
-            </div>
-        </div>
-    </header>
-    <main class="loginmain">
-        <div class="container">
-            <h1>Iniciar sesión</h1>
-            <form action="/login" method="post">
-              <label for="username">Usuario:</label>
-              <input type="text" id="username" name="username" required>
-              <label for="password">Contraseña:</label>
-              <input type="password" id="password" name="password" required>
-              <button type="submit">Iniciar sesión</button>
-              <a href="#" id="forgotPassword">¿Olvidaste tu contraseña?</a>
-            </form>
-          </div>          
-    </main>
-
-<footer>
-    <div class="redes">
-        <h3>Seguinos en redes sociales</h3>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-facebook-f"></i>
-        <i class="fa-brands fa-x-twitter"></i>
-        <!--Aqui poner un diseño más amigable-->
-
-    </div>
-</footer>
+    <div class="container">
+        <h1>Iniciar sesión</h1>
+        <form action="/login" method="post">
+          <label for="username">Usuario:</label>
+          <input type="text" id="username" name="username" required>
+          <label for="password">Contraseña:</label>
+          <input type="password" id="password" name="password" required>
+          <!-- <div class="checkbox">
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            <label for="rememberMe">Recordarme</label>
+          </div> -->
+          <button type="submit">Iniciar sesión</button>
+          <a href="#" id="forgotPassword">¿Olvidaste tu contraseña?</a>
+        </form>
+      </div>
+</body>
 </html>
