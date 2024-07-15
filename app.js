@@ -1,33 +1,19 @@
 const express = require("express");
 const app = express();
-const path = require("path");
+const mainRoute = require("./routes/main.route.js");
 
- app.use(express.static("./public"));
+// Configuración del motor de vistas
+app.set("view engine", "ejs");
+app.set("views", "views");
 
- const PORT = process.env.PORT || 3700;
+// Middleware para archivos estáticos
+app.use(express.static("./public"));
 
- app.get("/", function(req, res) {
-    res.sendFile(path.resolve("views/home.html"))
-})
+// Puerto de la aplicación
+const PORT = process.env.PORT || 3700;
 
-app.get("/login", function(req, res) {
-    res.sendFile(path.resolve("views/login.html"))
-})
-app.get("/registro", function(req, res) {
-    res.sendFile(path.resolve("views/registro.html"))
-})
-app.get("/productcart", function(req, res) {
-    res.sendFile(path.resolve("views/productCart.html"))
-})
-app.get("/detalleproducto", function(req, res) {
-    res.sendFile(path.resolve("views/detalleProducto.html"))
-})
-app.get("/recuperarPassword.html", function(req, res) {
-    res.sendFile(path.resolve("views/recuperarPassword.html"))
-})
-app.get("/restablecerPassword.html", function(req, res) {
-    res.sendFile(path.resolve("views//restablecerPassword.html"))
-})
- app.listen(PORT, () =>
-   console.log("Server running on http://localhost:3700")
- )
+// Rutas
+app.use("/", mainRoute);
+
+// Inicio del servidor
+app.listen(PORT, () => console.log("Server running on http://localhost:3700"));
