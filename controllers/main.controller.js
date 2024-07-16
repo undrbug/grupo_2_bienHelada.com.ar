@@ -4,58 +4,26 @@ const app = express();
 
 const mainController = {
     home: (req, res) => {
-        res.render('home.ejs');
-    },
-    index: (req, res) => {
-        res.render('index.ejs');
+        res.render('index.ejs',{title: 'Bien-Heladas wines&drinks'});
     },
     login: (req, res) => {
-        res.render('login.ejs');
-    },
-    registro: (req, res) => {
-        res.render('registro.ejs');
+        res.render('users/login.ejs', {title: 'Login'});
     },
     register: (req, res) => {
-        res.render('register.ejs');
+        res.render('users/register.ejs', {title: 'Register'});
     },
     productCart: (req, res) => {
-        res.render('productCart.ejs');
-    },
-    detalleProducto: (req, res) => {
-        res.render('detalleProducto.ejs');
+        res.render('products/productCart.ejs', {title: 'Product Cart'});
     },
     productDetail: (req, res) => {
-        res.render('productDetail.ejs');
+        res.render('products/productDetail.ejs', {title: 'Product Detail'});
     },
     recuperarPassword: (req, res) => {
-        res.render('recuperarPassword.ejs');
+        res.render('users/recuperarPassword.ejs', {title: 'Recuperar Password'});
     },
     restablecerPassword: (req, res) => {
-        res.render('restablecerPassword.ejs');
+        res.render('users/restablecerPassword.ejs', {title: 'Restablecer Password'});
     }
 };
 
 module.exports = mainController;
-
-// app.get("/", function(req, res) {
-//     res.sendFile(path.resolve("views/home.html"))
-// })
-
-// app.get("/login", function(req, res) {
-//     res.sendFile(path.resolve("views/login.html"))
-// })
-// app.get("/registro", function(req, res) {
-//     res.sendFile(path.resolve("views/registro.html"))
-// })
-// app.get("/productcart", function(req, res) {
-//     res.sendFile(path.resolve("views/productCart.html"))
-// })
-// app.get("/detalleproducto", function(req, res) {
-//     res.sendFile(path.resolve("views/detalleProducto.html"))
-// })
-// app.get("/recuperarPassword.html", function(req, res) {
-//     res.sendFile(path.resolve("views/recuperarPassword.html"))
-// })
-// app.get("/restablecerPassword.html", function(req, res) {
-//     res.sendFile(path.resolve("views//restablecerPassword.html"))
-// })
