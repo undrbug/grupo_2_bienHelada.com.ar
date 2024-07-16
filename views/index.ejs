@@ -1,29 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bien-Heladas wines&drinks | Home</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-</head>
+<%- include('partials/head.ejs') %>
 <body>
-    <!--Cual se está utilizando? index o home?-->
-    <header>
-        <div class="header-top">
-            <img class="header-logo" src="img/logo-head.png" alt="BF-logo">
-            <div class="header-search">
-                <form class="header-search_form" action="#">
-                    <input placeholder="Buscar productos..." type="text"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                </form>
-            </div>
-            <nav>
-                <li><a href="/login">Ingresá <i class="fa-solid fa-right-to-bracket"></i></a></li>
-                <li><a href="/register">Crea tu cuenta <i class="fa-solid fa-user"></i></a></li>
-                <li><a href="/productCart">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
-            </nav>
-        </div>
-    </header>
+<%- include('partials/header.ejs') %>
+
     <img class="header-banner" width="100%" src="img/wine-banner.jpg" alt="wines-banner">
     <div class="icons">
         <div class="icons-box">
@@ -89,15 +69,7 @@
             <p>$5000</p>
         </div>
     </div>
+    
+    <%- include('partials/footer.ejs') %>
 </body>
-<footer>
-    <br>
-    <div class="redes">
-        <h3>Seguinos en redes sociales</h3>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-facebook-f"></i>
-        <i class="fa-brands fa-x-twitter"></i>
-
-    </div>
-</footer>
 </html>

@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bien-Heladas wines&drinks | Home</title>
-    <link rel="stylesheet" href="/public/styles/style.css">
-    <link rel="stylesheet" href="/public/styles/register.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-</head>
+<%- include('../partials/head.ejs') %>
+
 <body>
-    <header>
-        <div class="header-top">
-            <img class="header-logo" src="./public/img/logo-head.png" alt="BF-logo">
-            <div class="header-search">
-                <form class="header-search_form" action="#">
-                    <input placeholder="Buscar productos..." type="text"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-                </form>
-            </div>
-        </div>
-        
-    </header>
+<%- include('../partials/header.ejs') %>
 
     <main class="registro">
         <form action="/" method="POST">
@@ -46,15 +30,8 @@
             <br>
         </form>
     </main>
+
+    <%- include('../partials/footer.ejs') %>
 </body>
 
-<footer>
-    <div class="redes">
-        <h3>Seguinos en redes sociales</h3>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-facebook-f"></i>
-        <i class="fa-brands fa-x-twitter"></i>
-
-    </div>
-</footer>
 </html>
