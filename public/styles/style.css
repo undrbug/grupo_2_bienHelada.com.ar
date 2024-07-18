@@ -82,7 +82,6 @@ main{
 .articles {
     display: flex;
     flex-wrap: wrap;
-    padding: 20px;
 }
 .article {
     flex: 1 1 calc(33.333% - 40px);
