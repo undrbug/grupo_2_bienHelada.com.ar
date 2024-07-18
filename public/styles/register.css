@@ -1,33 +1,31 @@
-main.registro {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+@import url('variables-estilos.css');
+
+* {
+    box-sizing: border-box;
 }
 
-/*
-form {
-    display: flex;
-    flex-direction: column;
+
+
+main.registro {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    margin: 0px;
+    background-color: #ebebeb;
 }
-*/
+
 form h4 {
     margin: 20px 0 10px 0;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
 form input[type="file"] {
-    padding: 10px;
-    border: 1px solid #ccc;
+    border: var(--font-color-secondary);
     border-radius: 5px;
     width: 100%;
 }
-
 
 form label {
     margin-bottom: 10px;
