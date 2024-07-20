@@ -7,7 +7,8 @@
         "bodega": "Bianchi" ,
         "varietal": "40% Cabernet Sauvignon, 40% Malbec, 10% Merlot,10% Syrah",
         "tipo": "Vinos",
-        "id": 1
+        "id": 1,
+        "cantidad": null
 
     },
     {
@@ -18,7 +19,8 @@
         "bodega": "Bianchi",
         "varietal": "Malbec",
         "tipo": "Vinos",
-        "id": 2
+        "id": 2,
+        "cantidad": null
 
     },
     {
@@ -29,7 +31,8 @@
         "bodega": "Bianchi",
         "varietal": "Espumante",
         "tipo": "Vinos",
-        "id": 3
+        "id": 3,
+        "cantidad": null
 
     },
     {
@@ -40,7 +43,8 @@
         "bodega": "Bianchi",
         "varietal": "Malbec",
         "tipo": "Vinos",
-        "id": 4
+        "id": 4,
+        "cantidad": null
     },
     {
         "nombre": "Il Carpone Rosé.",
@@ -50,7 +54,8 @@
         "bodega": "Bianchi",
         "varietal": "50% Malbec - 50% Pinot Noir",
         "tipo": "Vinos",
-        "id": 5
+        "id": 5,
+        "cantidad": null
     },
     {
         "nombre": "Bianchi Varietales Cabernet Sauvignon",
@@ -60,7 +65,8 @@
         "bodega": "Bianchi",
         "varietal": "Cabernet Sauvignon",
         "tipo": "Vinos",
-        "id": 6
+        "id": 6,
+        "cantidad": null
     },
     {
         "nombre": "Finca Los Primos Malbec.",
@@ -70,7 +76,8 @@
         "bodega": "Bianchi",
         "varietal": "Malbec",
         "tipo": "Vinos",
-        "id": 7
+        "id": 7,
+        "cantidad": null
     },
     {
         "nombre": "",
@@ -80,7 +87,8 @@
         "bodega": "Bianchi",
         "varietal": "",
         "tipo": "",
-        "id": 8
+        "id": 8,
+        "cantidad": null
     },
     {
         "nombre": "Don Valentin Lacrado Malbec.",
@@ -90,7 +98,8 @@
         "bodega": "Bianchi",
         "varietal": "Malbec",
         "tipo": "Vinos",
-        "id": 3
+        "id": 9,
+        "cantidad": null
     },
     {
         "nombre": "",
@@ -100,6 +109,7 @@
         "bodega": "Bianchi",
         "varietal": "",
         "tipo": "",
-        "id": 3
+        "id": 10,
+        "cantidad": null
     }
 ]
