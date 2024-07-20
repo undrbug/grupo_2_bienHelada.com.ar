@@ -4,13 +4,14 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
-        
+
             <section>
                 <div class="container">
                     <h2 class="text-center">Cargar nuevo producto</h2>
                     <form action="/products/store" method="post" enctype="multipart/form-data">
-                        <div class="form-group
-                <label for=" name">Nombre del producto</label>
+
+                        <div class="form-group">
+                            <label for="name">Nombre del producto</label>
                             <input type="text" class="form-control" id="name" name="name" required>
                         </div>
                         <div class="form-group">
@@ -30,11 +31,28 @@
                                 <option value="4">Whiskys</option>
                                 <option value="5">Otros</option>
                             </select>
-
                         </div>
                         <div class="form-group">
-                            <label for="colors">Cantidad</label>
-                            <input type="text" class="form-control" id="colors" name="colors" required>
+                            <label for="bodega">Bodega</label>
+                            <input type="text" class="form-control" id="bodega" name="bodega" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="varietal">Varietal</label>
+                            <select name="varietal" id="varietal">
+                                <option value="1">Malbec</option>
+                                <option value="2">Cabernet Sauvignon</option>
+                                <option value="3">Merlot</option>
+                                <option value="4">Syrah</option>
+                                <option value="5">Bonarda</option>
+                                <option value="6">Chardonnay</option>
+                                <option value="7">Sauvignon Blanc</option>
+                                <option value="8">Torrontés</option>
+                                <option value="9">Otro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="number" class="form-control" id="cantidad" name="cantidad" required>
                         </div>
                         <div class="form-group">
                             <label for="price">Precio</label>
