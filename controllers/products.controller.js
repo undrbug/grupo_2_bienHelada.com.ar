@@ -9,6 +9,17 @@ const productsController = {
     },
     productDetail: (req, res) => {
         res.render('products/productDetail.ejs', {title: 'Product Detail'});
+    },
+    productAdd: (req, res) => {
+        res.render('products/productAdd.ejs', {title: 'Alta producto'});
+    },
+    productDel: (req, res) => {
+        // const {id} = req.params;
+        res.render('products/productDel.ejs', {title: 'Eliminar producto'});
+    },
+    productMod: (req, res) => {
+        // const {id} = req.params;
+        res.render('products/productMod.ejs', {title: 'Modificar producto'});
     }
 }
 
