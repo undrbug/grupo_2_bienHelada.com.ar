@@ -10,7 +10,7 @@
 <section>
     <div class="container">
         <h2 class="text-center">Eliminar producto</h2>
-        <form action="/products/delete" method="post">
+        <form action="/products/productdel/:id?_method=delete" method="post">
             <div class="form-group">
                 <label for="name">Nombre del producto</label>
                 <input type="text" class="form-control" id="name" name="name" required>
