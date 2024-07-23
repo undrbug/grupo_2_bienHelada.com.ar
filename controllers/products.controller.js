@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const router = require('express').Router();
 
 const productsController = {
@@ -10,8 +12,32 @@ const productsController = {
     productDetail: (req, res) => {
         res.render('products/productDetail.ejs', {title: 'Product Detail'});
     },
-    productAdd: (req, res) => {
+    productAddView: (req, res) => {
         res.render('products/productAdd.ejs', {title: 'Alta producto'});
+    },
+    productAdd: (req, res) => {
+        try {
+            const {name, price, description, bodega, varietal, category, cantidad, image} = req.body;
+            let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/wines.json'), 'utf-8'));
+            const newProduct = {
+                "id": products.length + 1,
+                "nombre": name,
+                "descripcion": description,
+                "imagen": image,
+                "precio": price,
+                "bodega": bodega,
+                "categoria": category,
+                "varietal": varietal,
+                "cantidad": cantidad,
+                "imagen": image
+            }
+            products.push(newProduct);
+            fs.writeFileSync(path.resolve(__dirname, '../data/wines.json'), JSON.stringify(products, null, ' '));
+            console.log("okas");
+            res.redirect('/products');
+        } catch (error) {
+            console.log(error);
+        }
     },
     productDel: (req, res) => {
         // const {id} = req.params;
