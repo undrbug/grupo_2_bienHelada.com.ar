@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const router = require('express').Router();
+const services = require('../services/dataSource.js');
 
 const productsController = {
     products: (req, res) => {
@@ -18,7 +19,8 @@ const productsController = {
     productAdd: (req, res) => {
         try {
             const {name, price, description, bodega, varietal, category, cantidad, image} = req.body;
-            let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/wines.json'), 'utf-8'));
+            // let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/wines.json'), 'utf-8'));
+            let products = services.load();
             const newProduct = {
                 "id": products.length + 1,
                 "nombre": name,
@@ -32,9 +34,11 @@ const productsController = {
                 "imagen": image
             }
             products.push(newProduct);
-            fs.writeFileSync(path.resolve(__dirname, '../data/wines.json'), JSON.stringify(products, null, ' '));
+            // fs.writeFileSync(path.resolve(__dirname, '../data/wines.json'), JSON.stringify(products, null, ' '));
+            services.save(products);
             console.log("okas");
-            res.redirect('/products');
+            // res.redirect('/products');
+            res.send(products)
         } catch (error) {
             console.log(error);
         }
