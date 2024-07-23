@@ -18,6 +18,11 @@ app.use(methodOverride('_method'));
 // Puerto de la aplicación
 const PORT = process.env.PORT || 3700;
 
+// Middleware para analizar el cuerpo de la solicitud
+//Sin esto, en el req.body no se puede acceder a los datos enviados por el formulario
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Rutas
 app.use("/", mainRoute);
 app.use('/users', usersRoute);
