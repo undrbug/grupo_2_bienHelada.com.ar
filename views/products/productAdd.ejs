@@ -8,12 +8,11 @@
             <section>
                 <div class="container">
                     <h2 class="text-center">Cargar nuevo producto</h2>
-                    <form action="/products/store" method="post" enctype="multipart/form-data">
+                    <form action="/products/add" method="post">
 
-                        <div class="form-group">
                             <label for="name">Nombre del producto</label>
                             <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
+
                         <div class="form-group">
                             <label for="description">Descripción</label>
                             <textarea class="form-control" id="description" name="description" required></textarea>
@@ -38,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label for="varietal">Varietal</label>
-                            <select name="varietal" id="varietal">
+                            <select name="varietal" id="varietal" name="varietal">
                                 <option value="1">Malbec</option>
                                 <option value="2">Cabernet Sauvignon</option>
                                 <option value="3">Merlot</option>
