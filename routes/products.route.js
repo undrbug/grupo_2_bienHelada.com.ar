@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const productsController = require('../controllers/products.controller.js');
 
+//muestra todos los prodctos de manera dinamica
 router.get('/', productsController.products);
 router.get('/cart', productsController.productCart);
+/// modificar para que reciba un :id
 router.get('/productdetail', productsController.productDetail);
 router.get('/add', productsController.productAddView);
 router.post('/add', productsController.productAdd);
