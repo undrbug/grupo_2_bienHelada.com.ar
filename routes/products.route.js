@@ -6,7 +6,7 @@ router.get('/', productsController.products);
 //carrito de compras
 router.get('/cart', productsController.productCart);
 /// modificar para que reciba un :id
-router.get('/productdetail', productsController.productDetail);
+router.get('/productdetail/:id', productsController.productDetail);
 router.get('/add', productsController.productAddView);
 router.post('/add', productsController.productAdd);
 // router.get('/productdel', productsController.productDelView);
