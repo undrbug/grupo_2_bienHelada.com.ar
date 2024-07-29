@@ -1,0 +1,14 @@
+<article class="articles">
+    <% wineList.forEach(wine=> { %>
+        <div class="article">
+            <img src="<%= wine.imagen %>" alt="<%= wine.nombre %>">
+            <h3>
+                <%= wine.nombre %>
+            </h3>
+            <p>
+                <%= wine.descripcion %>
+            </p>
+            <p></p>
+        </div>
+        <% }) %>
+</article>
