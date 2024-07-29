@@ -4,18 +4,28 @@
     <link rel="stylesheet" href="/styles/productDetail.css" <body>
     <%- include('../partials/header.ejs') %>
 
-        <section class="articleDetail">
+        <div class="article">
+            <img src="<%= wine.imagen %>" alt="<%= wine.nombre %>">
+            <h3>
+                <%= wine.nombre %>
+            </h3>
+            <p>
+                <%= wine.descripcion %>
+            </p>
+            <p>
+                Bodega: <%= wine.bodega %>
+            </p>
+            <p>
+                $<%= wine.precio %>
+            </p>
 
-            <img src="/img/vino-uno.jpg" alt="Vino 1">
+            <form action="/products/productdetail/<%= wine.id%>" method="GET">
+                <button>
+                    Agregar al carrito
+                </button>
+            </form>
+        </div>
 
-            <div class="Detail">
-                <h3>Vino Tinto Reserva</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur quisquam harum, numquam pariatur
-                    hic sed ad mollitia exercitationem amet laudantium doloribus, obcaecati tempore nemo omnis mag</p>
-                <p>$5000</p>
-            </div>
-            
-        </section>
         </body>
 
         <%- include('../partials/footer.ejs') %>
