@@ -5,10 +5,16 @@
             <h3>
                 <%= wine.nombre %>
             </h3>
+
             <p>
-                <%= wine.descripcion %>
+                Bodega: <%= wine.bodega %>
             </p>
-            <p></p>
+            <p>
+                $<%= wine.precio %>
+            </p>
+            <form action="/products/productdetail/<%= wine.id%>" method="GET">
+                <a href="/products/productdetail/<%= wine.id %>">Ver más</a>
+            </form>
         </div>
         <% }) %>
 </article>
