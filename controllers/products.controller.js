@@ -2,22 +2,28 @@ const fs = require('fs');
 const path = require('path');
 const router = require('express').Router();
 const services = require('../services/dataSource.js');
-const data = require('../data/wines.json');
+// const data = require('../data/wines.json');
 
-const winesFilePath = path.join(__dirname, '../data/wines.json');
-const winesData = fs.readFileSync(winesFilePath, 'utf-8');
-const wineList = JSON.parse(winesData);
+// const winesFilePath = path.join(__dirname, '../data/wines.json');
+// const winesData = fs.readFileSync(winesFilePath, 'utf-8');
+// const wineList = JSON.parse(winesData);
+
 
 
 const productsController = {
     products: (req, res) => {
-        res.render('products/products.ejs', { wineList});
+        const wineList = services.load();
+        res.render('products/products.ejs', {title: 'Product Cart', wineList});
     },
     productCart: (req, res) => {
         res.render('products/productCart.ejs', {title: 'Product Cart'});
     },
     productDetail: (req, res) => {
-        res.render('products/productDetail.ejs', {title: 'Product Detail'});
+        const {id} = req.params;
+        const wineList = services.load();
+        // +id convierte el id (que puede ser un string) a un número
+        const wine = wineList.find(wine => wine.id === +id);
+        res.render('products/productDetail.ejs', {title: 'Product Detail', wine: wine});
     },
     productAddView: (req, res) => {
         res.render('products/productAdd.ejs', {title: 'Alta producto'});

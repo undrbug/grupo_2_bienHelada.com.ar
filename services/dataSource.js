@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const datasource = {
-  filePath: path.resolve(__dirname, '../data/wines.json'),
+  filePath: path.join(__dirname, '../data/wines.json'),
 
   load() {
     const products =  fs.readFileSync(this.filePath, "utf-8");
