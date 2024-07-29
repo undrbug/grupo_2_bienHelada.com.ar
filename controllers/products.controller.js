@@ -56,8 +56,11 @@ const productsController = {
         }
     },
     productDel: (req, res) => {
-        // const {id} = req.params;
-        res.render('products/productDel.ejs', {title: 'Eliminar producto'});
+        const {id} = req.params;
+        let products = services.load();
+        products = products.filter(product => product.id !== +id);
+        services.save(products);
+        res.render('index.ejs',{title: "Bien-Heladas wines&drinks", wineList: products});
     },
     productMod: (req, res) => {
         // const {id} = req.params;
