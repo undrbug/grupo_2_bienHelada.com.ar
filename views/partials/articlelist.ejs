@@ -1,31 +1,22 @@
-<!DOCTYPE html>
-<html lang="es">
-<%- include('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/styles/productDetail.css" <body>
-    <%- include('../partials/header.ejs') %>
-
+<article class="articles">
+    <% wineList.forEach(wine=> { %>
         <div class="article">
             <img src="<%= wine.imagen %>" alt="<%= wine.nombre %>">
             <h3>
                 <%= wine.nombre %>
             </h3>
-            <p>
-                <%= wine.descripcion %>
-            </p>
+
             <p>
                 Bodega: <%= wine.bodega %>
             </p>
-            <p>
-                $<%= wine.precio %>
+            <p class="precio">
+                Precio: $<%= wine.precio %>
             </p>
-
-            <form action="/products/productdetail/<%= wine.id%>" method="POST">
-                <button>
-                    Agregar al carrito
-                </button>
+            <form action="/products/productdetail/<%= wine.id%>" method="GET">
+                <a href="/products/productdetail/<%= wine.id %>">Ver más</a>
             </form>
             <div class="btn-edit-del">
-                <form action="/products/productmod/<%= wine.id%>?_method=put" method="POST">
+                <form action="/products/productmod/<%= wine.id%>?_method=put" method="GET">
                     <button type="submit">
                         Editar
                     </button>
@@ -37,9 +28,5 @@
                 </form>
             </div>
         </div>
-
-        </body>
-
-        <%- include('../partials/footer.ejs') %>
-
-</html>
+        <% }) %>
+</article>

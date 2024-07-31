@@ -3,6 +3,7 @@ const app = express();
 const mainRoute = require("./routes/main.route.js");
 const usersRoute = require('./routes/users.route.js');
 const productsRoute = require('./routes/products.route.js');
+const methodOverride = require('method-override');
 
 // Configuración del motor de vistas
 app.set("view engine", "ejs");
@@ -11,8 +12,16 @@ app.set("views", "views");
 // Middleware para archivos estáticos
 app.use(express.static("./public"));
 
+// Middleware para capturar datos de formularios
+app.use(methodOverride('_method'));
+
 // Puerto de la aplicación
 const PORT = process.env.PORT || 3700;
+
+// Middleware para analizar el cuerpo de la solicitud
+//Sin esto, en el req.body no se puede acceder a los datos enviados por el formulario
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Rutas
 app.use("/", mainRoute);

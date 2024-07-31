@@ -1,18 +1,23 @@
 <header>
     <div class="header-top">
-        <!-- el logo linkea al / (inicio) -->
-        <a href="/"><img class="header-logo" src="img/logo-head.png" alt="BF-logo"></a>
-        <div class="header-search">
-            <form class="header-search_form" action="#">
-                <input placeholder="Buscar productos..." type="text"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <div class="header_logo">
+            <a href="/"><img src="/img/logo-head-2.png" alt="Logo de Bebidas Bien Heladas"></a>
+        </div>
+        <nav class="header-navbar">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/users/login">Ingresar</a></li>
+                <li><a href="/users/register">Crear cuenta</a></li>
+                <li><a href="/products/cart">Carrito</a></li>
+                <li><a href="/products">Nuestos vinos</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <form class="header-form">
+                <input type="text" placeholder="Buscar productos.">
+                <a href="#"><i class="fas fa-search"></i></a>
             </form>
         </div>
-        <nav>
-            <li><a href="/login">Ingresá <i class="fa-solid fa-right-to-bracket"></i></a></li>
-            <li><a href="/register">Crea tu cuenta <i class="fa-solid fa-user"></i></a></li>
-            <li><a href="/productCart">Carrito <i class="fa-solid fa-cart-shopping"></i></a></li>
-            <!--linea nueva con todos los vinos  -->
-            <li><a href="/product">Nuestos vinos</a></li>
-        </nav>
+    </div>
     </div>
 </header>

@@ -5,8 +5,9 @@
 <body>
 <%- include('../partials/header.ejs') %>
 
-    <main class="registro">
-        <form action="/register" method="POST">
+    <main class="form-section">
+        <form action="/" method="POST">
+            <h2 class="form-section__title">Completa los datos para crear una cuenta nueva</h2>
             <input type="text" name="name" placeholder="Nombre y apellido" minlength="4" maxlength="15" required>
             <span class="error errorname">Este campo es obligatorio</span>
             <input type="text" name="user" placeholder="Nombre de usuario" minlength="8" maxlength="16" required>
@@ -14,11 +15,11 @@
             <input type="email" name="email" placeholder="E-mail" required>
             <span class="error erroremail">Usá el formato nombre@ejemplo.com.</span>
             <br>
-            <h4>Elegí tu foto de usuario</h4>
+            <p>Elegí tu foto de usuario</p>
             <input type="file" name="avatar" accept=".jpg .png">
             <br>
             <br>
-            <h4>Nueva contraseña</h4>
+            <p>Nueva contraseña</p>
             <input type="password" name="pass" placeholder="Elegí tu contraseña" required>
             <span class="errorPasword">Ingresá nuevamente la contraseña.</span>
             <input type="password" name="pass_confirm" placeholder="Confirmá tu contraseña" required>

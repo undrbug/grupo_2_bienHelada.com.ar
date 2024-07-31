@@ -3,8 +3,22 @@
 <%- include('partials/head.ejs') %>
 <body>
 <%- include('partials/header.ejs') %>
-
-    <img class="header-banner" width="100%" src="img/wine-banner.jpg" alt="wines-banner">
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="/img/carrusel-1.png" alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+                <img src="/img/seccion-hinchas.png" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+                <img src="/img/carrusel-2.png" alt="Imagen 3">
+            </div>
+            <div class="carousel-item">
+                <img src="/img/carrusel-4.png" alt="Imagen 4">
+            </div>
+        </div>
+    </div>
     <div class="icons">
         <div class="icons-box">
             <img src="img/icono-camion.png" alt="icon-truck">
@@ -21,59 +35,7 @@
     </div>
     <h2 class="section-title">Nuestros Vinos Destacados</h2>
     <article class="articles">
-        <div class="article">
-            <img src="img/vino-uno.jpg" alt="Vino 1">
-            <h3>Vino Tinto Reserva</h3>
-            <p>Descripción del Vino Tinto Reserva. Añejo, con sabor robusto y notas de roble.</p>
-            <p>$5000</p>
-        </div>
-        <div class="article">
-            <img src="img/vino-dos.jpg" alt="Vino 2">
-            <h3>Vino Tinto Bianchi</h3>
-            <p>Descripción del Vino. Fresco, afrutado y con toques de cítricos.</p>
-            <p>$5000</p>
-        </div>
-        <div class="article">
-            <img src="img/vino-tres.jpg" alt="Vino 3">
-            <h3>Vino Rosado</h3>
-            <p>Descripción del Vino Rosado. Ligero, refrescante y perfecto para el verano.</p>
-            <p>$5000</p>
-        </div>
-        <div class="article">
-            <img src="img/vino-cuatro.jpg" alt="Vino 4">
-            <h3>Vino Il Caprone Malbec</h3>
-            <p>Gran intensidad de color, profundo de matiz violáceo muy elegante que denota la presencia del Malbec, atractivo y seductor.</p>
-            <p>$5000</p>
-        </div>
-        <div class="article">
-            <img src="img/vino-cinco.jpg" alt="Vino 5">
-            <h3>Vino Rosado</h3>
-            <p>Descripción del Vino Rosado. Ligero, refrescante y perfecto para el verano.</p>
-            <p>$5000</p>
-        </div>
-        <div class="article">
-            <img src="img/vino-seis.jpg" alt="Vino 6">
-            <h3>Vino Bianchi Varietales Malbec</h3>
-            <p>Descripción del Vino. Color atractivo con matiz violáceo, típicos de esta variedad joven</p>
-            <p>$5000</p>
-        </div>
-        <div class="article">
-            <img src="img/vino-siete.jpg" alt="Vino 7">
-            <h3>Vino </h3>
-            <p>Descripción del Vino . Ligero, refrescante y perfecto para el verano.</p>
-            <p>$5000</p>
-        </div> <div class="article">
-            <img src="img/vino-ocho.jpg" alt="Vino 8">
-            <h3>Vino </h3>
-            <p>Descripción del Vino . Ligero, refrescante y perfecto para el verano.</p>
-            <p>$5000</p>
-        </div>
-        </div> <div class="article">
-            <img src="img/vino-ocho.jpg" alt="Vino 8">
-            <h3>Vino </h3>
-            <p>Descripción del Vino . Ligero, refrescante y perfecto para el verano.</p>
-            <p>$5000</p>
-        </div>
+        <%- include('partials/articlelist.ejs') %>
     </article>
     
     <%- include('partials/footer.ejs') %>
