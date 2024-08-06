@@ -131,7 +131,6 @@ Puntos imcompletos:
 
 * Alinear los divs y mejorar los estilos.
 
-* Mejorar el ancho y resoluciones de vista a través de las media queries.
 
 # Restropectiva - Sprint 3
 
@@ -231,4 +230,4 @@ Puntos incompletos:
 
 - Esperar que alguien del grupo nos ordene para realizar alguna tarea
 
- ----------------------------------------------------------------------------
+----------------------------------------------------------------------------
