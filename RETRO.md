@@ -196,11 +196,11 @@ Puntos incompletos:
 
 #### 1. COMENZAR A HACER (Start Doing 🎨)
 
--- definir y ser mas claros en las especificaciones
+- Definir y ser mas claros en las especificaciones
 
-- revision de codigo
+- Revision de codigo
 
-- pruebas de usuario
+- Pruebas de usuario
 
 - Leer detenidamente los mensajes de los demás miembros del grupo para no perder información importante.
 
@@ -224,10 +224,14 @@ Puntos incompletos:
 
 - Soluciones temporales
 
+- Procastinar
+
 
 ##### 5. DEJAR DE HACER (Stop Doing ⛔️)
 - Dejar todo para ultimo momento
 
 - Esperar que alguien del grupo nos ordene para realizar alguna tarea
+
+- Tomar decisiones sin consultar.
 
 ----------------------------------------------------------------------------
