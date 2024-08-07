@@ -2,8 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const router = require('express').Router();
 const services = require('../services/dataSource.js');
-// const data = require('../data/wines.json');
 
+
+// const data = require('../data/wines.json');
 // const winesFilePath = path.join(__dirname, '../data/wines.json');
 // const winesData = fs.readFileSync(winesFilePath, 'utf-8');
 // const wineList = JSON.parse(winesData);
@@ -56,8 +57,20 @@ const productsController = {
     productDel: (req, res) => {
         const {id} = req.params;
         let products = services.load();
+        productToDelete = products.find(product => product.id == +id);
+           // Obtener la ruta completa de la imagen
+           const imagePath = path.join(__dirname, `../public/images/products/${productToDelete.imagen}`);
+           // Eliminar la imagen físicamente
+           fs.unlink(imagePath, (err) => {
+               if (err) {
+                   console.error("Error al eliminar la imagen:", err);
+               } else {
+                   console.log("Imagen eliminada con éxito");
+               }
+           });
         products = products.filter(product => product.id !== +id);
         services.save(products);
+        console.log("Producto eliminado con éxito");
         res.render('index.ejs',{title: "Bien-Heladas wines&drinks", wineList: products});
     },
     productMod: (req, res) => {
