@@ -30,10 +30,9 @@ const productsController = {
     },
     productAdd: (req, res) => {
         try {
-            const avatar = (req.file) ? req.file.filename : 'sinImagen.webp';
-            console.log(avatar);
+            //si no viene imagen se carga una por defecto
+            const imagen = (req.file) ? req.file.filename : 'sinImagen.webp';
             const {name, price, description, bodega, varietal, category, cantidad} = req.body;
-            // let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/wines.json'), 'utf-8'));
             let products = services.load();
             const newProduct = {
                 "id": products.length + 1,
@@ -44,14 +43,12 @@ const productsController = {
                 "categoria": category,
                 "varietal": varietal,
                 "cantidad": cantidad,
-                "imagen": avatar
+                "imagen": imagen
             }
             products.push(newProduct);
-            // fs.writeFileSync(path.resolve(__dirname, '../data/wines.json'), JSON.stringify(products, null, ' '));
             services.save(products);
             console.log("okas");
-            // res.redirect('/products');
-            res.send(products)
+            res.redirect('/products');
         } catch (error) {
             console.log(error);
         }
