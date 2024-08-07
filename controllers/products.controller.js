@@ -32,7 +32,9 @@ const productsController = {
     productAdd: (req, res) => {
         try {
             //si no viene imagen se carga una por defecto
-            const imagen = (req.file) ? req.file.filename : 'sinImagen.webp';
+            const image = req.file
+            ? `./images/products/${req.file.filename}`
+            : "/image/products/default.png";
             const {name, price, description, bodega, varietal, category, cantidad} = req.body;
             let products = services.load();
             const newProduct = {
@@ -73,9 +75,55 @@ const productsController = {
         console.log("Producto eliminado con éxito");
         res.render('index.ejs',{title: "Bien-Heladas wines&drinks", wineList: products});
     },
+    //Editar Producto con ID
+    productModView: (req, res) => {
+        const { id } = req.params;
+        const wines = services.load();
+    
+        // Asegúrate de que id es un número entero
+        const wine = wines.find(wine => wine.id === +id);
+    
+        if (!wine) {
+            return res.status(404).send('Producto no encontrado');
+        }
+    
+        res.render('products/productMod.ejs', { title: 'Product Edit', wine: wine });
+    },
+
+
     productMod: (req, res) => {
-        // const {id} = req.params;
-        res.render('products/productMod.ejs', {title: 'Modificar producto'});
+        let image = "";
+        if (req.file && req.file.filename) {
+            image = `./images/products/${req.file.filename}`;
+        } else {
+            image = req.body.existingImage;
+        }
+    
+        const { id } = req.params;
+        const { name, price, description, bodega, varietal, category, cantidad } = req.body;
+    
+        // Convertir el ID a número
+        const numericId = +id;
+    
+        let modWines = services.load().map((wine) =>
+            wine.id === numericId
+                ? {
+                    "id": numericId,
+                    "nombre": name,
+                    "descripcion": description,
+                    "imagen": image,
+                    "precio": price,
+                    "bodega": bodega,
+                    "categoria": category,
+                    "varietal": varietal,
+                    "cantidad": cantidad
+                }
+                : wine
+        );
+    
+        services.save(modWines);
+    
+        res.redirect(`/products/productdetail/${numericId}`);
     }
 }
 

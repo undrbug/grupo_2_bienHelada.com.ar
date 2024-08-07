@@ -5,7 +5,7 @@
     <%- include('../partials/header.ejs') %>
 
         <div class="article">
-            <img src="/images/products/<%= wine.imagen %>" alt="<%= wine.nombre %>">
+            <img src="<%= wine.imagen || '/images/products/default.jpg' %>" alt="<%= wine.nombre %>">
             <h3>
                 <%= wine.nombre %>
             </h3>

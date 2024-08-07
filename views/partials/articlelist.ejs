@@ -1,7 +1,7 @@
 <article class="articles">
     <% wineList.forEach(wine=> { %>
         <div class="article">
-            <img src="./images/products/<%= wine.imagen %>" alt="<%= wine.nombre %>">
+            <img src="<%= wine.imagen || '/images/products/default.jpg' %>" alt="<%= wine.nombre %>">
             <h3>
                 <%= wine.nombre %>
             </h3>
@@ -16,7 +16,7 @@
                 <a href="/products/productdetail/<%= wine.id %>">Ver más</a>
             </form>
             <div class="btn-edit-del">
-                <form action="/products/productmod/<%= wine.id%>?_method=put" method="POST">
+                <form action="/products/productmod/<%= wine.id%>?" method="GET">
                     <button type="submit">
                         Editar
                     </button>

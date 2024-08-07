@@ -14,7 +14,9 @@ router.get('/add', productsController.productAddView);
 router.post('/add', upload.single('image'), productsController.productAdd);
 // router.get('/productdel', productsController.productDelView);
 router.delete('/productdel/:id', productsController.productDel);
-// router.get('/productmod', productsController.productModView);
+
+//modificar producto
+router.get('/productmod/:id', productsController.productModView);
 router.put('/productmod/:id', productsController.productMod);
 
 module.exports = router;
