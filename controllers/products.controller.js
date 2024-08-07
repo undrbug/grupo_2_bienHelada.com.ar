@@ -11,7 +11,7 @@ const services = require('../services/dataSource.js');
 
 
 const productsController = {
-    products: (req, res) => {
+    getAllProducts: (req, res) => {
         const wineList = services.load();
         res.render('products/products.ejs', {title: 'Product Cart', wineList});
     },
@@ -30,20 +30,21 @@ const productsController = {
     },
     productAdd: (req, res) => {
         try {
-            const {name, price, description, bodega, varietal, category, cantidad, image} = req.body;
+            const avatar = (req.file) ? req.file.filename : 'sinImagen.webp';
+            console.log(avatar);
+            const {name, price, description, bodega, varietal, category, cantidad} = req.body;
             // let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/wines.json'), 'utf-8'));
             let products = services.load();
             const newProduct = {
                 "id": products.length + 1,
                 "nombre": name,
                 "descripcion": description,
-                "imagen": image,
                 "precio": price,
                 "bodega": bodega,
                 "categoria": category,
                 "varietal": varietal,
                 "cantidad": cantidad,
-                "imagen": image
+                "imagen": avatar
             }
             products.push(newProduct);
             // fs.writeFileSync(path.resolve(__dirname, '../data/wines.json'), JSON.stringify(products, null, ' '));
