@@ -17,7 +17,7 @@ router.delete('/productdel/:id', productsController.productDel);
 
 //modificar producto
 router.get('/productmod/:id', productsController.productModView);
-router.put('/productmod/:id', productsController.productMod);
+router.put('/productmod/:id', upload.single('image'), productsController.productMod);
 
 module.exports = router;
 
