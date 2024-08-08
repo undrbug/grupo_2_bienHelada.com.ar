@@ -28,5 +28,11 @@ app.use("/", mainRoute);
 app.use('/users', usersRoute);
 app.use('/products', productsRoute);
 
+app.use((req, res, next) => {
+    res.status(404).render('errors/404.ejs', {
+        title: '404 - Página no encontrada'
+    });
+});
+
 // Inicio del servidor
 app.listen(PORT, () => console.log("Server running on http://localhost:3700"));
