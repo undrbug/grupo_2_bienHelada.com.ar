@@ -12,6 +12,8 @@ router.get('/cart', productsController.productCart);
 router.get('/productdetail/:id', productsController.productDetail);
 router.get('/add', productsController.productAddView);
 router.post('/add', upload.single('image'), productsController.productAdd);
+
+
 // router.get('/productdel', productsController.productDelView);
 router.delete('/productdel/:id', productsController.productDel);
 

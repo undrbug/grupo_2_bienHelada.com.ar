@@ -6,29 +6,33 @@
 <%- include('../partials/header.ejs') %>
 
     <main class="form-section">
-        <form action="/" method="POST">
+        <form action="/users/add" method="post" enctype="multipart/form-data">
             <h2 class="form-section__title">Completa los datos para crear una cuenta nueva</h2>
-            <input type="text" name="name" placeholder="Nombre y apellido" minlength="4" maxlength="15" required>
+        
+            <input type="text" name="firstName" placeholder="Nombre" minlength="4" maxlength="15" required>
             <span class="error errorname">Este campo es obligatorio</span>
-            <input type="text" name="user" placeholder="Nombre de usuario" minlength="8" maxlength="16" required>
+        
+            <input type="text" name="lastName" placeholder="Apellido" minlength="8" maxlength="16" required>
             <span class="error errorusuario">Este campo es obligatorio</span>
+        
             <input type="email" name="email" placeholder="E-mail" required>
             <span class="error erroremail">Usá el formato nombre@ejemplo.com.</span>
             <br>
+        
             <p>Elegí tu foto de usuario</p>
-            <input type="file" name="avatar" accept=".jpg .png">
-            <br>
-            <br>
+            <input type="file" name="image" accept=".jpg,.png">
+            <br><br>
+        
             <p>Nueva contraseña</p>
-            <input type="password" name="pass" placeholder="Elegí tu contraseña" required>
-            <span class="errorPasword">Ingresá nuevamente la contraseña.</span>
-            <input type="password" name="pass_confirm" placeholder="Confirmá tu contraseña" required>
-            <br>
-            <br>
+            <input type="password" name="password" placeholder="Elegí tu contraseña" required>
+            <span class="errorPasword">Contraseña.</span>
+        
+            <input type="text" name="category" placeholder="Categoría">
+            <br><br>
+        
             <input type="submit" value="Enviar">
             <input type="reset" value="Borrar">
-            <br>
-            <br>
+            <br><br>
         </form>
     </main>
 
