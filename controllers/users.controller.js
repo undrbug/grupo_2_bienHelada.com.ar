@@ -30,7 +30,7 @@ const usersController = {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
-                imgUser: imgUser,
+                image: imgUser,
                 password: password,
             };
     
