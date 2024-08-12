@@ -4,8 +4,10 @@ const upload = require('../services/multerStorage.js');
 
 //muestra todos los prodctos de manera dinamica
 router.get('/', productsController.getAllProducts);
-//carrito de compras
-router.get('/cart', productsController.productCart);
+//carrito de compras vista
+router.get('/cart/', productsController.productCartView);
+//carrito de compras metodo
+router.post('/cart/:id', productsController.productCartAdd);
 //detalle de producto
 router.get('/productdetail/:id', productsController.productDetail);
 //Vista para agregar producto o dar de alta

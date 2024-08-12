@@ -13,7 +13,12 @@ const productsController = {
     const wineList = services.load();
     res.render("products/products.ejs", { title: "Product Cart", wineList });
   },
-  productCart: (req, res) => {
+  productCartAdd: (req, res) => {
+    const { id } = req.params;
+    const wine = services.findProductById(id);
+    res.render("products/productCart.ejs", { title: "Product Cart", wine });
+  },
+  productCartView: (req, res) => {
     res.render("products/productCart.ejs", { title: "Product Cart" });
   },
   productDetail: (req, res) => {
