@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const productsController = require('../controllers/products.controller.js');
-const upload = require('../services/multerStorage.js');
+const upload = require('../services/multerProdcutsStorage.js');
 
 //muestra todos los prodctos de manera dinamica
 router.get('/', productsController.getAllProducts);
