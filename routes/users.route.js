@@ -5,7 +5,7 @@ const uploadUser = require('../services/multerUserStorage.js');
 
 
 router.get("/login", usersController.login);
-
+router.post("/login", usersController.loginCheck);
 router.get("/register", usersController.register);
 router.post("/add", uploadUser.single('image'), usersController.newRegister);
 
