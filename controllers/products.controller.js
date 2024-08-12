@@ -2,11 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const router = require("express").Router();
 const services = require("../services/dataSource.js");
+const {validationResult} = require('express-validator');
 
-// const data = require('../data/wines.json');
-// const winesFilePath = path.join(__dirname, '../data/wines.json');
-// const winesData = fs.readFileSync(winesFilePath, 'utf-8');
-// const wineList = JSON.parse(winesData);
+
 
 const productsController = {
   getAllProducts: (req, res) => {
@@ -31,9 +29,18 @@ const productsController = {
     });
   },
   productAddView: (req, res) => {
-    res.render("products/productAdd.ejs", { title: "Alta producto" });
+    res.render("products/productAdd.ejs", { title: "Alta de producto" });
   },
   productAdd: (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.render("products/productAdd.ejs", {
+        title: "Alta de producto",
+        errors: errors.mapped(),
+        oldData: req.body,
+      });
+      // res.send({oldData: req.body});
+    }
     try {
       //si no viene imagen se carga una por defecto
       const image = req.file

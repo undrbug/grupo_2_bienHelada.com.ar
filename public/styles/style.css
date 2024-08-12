@@ -215,6 +215,10 @@ main {
     color: #333;
 }
 
+.text-danger {
+    color: red;
+}
+
 footer .redes {
     text-align: center;
     margin: 10px;
