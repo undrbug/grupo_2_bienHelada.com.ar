@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Imagen</label>
-                        <img src="<%= wine.imagen || '/images/products/default.jpg' %>" alt="<%= wine.nombre %>">
+                        <img src="<%= wine.imagen%>" alt="<%= wine.nombre %>">
                         <input type="hidden" name="existingImage" value="<%= wine.imagen %>">
                         <input type="file" class="form-control" id="image" name="image">
                     </div>

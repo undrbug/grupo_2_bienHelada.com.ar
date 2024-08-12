@@ -89,7 +89,7 @@ const productsController = {
   productModView: (req, res) => {
     const { id } = req.params;
 
-    // Asegúrate de que id es un número entero
+    
     const wine = services.findProductById(id);
 
     if (!wine) {
@@ -105,20 +105,16 @@ const productsController = {
   productMod: (req, res) => {
 
     const { id } = req.params;
-    const { name, price, description, bodega, varietal, category, cantidad } = req.body;
+    const { name, price, description, bodega, varietal, category, cantidad,  existingImage } = req.body;
 
-    // Buscamos el producto por ID
+    // Buscamos el producto por IDs
     let product = services.findProductById(id);
-    
     // if (!product) {
     //   return res.status(404).send("Producto no encontrado");
     // }
 
-    //si no viene imagen se carga una por defecto
-    const image = req.file
-      ? `../images/products/${req.file.filename}`
-      : "../image/products/default.png";
-      
+    let image = req.file ? `./images/products/${req.file.filename}` : existingImage;
+    
 
     product = {
       id: id,
