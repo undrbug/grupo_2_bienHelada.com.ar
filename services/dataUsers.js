@@ -32,7 +32,12 @@ const dataUsers = {
     const users = this.load();
     const user = users.find((user) => user.username === username);
     return user;
-  }
+  },
+  findByEmail(email) {
+    const users = this.load();
+    const user = users.find((user) => user.email === email);
+    return user;
+  },
 };
 
 module.exports = dataUsers;
