@@ -27,6 +27,11 @@ const dataUsers = {
     const users = this.load();
     const user = users.find((user) => usert.id === id);
     return user;
+  }, 
+  findUserByUsername(username) {
+    const users = this.load();
+    const user = users.find((user) => user.username === username);
+    return user;
   }
 };
 
