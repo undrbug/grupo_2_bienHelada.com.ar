@@ -9,10 +9,10 @@
         <form action="/users/add" method="post" enctype="multipart/form-data">
             <h2 class="form-section__title">Completa los datos para crear una cuenta nueva</h2>
         
-            <input type="text" name="firstName" placeholder="Nombre" minlength="4" maxlength="15" required>
+            <input type="text" name="firstName" placeholder="Nombre" minlength="3" maxlength="15" required>
             <span class="error errorname">Este campo es obligatorio</span>
         
-            <input type="text" name="lastName" placeholder="Apellido" minlength="8" maxlength="16" required>
+            <input type="text" name="lastName" placeholder="Apellido" minlength="3" maxlength="20" required>
             <span class="error errorusuario">Este campo es obligatorio</span>
         
             <input type="email" name="email" placeholder="E-mail" required>
@@ -23,9 +23,12 @@
             <input type="file" name="image" accept=".jpg,.png">
             <br><br>
         
-            <p>Nueva contraseña</p>
-            <input type="password" name="password" placeholder="Elegí tu contraseña" required>
+            <p>Contraseña</p>
+            <input type="password" name="password" placeholder="Ingresa tu contraseña" required>
             <span class="errorPasword">Contraseña.</span>
+
+            <!-- <input type="password" name="password" placeholder="Reingresa tu contraseña" required>
+            <span class="errorPasword">Contraseña.</span> -->
         
             <input type="text" name="category" placeholder="Categoría">
             <br><br>
