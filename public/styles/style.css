@@ -219,6 +219,10 @@ main {
     color: red;
 }
 
+.form-group img {
+    max-width: 50px;
+}
+
 footer .redes {
     text-align: center;
     margin: 10px;

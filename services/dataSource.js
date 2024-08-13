@@ -25,7 +25,7 @@ const datasource = {
   },
   findProductById(id) {
     const products = this.load();
-    const product = products.find((product) => product.id === id);
+    const product = products.find((product) => product.id == id);
     return product;
   }
 };

@@ -1,1 +1,46 @@
-[{"id":"7","nombre":" Il Carpone Rosé.","descripcion":"En boca es un vino delicado, con aromas frescos y frutados, con una acidez refrescante y equilibrado, de buena estructura y final vivaz.","precio":"4925","bodega":" Bianchi","categoria":"1","varietal":"1","cantidad":"66","imagen":"../images/products/1723084722222-.jpg"},{"id":2,"nombre":"","descripcion":"","precio":"","bodega":"","categoria":"3","varietal":"5","cantidad":"","imagen":"/image/products/default.png"},{"id":3,"nombre":"","descripcion":"","precio":"","bodega":"","categoria":"5","varietal":"9","cantidad":"","imagen":"/image/products/default.png"}]
+[
+    {
+        "id": 7,
+        "nombre": "Il Carpone Rosé.",
+        "descripcion": "En boca es un vino delicado, con aromas frescos y frutados, con una acidez refrescante y equilibrado, de buena estructura y final vivaz.",
+        "precio": "4925",
+        "bodega": " Bianchi",
+        "categoria": "1",
+        "varietal": "1",
+        "cantidad": 66,
+        "imagen": "../images/products/1723084722222-.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Resaka Malbec.",
+        "descripcion": "te parte al medio, peor que alberto",
+        "precio": 8500,
+        "bodega": "el Fernandez",
+        "categoria": "3",
+        "varietal": "5",
+        "cantidad": 3,
+        "imagen": "../images/products/default.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "",
+        "descripcion": "",
+        "precio": 1800,
+        "bodega": "",
+        "categoria": "5",
+        "varietal": "9",
+        "cantidad": 34,
+        "imagen": "../images/products/default.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Don Valentin Lacrado Malbec.",
+        "descripcion": "Dulce con taninos redondos, con una estructura media, gran frescura y elegancia. Todas estas cualidades terminan otorgándonos un vino elegante, equilibrado, que puede ser acompañado con cualquier tipo de comida.",
+        "precio": 4443,
+        "bodega": "Bianchi",
+        "categoria": "2",
+        "varietal": "1",
+        "cantidad": 55,
+        "imagen": "../images/products/1723507935210-.jpg"
+    }
+]

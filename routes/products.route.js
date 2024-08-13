@@ -15,8 +15,8 @@ const validationsProducts = [
             if (req.file) {
                     return true;
                 }
-                return false;
-            }).withMessage('La imagen del producto es obligatoria')
+                throw new Error('La imagen del producto es obligatoria');
+            })
 ];
 
 //muestra todos los prodctos de manera dinamica
@@ -38,6 +38,6 @@ router.delete('/productdel/:id', productsController.productDel);
 //Vista para modificar producto
 router.get('/productmod/:id', productsController.productModView);
 //Metodo para modificar producto con su middleware para cargar imagen
-router.put('/productmod/:id', upload.single('image'), productsController.productMod);
+router.put('/productmod/:id', upload.single('image'), validationsProducts, productsController.productMod);
 
 module.exports = router;

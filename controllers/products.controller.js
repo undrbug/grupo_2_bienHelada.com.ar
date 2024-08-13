@@ -39,13 +39,12 @@ const productsController = {
         errors: errors.mapped(),
         oldData: req.body,
       });
-      // res.send({oldData: req.body});
     }
     try {
       //si no viene imagen se carga una por defecto
       const image = req.file
-        ? `./images/products/${req.file.filename}`
-        : "/image/products/default.png";
+        ? `../images/products/${req.file.filename}`
+        : "../images/products/default.jpg";
       const { name, price, description, bodega, varietal, category, cantidad } =
         req.body;
       let products = services.load();
@@ -95,8 +94,6 @@ const productsController = {
   //Editar Producto con ID
   productModView: (req, res) => {
     const { id } = req.params;
-
-    
     const wine = services.findProductById(id);
 
     if (!wine) {
@@ -110,20 +107,30 @@ const productsController = {
   },
 
   productMod: (req, res) => {
-
     const { id } = req.params;
-    const { name, price, description, bodega, varietal, category, cantidad,  existingImage } = req.body;
-
-    // Buscamos el producto por IDs
-    let product = services.findProductById(id);
+    
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      // Buscamos el producto por IDs
+      let wine = services.findProductById(id);
+      return res.render("products/productMod.ejs", {
+        title: "Product Edit",
+        errors: errors.mapped(),
+        wine: wine,
+        oldData: req.body,
+      });
+    }
+    
+    const { name, price, description, bodega, varietal, category, cantidad } = req.body;
+    const image = req.file ? `../images/products/${req.file.filename}` : services.findProductById(id).imagen;
     // if (!product) {
     //   return res.status(404).send("Producto no encontrado");
     // }
 
-    let image = req.file ? `./images/products/${req.file.filename}` : existingImage;
+    // let image = req.file ? `./images/products/${req.file.filename}` : existingImage;
     
 
-    product = {
+    const updatedProduct = {
       id: id,
       nombre: name,
       descripcion: description,
@@ -135,7 +142,7 @@ const productsController = {
       imagen: image,
     };
     
-    services.update(product);
+    // services.update(updatedProduct);
 
     // res.redirect(`/products/productdetail/${numericId}`);
     res.redirect("/products");

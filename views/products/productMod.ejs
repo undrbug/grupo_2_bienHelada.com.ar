@@ -11,53 +11,101 @@
 
                     <div class="form-group">
                         <label for="name">Nombre del Producto</label>
-                        <input type="text" class="form-control" id="name" name="name" required value=" <%= wine.nombre %>">
+                        <input type="text" class="form-control" id="name" name="name" 
+                        value="<%= locals.oldData ? oldData.name : wine.nombre %>"
+                        >
+                        <% if (locals.errors && errors.name) { %>
+                            <p class="text-danger"><%- errors.name.msg %></p>
+                            <% } %>
                     </div>
                     <div class="form-group">
                         <label for="description">Descripción</label>
-                        <textarea class="form-control" id="description" name="description" required ><%= wine.descripcion %></textarea>
+                        <textarea class="form-control" id="description" name="description" >
+                            <%= locals.oldData ? oldData.description : wine.descripcion %>
+                        </textarea>
+                        <% if (locals.errors && errors.description) { %>
+                            <p class="text-danger"><%- errors.description.msg %></p>
+                            <% } %>
                     </div>
                     <div class="form-group">
                         <label for="image">Imagen</label>
-                        <img src="<%= wine.imagen%>" alt="<%= wine.nombre %>">
-                        <input type="hidden" name="existingImage" value="<%= wine.imagen %>">
+                        <img src="/public/<%= wine.imagen%>" alt="<%= wine.nombre %>">
                         <input type="file" class="form-control" id="image" name="image">
+                        <% if (locals.errors && errors.image) { %>
+                            <p class="text-danger"><%- errors.image.msg %></p>
+                            <% } %>
                     </div>
                     <div class="form-group">
                         <label for="category">Categoría</label>
-                        <select class="form-control" id="category" name="category" required>
-                            <option value="1" <%= wine.categoria == '1' ? 'selected' : '' %>>Cervezas</option>
-                            <option value="2" <%= wine.categoria == '2' ? 'selected' : '' %>>Vinos</option>
-                            <option value="3" <%= wine.categoria == '3' ? 'selected' : '' %>>Syrah</option>
-                            <option value="4" <%= wine.categoria == '4' ? 'selected' : '' %>>Whiskys</option>
-                            <option value="5" <%= wine.categoria == '5' ? 'selected' : '' %>>Otros</option>
+                        <select class="form-control" id="category" name="category">
+                            <option value="1" <%= locals.oldData && (oldData.category == "1") ? 'selected' : wine.categoria %>
+                                >Cervezas</option>
+                            <option value="2" <%= locals.oldData && (oldData.category == "2") ? 'selected' : wine.categoria %>
+                                >Vinos</option>
+                            <option value="3" <%= locals.oldData && (oldData.category == "3") ? 'selected' : wine.categoria %>
+                                >Syrah</option>
+                            <option value="4" <%= locals.oldData && (oldData.category == "4") ? 'selected' : wine.categoria %>
+                                >Whiskys</option>
+                            <option value="5" <%= locals.oldData && (oldData.category == "5") ? 'selected' : wine.categoria %>
+                                >Otros</option>
                         </select>
+                        <% if (locals.errors && errors.category) { %>
+                            <p class="text-danger"><%- errors.category.msg %></p>
+                            <% } %>
                     </div>
                     <div class="form-group">
                         <label for="bodega">Bodega</label>
-                        <input type="text" class="form-control" id="bodega" name="bodega" required value=" <%= wine.bodega %>">
+                        <input type="text" class="form-control" id="bodega" name="bodega" 
+                            value=" <%= locals.oldData ? oldData.bodega : wine.bodega %>"
+                        >
+                        <% if (locals.errors && errors.bodega) { %>
+                            <p class="text-danger"><%- errors.bodega.msg %></p>
+                            <% } %>
                     </div>
                     <div class="form-group">
                         <label for="varietal">Varietal</label>
-                        <select name="varietal" id="varietal" required>
-                            <option value="1" <%= wine.categoria == '1' ? 'selected' : '' %>>Malbec</option>
-                            <option value="2" <%= wine.categoria == '2' ? 'selected' : '' %>>Cabernet Sauvignon</option>
-                            <option value="3" <%= wine.categoria == '3' ? 'selected' : '' %>>Merlot</option>
-                            <option value="4" <%= wine.categoria == '4' ? 'selected' : '' %>>Syrah</option>
-                            <option value="5" <%= wine.categoria == '5' ? 'selected' : '' %>>Bonarda</option>
-                            <option value="6" <%= wine.categoria == '6' ? 'selected' : '' %>>Chardonnay</option>
-                            <option value="7" <%= wine.categoria == '7' ? 'selected' : '' %>>Sauvignon Blanc</option>
-                            <option value="8" <%= wine.categoria == '8' ? 'selected' : '' %>>Torrontés</option>
-                            <option value="9" <%= wine.categoria == '9' ? 'selected' : '' %>>Otro</option>
+                        <select name="varietal" id="varietal">
+                            <option value="1" <%= locals.oldData && (oldData.varietal == "1") ? 'selected' : wine.varietal %>
+                                >Malbec</option>
+                            <option value="2" <%= locals.oldData && (oldData.varietal == "2") ? 'selected' : wine.varietal %>
+                                >Cabernet Sauvignon</option>
+                            <option value="3" <%= locals.oldData && (oldData.varietal == "3") ? 'selected' : wine.varietal %>
+                                >Merlot</option>
+                            <option value="4" <%= locals.oldData && (oldData.varietal == "4") ? 'selected' : wine.varietal %>
+                                >Syrah</option>
+                            <option value="5" <%= locals.oldData && (oldData.varietal == "5") ? 'selected' : wine.varietal %>
+                                >Bonarda</option>
+                            <option value="6" <%= locals.oldData && (oldData.varietal == "6") ? 'selected' : wine.varietal %>
+                                >Chardonnay</option>
+                            <option value="7" <%= locals.oldData && (oldData.varietal == "7") ? 'selected' : wine.varietal %>
+                                >Sauvignon Blanc</option>
+                            <option value="8" <%= locals.oldData && (oldData.varietal == "8") ? 'selected' : wine.varietal %>
+                                >Torrontés</option>
+                            <option value="9" <%= locals.oldData && (oldData.varietal == "9") ? 'selected' : wine.varietal %>
+                                >Otro</option>
                         </select>
+                        <% if (locals.errors && errors.varietal) { %>
+                            <p class="text-danger"><%- errors.varietal.msg %></p>
+                            <% } %>
                     </div>
                     <div class="form-group">
                         <label for="cantidad">Cantidad</label>
-                        <input type="number" class="form-control" id="cantidad" name="cantidad" required value="<%= wine.cantidad %>">
+                        <input type="number" class="form-control" id="cantidad" name="cantidad" 
+                            value="<%= locals.oldData ? oldData.cantidad : wine.cantidad %>"
+                        >
+                        <% if (locals.errors && errors.cantidad) { %>
+                            <p class="text-danger"><%- errors.cantidad.msg %></p>
+                            <% } %>
                     </div>
                     <div class="form-group">
                         <label for="price">Precio</label>
-                        <input type="number" class="form-control" id="price" name="price" required value="<%= wine.precio %>">                    </div>
+                        <input type="number" class="form-control" id="price" name="price" 
+                        value="<%= locals.oldData ? oldData.price : wine.precio %>"
+                        >
+                        <% if (locals.errors && errors.price) { %>
+                            <p class="text-danger"><%- errors.price.msg %></p>
+                            <% } %>
+                    </div>
                     <button type="submit" class="btn btn-primary">Editar producto</button>
                 </form>
             </div>

@@ -16,7 +16,7 @@
           <label for="name">Nombre del producto</label>
           <input
             type="text"
-            class="form-control <%= locals.errors && errors.name ? 'is-invalid' : '' %>"
+            class="form-control"
             id="name"
             name="name"
             value="<%= locals.oldData ? oldData.name : '' %>"
@@ -27,7 +27,7 @@
           <div class="form-group">
             <label for="description">Descripción</label>
             <textarea
-              class="form-control <%= locals.errors && errors.description ? 'is-invalid' : '' %>"
+              class="form-control"
               id="description"
               name="description"
             ><%= locals.oldData ? oldData.description : '' %></textarea>
