@@ -9,28 +9,28 @@
         <form action="/users/add" method="post" enctype="multipart/form-data">
             <h2 class="form-section__title">Completa los datos para crear una cuenta nueva</h2>
         
-            <input type="text" name="firstName" placeholder="Nombre" minlength="3" maxlength="15" required>
-            <span class="error errorname">Este campo es obligatorio</span>
+            <label for="firstName">Ingresa tu nombre</label>
+            <input type="text" name="firstName" id="firstName" placeholder="Nombre" minlength="3" maxlength="15">
+            <p class="text-danger"><%-  %></p>
+
+            <label for="lastName">Ingresa tu Apellido</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Apellido" minlength="3" maxlength="20">
         
-            <input type="text" name="lastName" placeholder="Apellido" minlength="3" maxlength="20" required>
-            <span class="error errorusuario">Este campo es obligatorio</span>
-        
-            <input type="email" name="email" placeholder="E-mail" required>
-            <span class="error erroremail">Usá el formato nombre@ejemplo.com.</span>
-            <br>
+            <label for="email">Ingresa tu correo electronico</label>
+            <input type="email" name="email" id="email" placeholder="tu@correo.com">
         
             <p>Elegí tu foto de usuario</p>
             <input type="file" name="image" accept=".jpg,.png">
-            <br><br>
+            <br>
         
-            <p>Contraseña</p>
-            <input type="password" name="password" placeholder="Ingresa tu contraseña" required>
-            <span class="errorPasword">Contraseña.</span>
+            <label for="password">Ingresa tu contraseña</label>
+            <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña">
 
-            <!-- <input type="password" name="password" placeholder="Reingresa tu contraseña" required>
-            <span class="errorPasword">Contraseña.</span> -->
+            <label for="rePassword">Reingresa tu contraseña</label>
+            <input type="password" name="rePassword" id="rePassword" placeholder="Reingresa tu contraseña">
         
-            <input type="text" name="category" placeholder="Categoría">
+            <label for="category">Ingresa el tipo de usuario</label>
+            <input type="text" name="category" id="category" placeholder="Categoría">
             <br><br>
         
             <input type="submit" value="Enviar">

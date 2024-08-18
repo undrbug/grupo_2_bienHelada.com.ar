@@ -4,6 +4,8 @@ const router = require("express").Router();
 const services = require("../services/dataUsers.js");
 const bcrypt = require('bcryptjs');
 const dataUsers = require("../services/dataUsers.js");
+const {validationResult} = require('express-validator');
+const { error } = require("console");
 
 
 const usersController = {
@@ -11,26 +13,63 @@ const usersController = {
         res.render('users/login.ejs', {title: 'Login'});
     },
     loginCheck: (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.render("users/login.ejs", {
+                title: "Login",
+                errors: errors.mapped(),
+                oldData: req.body,
+            });
+            // res.send(errors.mapped());
+        }
+        
         const user = dataUsers.findByEmail(req.body.email);
         if (user) {
+            const errors =[];
             const passwordMatch = bcrypt.compareSync(req.body.password, user.password);
             if (passwordMatch) {
                 //Redireccionar a la home o a la página de perfil en caso de éxito y muestre
                 //los datos del usuario en algún lugar del sitio, como el header.
-                res.send("Logueado correctamente");
-                // res.redirect("/");
+                res.redirect("/");
             } else {
+                const errors = {
+                    "password": {
+                            "msg": "La contraseña es incorrecta",
+                        }
+                    }
                 //Redireccione nuevamente al login en caso de error.
-                res.send("login incorrecto");
-                // res.redirect("/login");
+                return res.render("users/login.ejs", {
+                    title: "Login",
+                    errors: errors,
+                    oldData: req.body,
+                });
             }
+        }else {
+            const errors = {
+                "email": {
+                        "msg": "El email no está registrado",
+                    }
+                }
+            //Redireccione nuevamente al login en caso de error.
+            return res.render("users/login.ejs", {
+                title: "Login",
+                errors: errors,
+                oldData: req.body,
+            });
         }
-        res.send("Usuario no encontrado");
     },
     register: (req, res) => {
         res.render('users/register.ejs', {title: 'Register'});
     },
     newRegister: (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.render("users/register.ejs", {
+                title: "Register",
+                errors: errors.mapped(),
+                oldData: req.body,
+            });
+        }
         try {
             // Asigna la imagen del usuario o una imagen por defecto si no se sube ninguna
             const imgUser = req.file
