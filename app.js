@@ -1,5 +1,4 @@
 const express = require("express");
-const app = express();
 const mainRoute = require("./routes/main.route.js");
 const usersRoute = require('./routes/users.route.js');
 const productsRoute = require('./routes/products.route.js');
@@ -7,6 +6,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js');
 
+const app = express();
 
 // Configuración del motor de vistas
 app.set("view engine", "ejs");

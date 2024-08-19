@@ -30,9 +30,10 @@
                 </form>
             </div>
             <% if (locals.isLogged) { %>
-                <div class="user-login saludo">
-                    <p>Bienvenido <%- locals.userLogged.firstName %> </p>
-                </div>
+                <div class="navbar-user">
+                    <img src="<%= locals.userLogged.image %>" alt="Avatar" class="user-avatar">
+                    <span class="user-name"><%- locals.userLogged.firstName %></span>
+                  </div>
             <% } %>
     </div>
     </div>

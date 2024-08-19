@@ -32,7 +32,6 @@ const usersController = {
                 // res.send(`user ${user.firstName} ${user.lastName} logged in`);
                 delete user.password;
                 req.session.userLogged = user;
-                console.log(req.session.userLogged);
                 res.redirect('/');
 
             } else {
