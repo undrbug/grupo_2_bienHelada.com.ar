@@ -4,6 +4,7 @@ const mainRoute = require("./routes/main.route.js");
 const usersRoute = require('./routes/users.route.js');
 const productsRoute = require('./routes/products.route.js');
 const methodOverride = require('method-override');
+const session = require('express-session');
 
 // Configuración del motor de vistas
 app.set("view engine", "ejs");
@@ -22,6 +23,13 @@ const PORT = process.env.PORT || 3700;
 //Sin esto, en el req.body no se puede acceder a los datos enviados por el formulario
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// Middleware para manejar sesiones
+app.use(session({ 
+    secret: 'algosere', 
+    resave: false, 
+    saveUninitialized: false
+}));
 
 // Rutas
 app.use("/", mainRoute);

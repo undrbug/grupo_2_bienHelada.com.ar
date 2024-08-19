@@ -11,8 +11,7 @@ const datasource = {
     return productsJson;
   },
   save(data) {
-    const jsonData = JSON.stringify(data);
-    
+    const jsonData = JSON.stringify(data, null, ' ');
     fs.writeFileSync(this.filePath, jsonData, "utf-8");
   },
   //update jscon file
@@ -26,6 +25,12 @@ const datasource = {
   findProductById(id) {
     const products = this.load();
     const product = products.find((product) => product.id == id);
+    return product;
+  },
+  //buscador de productos por nombre, tipo, bodega o precio a implementar
+  findbyText(text) {
+    const products = this.load();
+    const product = products.filter((product) => product.name.toLowerCase().includes(text.toLowerCase()) || product.type.toLowerCase().includes(text.toLowerCase()) || product.bodega.toLowerCase().includes(text.toLowerCase()) || product.price.toString().includes(text) || product.year.toString().includes(text));
     return product;
   }
 };

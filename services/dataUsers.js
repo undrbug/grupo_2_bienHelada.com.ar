@@ -11,14 +11,14 @@ const dataUsers = {
     return usersJson;
   },
   save(data) {
-    const jsonData = JSON.stringify(data);
+    const jsonData = JSON.stringify(data, null, ' ');
     
     fs.writeFileSync(this.filePath, jsonData, "utf-8");
   },
   //update jscon file
   update(data) {
     let users = this.load();
-    users = users.filter((product) => user.id !== data.id);
+    users = users.filter((user) => user.id !== data.id);
     users.push(data);
     this.save(products);
     
@@ -37,7 +37,7 @@ const dataUsers = {
     const users = this.load();
     const user = users.find((user) => user.email === email);
     return user;
-  },
+  }
 };
 
 module.exports = dataUsers;

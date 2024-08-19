@@ -5,8 +5,7 @@ const services = require("../services/dataUsers.js");
 const bcrypt = require('bcryptjs');
 const dataUsers = require("../services/dataUsers.js");
 const {validationResult} = require('express-validator');
-const { error } = require("console");
-
+const { use } = require("../routes/users.route.js");
 
 const usersController = {
     login: (req, res) => {
@@ -30,30 +29,35 @@ const usersController = {
             if (passwordMatch) {
                 //Redireccionar a la home o a la página de perfil en caso de éxito y muestre
                 //los datos del usuario en algún lugar del sitio, como el header.
-                res.redirect("/");
+                // res.send(`user ${user.firstName} ${user.lastName} logged in`);
+                delete user.password;
+                req.session.userLogged = user;
+                const wineList = services.load();
+                res.render('index.ejs',{
+                    title: "Bien-Heladas wines&drinks",
+                    wineList: wineList,
+                    user: req.session.userLogged});
             } else {
-                const errors = {
-                    "password": {
-                            "msg": "La contraseña es incorrecta",
-                        }
-                    }
                 //Redireccione nuevamente al login en caso de error.
                 return res.render("users/login.ejs", {
                     title: "Login",
-                    errors: errors,
+                    errors: {
+                        password: {
+                            msg: "Las credenciales son inválidas",
+                        },
+                    },
                     oldData: req.body,
                 });
             }
         }else {
-            const errors = {
-                "email": {
-                        "msg": "El email no está registrado",
-                    }
-                }
             //Redireccione nuevamente al login en caso de error.
             return res.render("users/login.ejs", {
                 title: "Login",
-                errors: errors,
+                errors: {
+                    "email": {
+                            "msg": "El email no está registrado",
+                        }
+                    },
                 oldData: req.body,
             });
         }
@@ -77,6 +81,18 @@ const usersController = {
                 : "/images/users/default.png";
             // Accede a los campos del formulario desde req.body
             const { firstName, lastName, email, password } = req.body;
+            
+            if (services.findByEmail(email)) {
+                return res.render("users/register.ejs", {
+                    title: "Register",
+                    errors: {
+                        email: {
+                            msg: "El email ya está registrado",
+                        },
+                    },
+                    oldData: req.body,
+                });
+            }
     
             // Carga los usuarios existentes
             let users = services.load();
@@ -97,15 +113,16 @@ const usersController = {
             services.save(users);
     
             // Redirige a la página principal después de guardar
-            res.redirect("/");
+            res.redirect("/users/login");
         } catch (error) {
             console.log(error);
             res.status(500).send("Error al registrar el usuario");
         }
     },
-
-
-
+    logout: (req, res) => {
+        req.session.destroy();
+        res.redirect('/');
+    },
     recuperarPassword: (req, res) => {
         res.render('users/recuperarPassword.ejs', {title: 'Recuperar Password'});
     },

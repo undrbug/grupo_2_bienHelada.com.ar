@@ -4,6 +4,7 @@
             <a href="/"><img src="/img/logo-head-2.png" alt="Logo de Bebidas Bien Heladas"></a>
         </div>
         <nav class="header-navbar">
+            
             <ul>
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/users/login">Ingresar</a></li>
@@ -11,6 +12,11 @@
                 <li><a href="/products/cart">Carrito</a></li>
                 <li><a href="/products">Nuestos vinos</a></li>
             </ul>
+            <div class="user-login saludo">
+                <% if (locals.user) { %>
+                    <p>Bienvenido <%- user.firstName %> </p>
+                <% } %>
+            </div>
         </nav>
         <div class="search-bar">
             <form class="header-form">
