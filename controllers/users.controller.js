@@ -27,11 +27,11 @@ const usersController = {
             const errors =[];
             const passwordMatch = bcrypt.compareSync(req.body.password, user.password);
             if (passwordMatch) {
-                //Redireccionar a la home o a la página de perfil en caso de éxito y muestre
-                //los datos del usuario en algún lugar del sitio, como el header.
-                // res.send(`user ${user.firstName} ${user.lastName} logged in`);
                 delete user.password;
                 req.session.userLogged = user;
+                if (req.body.rememberMe) {
+                    res.cookie("userEmail", req.body.email, { maxAge: 1000 * 60 * 60 });
+                }
                 res.redirect('/');
 
             } else {
@@ -118,6 +118,7 @@ const usersController = {
     },
     logout: (req, res) => {
         req.session.destroy();
+        res.clearCookie("userEmail");
         res.redirect('/');
     },
     recuperarPassword: (req, res) => {

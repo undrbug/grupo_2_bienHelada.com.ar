@@ -5,6 +5,7 @@ const productsRoute = require('./routes/products.route.js');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use(session({
 }));
 
 app.use(userLoggedMiddleware);
+app.use(cookieParser());
 
 // Rutas
 app.use("/", mainRoute);
