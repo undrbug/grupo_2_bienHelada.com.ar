@@ -32,11 +32,9 @@ const usersController = {
                 // res.send(`user ${user.firstName} ${user.lastName} logged in`);
                 delete user.password;
                 req.session.userLogged = user;
-                const wineList = services.load();
-                res.render('index.ejs',{
-                    title: "Bien-Heladas wines&drinks",
-                    wineList: wineList,
-                    user: req.session.userLogged});
+                console.log(req.session.userLogged);
+                res.redirect('/');
+
             } else {
                 //Redireccione nuevamente al login en caso de error.
                 return res.render("users/login.ejs", {

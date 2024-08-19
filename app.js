@@ -5,6 +5,8 @@ const usersRoute = require('./routes/users.route.js');
 const productsRoute = require('./routes/products.route.js');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware.js');
+
 
 // Configuración del motor de vistas
 app.set("view engine", "ejs");
@@ -30,6 +32,8 @@ app.use(session({
     resave: false, 
     saveUninitialized: false
 }));
+
+app.use(userLoggedMiddleware);
 
 // Rutas
 app.use("/", mainRoute);

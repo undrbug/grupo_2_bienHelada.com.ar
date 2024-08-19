@@ -3,6 +3,7 @@ const path = require("path");
 const router = require("express").Router();
 const services = require("../services/dataSource.js");
 const {validationResult} = require('express-validator');
+const { log } = require("console");
 
 
 
