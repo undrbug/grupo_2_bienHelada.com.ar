@@ -5,6 +5,7 @@ function userLoggedMiddleware(req, res, next) {
 
   //recuperamos el email del usuario desde la cookie, si es que hay una
   let userEmail = req.cookies.userEmail;
+  
   //buscamos al usuario por el email
   let user = dataUsers.findByEmail(userEmail);
 
