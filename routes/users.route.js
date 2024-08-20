@@ -10,7 +10,7 @@ router.get("/login", guestMiddleware, usersController.login);
 router.post("/login", validationsLogin, usersController.loginCheck);
 router.get("/register", guestMiddleware, usersController.register);
 router.post("/add", uploadUser.single('image'), validationsRegister, usersController.newRegister);
-
+router.get('/profile', usersController.profile);
 router.get('/logout', usersController.logout);
 
 //falta implementar validaciones!

@@ -31,7 +31,7 @@
             </div>
             <% if (locals.isLogged) { %>
                 <div class="navbar-user">
-                    <img src="<%= locals.userLogged.image %>" alt="Avatar" class="user-avatar">
+                    <a href="/users/profile"><img src="<%= locals.userLogged.image %>" alt="Avatar" class="user-avatar"></a>
                     <span class="user-name"><%- locals.userLogged.firstName %></span>
                   </div>
             <% } %>

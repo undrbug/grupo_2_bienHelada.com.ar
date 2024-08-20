@@ -77,7 +77,7 @@ const usersController = {
                 ? `/images/users/${req.file.filename}`
                 : "/images/users/default.png";
             // Accede a los campos del formulario desde req.body
-            const { firstName, lastName, email, password } = req.body;
+            const { firstName, lastName, email, password, category } = req.body;
             
             if (services.findByEmail(email)) {
                 return res.render("users/register.ejs", {
@@ -103,6 +103,7 @@ const usersController = {
                 email: email,
                 image: imgUser,
                 password: passwordEnc,
+                category: category
             };
     
             // Agrega el nuevo usuario a la lista de usuarios y guarda los cambios
@@ -115,6 +116,9 @@ const usersController = {
             console.log(error);
             res.status(500).send("Error al registrar el usuario");
         }
+    },
+    profile: (req, res) => {
+        res.render('users/profile.ejs', {title: 'Profile'});
     },
     logout: (req, res) => {
         req.session.destroy();
