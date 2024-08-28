@@ -235,3 +235,39 @@ Puntos incompletos:
 - Tomar decisiones sin consultar.
 
 ----------------------------------------------------------------------------
+
+### Retro Sprint 5
+
+#### 1. COMENZAR A HACER (Start Doing 🎨)
+
+- Participar activamente en la definición de días y horarios para las reuniones.
+- Realizar revisiones de código grupales para entender la lógica de los compañeros de manera más sencilla.
+- Solicitar ayuda cuando estemos retrasados.
+- Revisar el código y los errores antes de las entregas.
+- Implementar Pair Programming (Programación en Pareja).
+
+#### 2. HACER MÁS (More of 💪)
+
+- Fomentar la colaboración entre los miembros del equipo.
+- Aumentar la frecuencia y eficacia de las reuniones.
+- Revisar los commits y avances de los compañeros con mayor regularidad.
+
+#### 3. CONTINUAR HACIENDO (Keep Doing 💪)
+
+- Mantener una comunicación abierta y efectiva.
+- Seguir gestionando las versiones del proyecto de manera adecuada.
+
+#### 4. HACER MENOS (Less of ⏩)
+
+- Evitar soluciones temporales que no resuelvan problemas a largo plazo.
+- Reducir la procrastinación y el retraso en la realización de tareas.
+- No depender de un solo compañero para completar tareas.
+- Solicitar ayuda cuando sea necesario y no dejar de delegar tareas adecuadamente.
+
+#### 5. DEJAR DE HACER (Stop Doing ⛔️)
+
+- Dejar todo para el último momento.
+- Esperar a que alguien del grupo nos ordene realizar una tarea.
+- No tocar el proyecto durante todo el sprint.
+
+----------------------------------------------------------------------------
