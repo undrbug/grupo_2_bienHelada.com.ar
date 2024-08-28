@@ -42,5 +42,23 @@
   "image": "/images/users/1724117605878-.jpg",
   "password": "$2a$10$EY8kZVZJLX33x1K73MaRDe.8LijgOp0bP29LofEGNc9HuiyJbsz4y",
   "category": "admin"
+ },
+ {
+  "id": 6,
+  "firstName": "Israel",
+  "lastName": "Campillay",
+  "email": "isra@gmail.com",
+  "image": "/images/users/1724885994477-.jpg",
+  "password": "$2a$10$Mc6CJgERt3IPCzD8HQivNeJpZNMGn4Q/4gdaOx8/y.mcxcmQuwbOS",
+  "category": "admin"
+ },
+ {
+  "id": 7,
+  "firstName": "Israel2",
+  "lastName": "Campillay2",
+  "email": "isra2@gmail.com",
+  "image": "/images/users/1724886155227-.png",
+  "password": "$2a$10$2e1CrBvShnbiJsxT6HEZ3eLKgpVTCtihmIEXXgHConIS6dduN5mVS",
+  "category": "user"
  }
 ]
