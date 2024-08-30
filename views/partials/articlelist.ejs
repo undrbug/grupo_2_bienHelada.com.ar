@@ -12,7 +12,10 @@
             <p class="precio">
                 Precio: $<%= wine.precio %>
             </p>
-            
+            <% if (locals.isLogged) { %>
+
+
+          
             <% if (locals.userLogged.category == "admin") { %>
 
             <div class="btn-edit-del">
@@ -28,6 +31,7 @@
                         </form>
                     </div>
                     <% } %>
+                <% } %>
         </div>
         <% }) %>
 </article>
