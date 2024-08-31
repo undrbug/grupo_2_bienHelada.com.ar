@@ -42,5 +42,27 @@
         "varietal": "1",
         "cantidad": 55,
         "imagen": "../images/products/1723507935210-.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Don Valentin Lacrado Malbec.",
+        "descripcion": "Dulce con taninos redondos, con una estructura media, gran frescura y elegancia. Todas estas cualidades terminan otorgándonos un vino elegante, equilibrado, que puede ser acompañado con cualquier tipo de comida.",
+        "precio": 4443,
+        "bodega": "Bianchi",
+        "categoria": "2",
+        "varietal": "1",
+        "cantidad": 55,
+        "imagen": "../images/products/1723507935210-.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Resaka Malbec.",
+        "descripcion": "te parte al medio, peor que alberto",
+        "precio": 8500,
+        "bodega": "el Fernandez",
+        "categoria": "3",
+        "varietal": "5",
+        "cantidad": 3,
+        "imagen": "../images/products/default.jpg"
     }
 ]
