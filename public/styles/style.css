@@ -242,8 +242,10 @@ main {
 
 
 .article img {
-  width: 100%;
+  min-width: 50%;
+  max-width: 50%;
   align-items: center;
+  border-radius: 10px;
 }
 
 .article img,
