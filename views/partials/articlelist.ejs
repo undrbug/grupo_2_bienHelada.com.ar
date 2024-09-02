@@ -1,37 +1,28 @@
 <article class="articles">
-    <% wineList.forEach(wine=> { %>
-        <div class="article">
-            <a href="/products/productdetail/<%= wine.id %>"> <img src="<%= wine.imagen %>" alt="<%= wine.nombre %>"></a>
-            <h3>
-                <%= wine.nombre %>
-            </h3>
+  <% wineList.forEach(wine=> { %>
+  <div class="article">
+    <a href="/products/productdetail/<%= wine.id %>">
+      <img src="<%= wine.imagen %>" alt="<%= wine.nombre %>" />
+      <h3><%= wine.nombre %></h3>
 
-            <p>
-                Bodega: <%= wine.bodega %>
-            </p>
-            <p class="precio">
-                Precio: $<%= wine.precio %>
-            </p>
-            <% if (locals.isLogged) { %>
+      <p>Bodega: <%= wine.bodega %></p>
+      <p class="precio">Precio: $<%= wine.precio %></p>
+      <% if (locals.isLogged) { %> <% if (locals.userLogged.category == "admin")
+      { %>
 
-
-          
-            <% if (locals.userLogged.category == "admin") { %>
-
-            <div class="btn-edit-del">
-                      <form action="/products/productmod/<%= wine.id%>?" method="GET">
-                          <button class="edit" type="submit">
-                              Editar
-                            </button>
-                        </form>
-                        <form action="/products/productdel/<%= wine.id%>?_method=delete" method="POST">
-                            <button class="delete" stype="submit">
-                                Eliminar
-                            </button>
-                        </form>
-                    </div>
-                    <% } %>
-                <% } %>
-        </div>
-        <% }) %>
+      <div class="btn-edit-del">
+        <form action="/products/productmod/<%= wine.id%>?" method="GET">
+          <button class="edit" type="submit">Editar</button>
+        </form>
+        <form
+          action="/products/productdel/<%= wine.id%>?_method=delete"
+          method="POST"
+        >
+          <button class="delete" stype="submit">Eliminar</button>
+        </form>
+      </div>
+      <% } %> <% } %>
+    </a>
+  </div>
+  <% }) %>
 </article>
