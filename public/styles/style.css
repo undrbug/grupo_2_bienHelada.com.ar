@@ -74,9 +74,9 @@ header {
 }
 
 .header-form input {
-  width: calc(100% - 40px);
+  /* width: calc(100% - 40px); */
   padding: 12px;
-  border: none;
+  /* border: none; */
   border-radius: 5px;
   font-family: "Roboto", sans-serif;
 }
@@ -363,10 +363,6 @@ footer .redes {
 
   .header-form {
     max-width: 100%;
-  }
-
-  .header-form input {
-    width: calc(100% - 40px);
   }
 
   .icons-box {

@@ -1,73 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('../partials/head.ejs') %>
+  <%- include('../partials/head.ejs') %>
 
-<body>
-<%- include('../partials/header.ejs') %>
+    <%- include('../partials/header.ejs') %>
 
     <main class="form-section">
-        <form action="/users/add" method="post" enctype="multipart/form-data">
-            <h2 class="form-section__title">Completa los datos para crear una cuenta nueva</h2>
-        
+        <div class="container">
+            <form action="/users/add" method="post" enctype="multipart/form-data">
+            <h2 class="form-section__title">
+                Completa los datos para crear una cuenta nueva
+            </h2>
+
             <label for="firstName">Ingresa tu nombre</label>
-            <input type="text" name="firstName" id="firstName" placeholder="Nombre" minlength="3" maxlength="15"
-            value="<%= locals.oldData ? oldData.firstName : "" %>"
-            />
-            <% if (locals.errors && errors.firstName) { %>
-                <p class="text-danger"><%- errors.firstName.msg %></p>
-                <% } %>
+            <input type="text" name="firstName" id="firstName"
+            placeholder="Nombre" minlength="3" maxlength="15" value="<%=
+            locals.oldData ? oldData.firstName : "" %>" /> <% if (locals.errors &&
+            errors.firstName) { %>
+            <p class="text-danger"><%- errors.firstName.msg %></p>
+            <% } %>
 
             <label for="lastName">Ingresa tu Apellido</label>
-            <input type="text" name="lastName" id="lastName" placeholder="Apellido" minlength="3" maxlength="20"
-            value="<%= locals.oldData ? oldData.lastName : "" %>"
-            />
-            <% if (locals.errors && errors.lastName) { %>
-                <p class="text-danger"><%- errors.lastName.msg %></p>
-                <% } %>
-        
+            <input type="text" name="lastName" id="lastName"
+            placeholder="Apellido" minlength="3" maxlength="20" value="<%=
+            locals.oldData ? oldData.lastName : "" %>" /> <% if (locals.errors &&
+            errors.lastName) { %>
+            <p class="text-danger"><%- errors.lastName.msg %></p>
+            <% } %>
+
             <label for="email">Ingresa tu correo electronico</label>
-            <input type="email" name="email" id="email" placeholder="tu@correo.com"
-            value="<%= locals.oldData ? oldData.email: "" %>"
-            />
-            <% if (locals.errors && errors.email) { %>
-                <p class="text-danger"><%- errors.email.msg %></p>
-                <% } %>
-        
+            <input type="email" name="email" id="email"
+            placeholder="tu@correo.com" value="<%= locals.oldData ? oldData.email:
+            "" %>" /> <% if (locals.errors && errors.email) { %>
+            <p class="text-danger"><%- errors.email.msg %></p>
+            <% } %>
+
             <p>Elegí tu foto de usuario</p>
-            <input type="file" name="image" accept=".jpg,.png">
+            <input type="file" name="image" accept=".jpg,.png" />
             <% if (locals.errors && errors.image) { %>
-                <p class="text-danger"><%- errors.image.msg %></p>
-                <% } %>
-            <br>
-        
+            <p class="text-danger"><%- errors.image.msg %></p>
+            <% } %>
+            <br />
+
             <label for="password">Ingresa tu contraseña</label>
-            <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña">
+            <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Ingresa tu contraseña"
+            />
             <% if (locals.errors && errors.password) { %>
-                <p class="text-danger"><%- errors.password.msg %></p>
-                <% } %>
+            <p class="text-danger"><%- errors.password.msg %></p>
+            <% } %>
 
             <label for="rePassword">Reingresa tu contraseña</label>
-            <input type="password" name="rePassword" id="rePassword" placeholder="Reingresa tu contraseña">
-            <% if (locals.errors && errors.rePassword) { %>
-                <p class="text-danger"><%- errors.rePassword.msg %></p>
-                <% } %>
-        
-            <label for="category">Ingresa el tipo de usuario</label>
-            <input type="text" name="category" id="category" placeholder="Categoría"
-            value="<%= locals.oldData ? oldData.category : "" %>"
+            <input
+                type="password"
+                name="rePassword"
+                id="rePassword"
+                placeholder="Reingresa tu contraseña"
             />
-            <% if (locals.errors && errors.category) { %>
-                <p class="text-danger"><%- errors.category.msg %></p>
-                <% } %>
-            <br><br>
-        
-            <input type="submit" value="Enviar">
-            <input type="reset" value="Borrar">
-            <br><br>
-        </form>
-    </main>
+            <% if (locals.errors && errors.rePassword) { %>
+            <p class="text-danger"><%- errors.rePassword.msg %></p>
+            <% } %>
 
+            <label for="category">Ingresa el tipo de usuario</label>
+            <input type="text" name="category" id="category"
+            placeholder="Categoría" value="<%= locals.oldData ? oldData.category :
+            "" %>" /> <% if (locals.errors && errors.category) { %>
+            <p class="text-danger"><%- errors.category.msg %></p>
+            <% } %>
+            <br /><br />
+
+            <input type="submit" value="Enviar" />
+            <input type="reset" value="Borrar" />
+            <br /><br />
+            </form>
+            </main>
+        </div>
+    </>
     <%- include('../partials/footer.ejs') %>
-</body>
-
+  </body>
 </html>
