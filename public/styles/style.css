@@ -225,25 +225,29 @@ main {
 .articles {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .article {
-  
- 
-  flex: 1 1 calc(30% - 20px); /* Ajusta el ancho al 30% con el espacio correcto */
+  max-width: 30rem;
+  min-width: 30rem;
+  margin: 0 auto;
+  /* Ajusta el ancho al 30% con el espacio correcto */
+  /* flex: 1 1 calc(25% - 100px);  */
   margin: 10px;
   background-color: var(--background-color-article);
   padding: var(--article-padding);
   border-radius: 10px;
-  box-shadow: 6px 7px 5px 1px rgba(0, 0, 0, 0.75);
   justify-content: center;
 }
 
-
+.article:hover {
+  box-shadow: 6px 7px 5px 1px rgba(0, 0, 0, 0.75);
+}
 
 .article img {
-  min-width: 50%;
-  max-width: 50%;
+  min-width: 10rem;
+  max-width: 10rem;
   align-items: center;
   border-radius: 10px;
 }
@@ -274,7 +278,6 @@ main {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-  flex: 1; /* Hace que los botones ocupen el mismo ancho disponible */
 }
 
 .edit:hover {
@@ -282,6 +285,10 @@ main {
 }
 .delete:hover {
   background-color: #db5464; /* Cambia el color de fondo al pasar el mouse */
+}
+
+.add-cart:hover {
+  background-color: blueviolet;
 }
 
 .icons {
