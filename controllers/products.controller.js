@@ -4,13 +4,22 @@ const router = require("express").Router();
 const services = require("../services/dataSource.js");
 const {validationResult} = require('express-validator');
 const { log } = require("console");
-
+let db = require('../database/models');
 
 
 const productsController = {
   getAllProducts: (req, res) => {
-    const wineList = services.load();
-    res.render("products/products.ejs", { title: "Product Cart", wineList });
+    db.Products.findAll()
+      .then(function(wineList) {
+        console.log(wineList);  // Puedes verificar los datos en la consola
+  
+          res.render("products/products.ejs", {title: "Product Cart", wineList : wineList});
+      })
+      .catch(function(error) {
+        // Manejo de errores
+        console.error('Error al obtener productos:', error);
+        res.status(500).send('Error al obtener la lista de productos.');
+      });
   },
   productCartAdd: (req, res) => {
     const { id } = req.params;
