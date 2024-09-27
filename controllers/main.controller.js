@@ -17,9 +17,6 @@ const mainController = {
             console.error('Error al obtener productos:', error.message);
             res.status(500).send('Error al obtener la lista de productos.');
         });
-
-
-
     }
 };
 
