@@ -3,13 +3,14 @@ const path = require("path");
 const router = require("express").Router();
 const services = require("../services/dataSource.js");
 const {validationResult} = require('express-validator');
-const { log } = require("console");
 let db = require('../database/models');
+const { fields } = require("../services/multerUserStorage.js");
+const { ENUM } = require("sequelize");
 
 
 const productsController = {
   getAllProducts: (req, res) => {
-    db.Products.findAll()
+    db.Product.findAll()
       .then(function(wineList) {
         console.log(wineList);  // Puedes verificar los datos en la consola
   
@@ -157,8 +158,43 @@ const productsController = {
     // res.redirect(`/products/productdetail/${numericId}`);
     res.redirect("/products");
   },
+  //obtner los valores del campo enum que se llama drink_type de la tabla productos
+  drinkList: (req, res) => {
+    db.Drinktype.findAll({
+      ENUM: ['drink_type'],
+    })
+      .then(function(drinkList) {
+        console.log(drinkList);  // Puedes verificar los datos en la consola
+  
+          res.send(drinkList);
+      })
+      .catch(function(error) {
+        // Manejo de errores
+        console.error('Error al obtener productos:', error);
+        res.status(500).send('Error al obtener la lista de productos.');
+      });    
+
+  }
+
 };
 
 module.exports = productsController;
 
 //controllers para products
+/*
+      db.Products.findAll({
+    attributes: ['drink_type'],
+    })
+      .then(function(drinkList) {
+        console.log(drinkList);  // Puedes verificar los datos en la consola
+  
+          res.send(drinkList);
+      })
+      .catch(function(error) {
+        // Manejo de errores
+        console.error('Error al obtener productos:', error);
+        res.status(500).send('Error al obtener la lista de productos.');
+      });    
+      
+
+*/
