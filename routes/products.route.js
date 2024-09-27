@@ -40,4 +40,6 @@ router.get('/productmod/:id', productsController.productModView);
 //Metodo para modificar producto con su middleware para cargar imagen
 router.put('/productmod/:id', upload.single('image'), validationsProducts, productsController.productMod);
 
+router.get('/drinklist', productsController.drinkList);
+
 module.exports = router;
