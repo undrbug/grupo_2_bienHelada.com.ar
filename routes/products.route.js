@@ -21,6 +21,8 @@ const validationsProducts = [
 
 //muestra todos los prodctos de manera dinamica
 router.get('/', productsController.getAllProducts);
+//muestra productos filtrados en el input_search
+router.get('/search/:search', productsController.searchProducts);
 //carrito de compras vista
 router.get('/cart/', productsController.productCartView);
 //carrito de compras metodo

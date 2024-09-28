@@ -2,14 +2,11 @@
   <% wineList.forEach(product=> { %>
   <div class="article">
     <a href="/products/productdetail/<%= product.dataValues.ID_Product %>">
-      <img src="<%= product.dataValues.Image %>" alt="<%= product.dataValues.drink_name %>" />
-      <h3><%= product.dataValues.drink_name %></h3>
-
-      <% if (product.dataValues.drink_type.toLowerCase() === "vino") { %>
-        <p>Bodega: <%= product.dataValues.brand %></p>
-    <% } else { %>
-        <p>Marca: <%= product.dataValues.brand %></p>
-    <% } %>
+      <img src="../<%= product.dataValues.Image %>" alt="<%= product.dataValues.drink_name %>" />
+      <h3><%= product.dataValues.name %></h3>
+    
+        <p><%= product.dataValues.brand %></p>
+        <p><%= product.dataValues.Presentation %>cm3</p>
 
         <p class="precio">Precio: $<%= product.dataValues.price %></p>
       <% if (locals.isLogged) { %> <% if (locals.userLogged.category == "admin")
