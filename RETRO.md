@@ -270,4 +270,53 @@ Puntos incompletos:
 - Esperar a que alguien del grupo nos ordene realizar una tarea.
 - No tocar el proyecto durante todo el sprint.
 
-----------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+### Retro sprint 6
+
+1. COMENZAR A HACER (Start Doing 🎨)
+
+- Participar activamente en Discord y Trello para garantizar una mejor comunicación y seguimiento del proyecto.
+
+- Definir claramente los días y horarios adecuados para las weekly meets, asegurando la disponibilidad de todo el equipo.
+
+- Extraer todas las dudas técnicas y organizacionales y plantearlas en el Discord del grupo para luego organizar sesiones de co-learning y reforzar los temas necesarios.
+
+- Revisar el código y los errores antes de las entregas.
+
+- Implementar Pair Programming (Programación en Pareja) para mejorar la colaboración y comprensión del código.
+
+2. HACER MÁS (More of 💪)
+- Fomentar la colaboración entre los miembros del equipo.
+
+- Aumentar la frecuencia y eficacia de las reuniones.
+
+- Revisar los commits y avances de los compañeros con mayor regularidad.
+
+3. CONTINUAR HACIENDO (Keep Doing 💪)
+
+- Mantener una comunicación abierta y efectiva.
+
+- Revisar siempre el código cuando un compañero haga un push para entender la lógica del proyecto y asegurarse de que todo avance de forma coherente.
+
+- Seguir la planificación de las reuniones pactadas en Discord para mantener el enfoque del equipo en los objetivos.
+
+4. HACER MENOS (Less of ⏩)
+
+- Evitar soluciones temporales que no resuelvan problemas a largo plazo.
+
+- Reducir la procrastinación y el retraso en la realización de tareas.
+
+- No depender de un solo compañero para completar tareas.
+
+- Comunicarte de forma individual con cada miembro del equipo cuando observes inactividad prolongada para asegurarte de que todo esté bien y ofrecer apoyo si es necesario.
+
+5. DEJAR DE HACER (Stop Doing ⛔️)
+
+- Dejar todo para el último momento.
+
+- Esperar a que alguien del grupo nos ordene realizar una tarea.
+
+- No tocar el proyecto durante todo el sprint.
+
+------------------------------------------------------------------------

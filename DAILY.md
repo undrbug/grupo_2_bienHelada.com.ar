@@ -26,7 +26,7 @@ En base a la reunión realizada el día 15/07/2024, se decidió lo siguiente:
 
 ---
 
-# **Reuniones Semanales del Equipo (22/07/2024 - 02/09/2024)**
+# **Reuniones Semanales del Equipo**
 
 ---
 
@@ -530,3 +530,311 @@ En base a la reunión realizada el día 15/07/2024, se decidió lo siguiente:
 - Finalizar las pruebas de usuario y continuar con la revisión final del middleware.
 
 ---
+## **Weekly Meet - 09/09/2024**
+
+### **Yamal E. Maldonado**
+
+#### Qué se hizo la semana pasada
+- Se terminó de ajustar el tablero de trabajo para reflejar las nuevas tareas del sprint.
+- Se trabajó en la interfaz de usuario del CRUD de productos, mejorando la presentación de las vistas de creación y edición.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Avanzar con la implementación de las vistas para la búsqueda y paginación de productos.
+- Coordinar con Franco y Juan Manuel para integrar el nuevo diseño de la interfaz con el backend.
+
+---
+
+### **Hernán Gauna**
+
+#### Qué se hizo la semana pasada
+- Se completó el diseño del Diagrama de Entidades y Relaciones (DER) para la base de datos, agregando las tablas secundarias necesarias.
+- Se avanzó con la implementación del CRUD de usuarios utilizando Sequelize.
+
+#### Impedimentos encontrados
+- Algunos conflictos menores en la relación entre las tablas de usuarios y productos, pero se resolvieron rápidamente.
+
+#### Qué se va a hacer esta semana
+- Terminar de implementar las relaciones entre las tablas de productos y categorías en Sequelize.
+- Continuar con el desarrollo del CRUD de productos, asegurando que esté completamente funcional en la base de datos.
+
+---
+
+### **Sebastián Campillay**
+
+#### Qué se hizo la semana pasada
+- Se configuraron las relaciones entre las tablas de usuarios y productos, y se ajustaron algunos middlewares.
+- Se completó la implementación del CRUD de productos, quedando pendiente la parte de usuarios.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Finalizar el CRUD de usuarios, incluyendo la parte de edición y eliminación de registros.
+- Comenzar a trabajar en el script de SQL para poblar la base de datos con datos de prueba.
+
+---
+
+### **Juan Manuel Torres**
+
+#### Qué se hizo la semana pasada
+- Se trabajó en el diseño responsivo de las vistas de productos, asegurando que se vean bien en dispositivos móviles.
+- Se hicieron ajustes en la maquetación de las vistas de detalle de productos.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Integrar las vistas de búsqueda de productos con la lógica de backend proporcionada por Hernán.
+- Continuar con la implementación de la paginación en las vistas de productos.
+
+---
+
+### **Franco Aumada**
+
+#### Qué se hizo la semana pasada
+- Se trabajó en la revisión final del middleware y se avanzó en la integración con las rutas de productos.
+- Se ajustaron las pruebas de registro y login de usuarios.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Finalizar las pruebas de las rutas de productos y asegurar que las vistas estén correctamente conectadas con el backend.
+- Colaborar con Yamal y Juan Manuel en la maquetación de las vistas de paginación.
+
+---
+
+## **Weekly Meet - 16/09/2024**
+
+### **Yamal E. Maldonado**
+
+#### Qué se hizo la semana pasada
+- Se avanzó con las vistas de búsqueda y paginación de productos.
+- Se realizó una revisión general de la interfaz de usuario para asegurar que esté alineada con los requisitos.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Continuar con la optimización del diseño de las vistas del CRUD de productos y usuarios.
+- Colaborar con Franco en la creación de una nueva interfaz para la vista de detalle de usuarios.
+
+---
+
+### **Hernán Gauna**
+
+#### Qué se hizo la semana pasada
+- Se completó la implementación de las relaciones entre las tablas de productos y categorías en Sequelize.
+- Se terminó el CRUD de productos, asegurando que todas las funcionalidades estén operativas.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Comenzar con la implementación de las rutas y controladores para el carrito de compras.
+- Revisar y optimizar las consultas SQL generadas por Sequelize para mejorar el rendimiento.
+
+---
+
+### **Sebastián Campillay**
+
+#### Qué se hizo la semana pasada
+- Se terminó la implementación del CRUD de usuarios y se realizaron pruebas unitarias para verificar su correcto funcionamiento.
+- Se comenzó a escribir el script para poblar la base de datos con datos ficticios.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Finalizar el script de SQL para poblar la base de datos con datos de prueba.
+- Colaborar con Hernán en la implementación del carrito de compras.
+
+---
+
+### **Juan Manuel Torres**
+
+#### Qué se hizo la semana pasada
+- Se terminó la implementación de la paginación en las vistas de productos.
+- Se ajustaron algunos detalles visuales en las vistas de detalle de productos.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Revisar la maquetación de las vistas de usuarios y ajustarlas para que se integren correctamente con el backend.
+- Comenzar a realizar pruebas de usabilidad en las vistas de productos y usuarios.
+
+---
+
+### **Franco Aumada**
+
+#### Qué se hizo la semana pasada
+- Se colaboró en la maquetación de las vistas de paginación con Yamal y Juan Manuel.
+- Se avanzó en la optimización del middleware para la autenticación de usuarios.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Finalizar las pruebas del middleware de autenticación.
+- Trabajar en la optimización del código de las rutas de productos.
+
+---
+
+## **Weekly Meet - 23/09/2024**
+
+### **Yamal E. Maldonado**
+
+#### Qué se hizo la semana pasada
+- Se optimizaron las vistas del CRUD de usuarios y productos.
+- Se completó la interfaz para la vista de detalle de usuarios.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Realizar pruebas finales en la interfaz de usuario y asegurarse de que todo esté alineado con los requisitos del cliente.
+- Comenzar a trabajar en la maquetación del carrito de compras.
+
+---
+
+### **Hernán Gauna**
+
+#### Qué se hizo la semana pasada
+- Se comenzó con la implementación del carrito de compras en Sequelize.
+- Se optimizaron algunas consultas SQL generadas por Sequelize para mejorar el rendimiento.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Continuar con la implementación del carrito de compras y probar su funcionalidad.
+- Comenzar a trabajar en las relaciones entre los productos y los carritos.
+
+---
+
+### **Sebastián Campillay**
+
+#### Qué se hizo la semana pasada
+- Se completó el script SQL para poblar la base de datos con datos de prueba.
+- Se colaboró en la implementación del carrito de compras.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Finalizar las pruebas del carrito de compras.
+- Ayudar a Hernán en la implementación de las relaciones entre los productos y los carritos.
+
+---
+
+### **Juan Manuel Torres**
+
+#### Qué se hizo la semana pasada
+- Se ajustaron las vistas de usuarios y productos basadas en las pruebas de usabilidad realizadas.
+- Se completó la maquetación de las vistas de detalle de usuarios.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Trabajar en la maquetación del carrito de compras.
+- Colaborar con Yamal en las pruebas finales de la interfaz de usuarios y productos.
+
+---
+
+### **Franco Aumada**
+
+#### Qué se hizo la semana pasada
+- Se completaron las pruebas del middleware de autenticación.
+- Se realizaron ajustes en las rutas de productos para optimizar el rendimiento.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Continuar con la optimización de las rutas de usuarios y productos.
+- Ayudar a Yamal y Juan Manuel en la maquetación del carrito de compras.
+
+---
+
+## **Weekly Meet - 30/09/2024**
+
+### **Yamal E. Maldonado**
+
+#### Qué se hizo la semana pasada
+- Se finalizó la interfaz del carrito de compras.
+- Se realizaron las pruebas finales de la interfaz de usuario.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Colaborar en las pruebas finales del carrito de compras.
+- Comenzar a preparar la documentación final del proyecto.
+
+---
+
+### **Hernán Gauna**
+
+#### Qué se hizo la semana pasada
+- Se completó la implementación del carrito de compras en la base de datos.
+- Se ajustaron las relaciones entre los productos y los carritos.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Realizar pruebas finales del carrito de compras.
+- Optimizar las relaciones entre las tablas en la base de datos para mejorar la eficiencia.
+
+---
+
+### **Sebastián Campillay**
+
+#### Qué se hizo la semana pasada
+- Se colaboró en la implementación y pruebas del carrito de compras.
+- Se ajustaron algunos detalles en el script de SQL para poblar la base de datos.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Revisar las pruebas del carrito de compras y asegurar que todo esté funcional.
+- Colaborar con Hernán en la optimización de la base de datos.
+
+---
+
+### **Juan Manuel Torres**
+
+#### Qué se hizo la semana pasada
+- Se finalizó la maquetación del carrito de compras.
+- Se ajustaron detalles en las vistas de usuarios basados en el feedback del equipo.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Colaborar en las pruebas finales del carrito de compras.
+- Preparar las vistas finales para la presentación del proyecto.
+
+---
+
+### **Franco Aumada**
+
+#### Qué se hizo la semana pasada
+- Se optimizaron las rutas de usuarios y productos.
+- Se colaboró en la maquetación final del carrito de compras.
+
+#### Impedimentos encontrados
+- Ninguno.
+
+#### Qué se va a hacer esta semana
+- Realizar las pruebas finales del middleware de autenticación.
+- Asegurarse de que las rutas y vistas estén listas para la presentación final del proyecto.
+
+---
+
