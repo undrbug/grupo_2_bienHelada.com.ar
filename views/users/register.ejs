@@ -1,79 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
-  <%- include('../partials/head.ejs') %>
+  <%- include('../partials/head.ejs') -%>
 
-    <%- include('../partials/header.ejs') %>
+    <%- include('../partials/header.ejs') -%>
 
     <main class="form-section">
         <div class="container">
             <form action="/users/add" method="post" enctype="multipart/form-data">
-            <h2 class="form-section__title">
-                Completa los datos para crear una cuenta nueva
-            </h2>
+                <h2 class="form-section__title">
+                    Completa los datos para crear una cuenta nueva
+                </h2>
 
-            <label for="firstName">Ingresa tu nombre</label>
-            <input type="text" name="firstName" id="firstName"
-            placeholder="Nombre" minlength="3" maxlength="15" value="<%=
-            locals.oldData ? oldData.firstName : "" %>" /> <% if (locals.errors &&
-            errors.firstName) { %>
-            <p class="text-danger"><%- errors.firstName.msg %></p>
-            <% } %>
+                <label for="firstName">Nombre</label>
+                <input type="text" name="firstName" id="firstName" autofocus
+                placeholder="Nombre" minlength="3" maxlength="15" value="<%=
+                locals.oldData ? oldData.firstName : "" %>"  <% if (locals.errors &&
+                errors.firstName) { %> />
+                <p class="text-danger"><%- errors.firstName.msg %></p>
+                <% } %>
 
-            <label for="lastName">Ingresa tu Apellido</label>
-            <input type="text" name="lastName" id="lastName"
-            placeholder="Apellido" minlength="3" maxlength="20" value="<%=
-            locals.oldData ? oldData.lastName : "" %>" /> <% if (locals.errors &&
-            errors.lastName) { %>
-            <p class="text-danger"><%- errors.lastName.msg %></p>
-            <% } %>
+                <label for="lastName">Apellido</label>
+                <input type="text" name="lastName" id="lastName"
+                placeholder="Apellido" minlength="3" maxlength="20" value="<%=
+                locals.oldData ? oldData.lastName : "" %>" /> <% if (locals.errors &&
+                errors.lastName) { %>
+                <p class="text-danger"><%- errors.lastName.msg %></p>
+                <% } %>
 
-            <label for="email">Ingresa tu correo electronico</label>
-            <input type="email" name="email" id="email"
-            placeholder="tu@correo.com" value="<%= locals.oldData ? oldData.email:
-            "" %>" /> <% if (locals.errors && errors.email) { %>
-            <p class="text-danger"><%- errors.email.msg %></p>
-            <% } %>
+                <label for="email">Correo electronico</label>
+                <input type="email" name="email" id="email"
+                placeholder="tu@correo.com" value="<%= locals.oldData ? oldData.email:
+                "" %>" /> <% if (locals.errors && errors.email) { %>
+                <p class="text-danger"><%- errors.email.msg %></p>
+                <% } %>
 
-            <p>Elegí tu foto de usuario</p>
-            <input type="file" name="image" accept=".jpg,.png" />
-            <% if (locals.errors && errors.image) { %>
-            <p class="text-danger"><%- errors.image.msg %></p>
-            <% } %>
-            <br />
+                <label for="image">Elegí tu foto de usuario</label>
+                <input type="file" name="image" accept=".jpg,.png" />
+                <% if (locals.errors && errors.image) { %>
+                <p class="text-danger"><%- errors.image.msg %></p>
+                <% } %>
 
-            <label for="password">Ingresa tu contraseña</label>
-            <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Ingresa tu contraseña"
-            />
-            <% if (locals.errors && errors.password) { %>
-            <p class="text-danger"><%- errors.password.msg %></p>
-            <% } %>
+                <label for="phone">Teléfono</label>
+                <input type="tel" name="phone" id="phone"
+                pattern="^\+?[0-9\s\-\(\)]{7,}$" placeholder="+54 11 1234-5678" />
+                <% if (locals.errors && errors.phone) { %>
+                <p class="text-danger"><%- errors.phone.msg %></p>
+                <% } %>
 
-            <label for="rePassword">Reingresa tu contraseña</label>
-            <input
-                type="password"
-                name="rePassword"
-                id="rePassword"
-                placeholder="Reingresa tu contraseña"
-            />
-            <% if (locals.errors && errors.rePassword) { %>
-            <p class="text-danger"><%- errors.rePassword.msg %></p>
-            <% } %>
+                <label for="adress">Direccion</label>
+                <input type="text" name="adress" id="adress"
+                placeholder="Av. Siempreviva 742" />
+                <% if (locals.errors && errors.adress) { %>
+                <p class="text-danger"><%- errors.adress.msg %></p>
+                <% } %>
 
-            <label for="category">Ingresa el tipo de usuario</label>
-            <input type="text" name="category" id="category"
-            placeholder="Categoría" value="<%= locals.oldData ? oldData.category :
-            "" %>" /> <% if (locals.errors && errors.category) { %>
-            <p class="text-danger"><%- errors.category.msg %></p>
-            <% } %>
-            <br /><br />
+                <div>
+                    <br>
+                    <label for="country">Pais</label>
+                    <select 
+                        name="country" 
+                        id="country">
+                        <option value="">Seleccione un pais</option>
+                        <% if (listaPaises && listaPaises.length) { %>
+                            <% listaPaises.forEach(pais => { %>
+                                <option value="<%= pais.nombre %>"><%= pais.nombre %></option>
+                            <% }); %>
+                        <% } %>
+                    </select>
+                </div>
+                <br>
+                
+                <div>
+                    <label for="state">Provincia</label>
+                    <select 
+                        name="state" 
+                        id="state">
+                        <option value="">Seleccione una provincia</option>
+                        <% if (listaProvincias && listaProvincias.length) { %>
+                            <% listaProvincias.forEach(provincia => { %>
+                            <option value="<%= provincia.nombre %>"><%= provincia.nombre %></option>
+                            <% }); %>
+                        <% } %>
+                    </select>
+                </div>
+                <br>
 
-            <input type="submit" value="Enviar" />
-            <input type="reset" value="Borrar" />
-            <br /><br />
+                <label for="password">Ingresa tu contraseña</label>
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Ingresa tu contraseña"
+                />
+                <% if (locals.errors && errors.password) { %>
+                <p class="text-danger"><%- errors.password.msg %></p>
+                <% } %>
+
+                <label for="rePassword">Reingresa tu contraseña</label>
+                <input
+                    type="password"
+                    name="rePassword"
+                    id="rePassword"
+                    placeholder="Reingresa tu contraseña"
+                />
+                <% if (locals.errors && errors.rePassword) { %>
+                <p class="text-danger"><%- errors.rePassword.msg %></p>
+                <% } %>
+
+                
+                <br /><br />
+
+                <input type="submit" value="Enviar" />
+                <input type="reset" value="Borrar" />
+                <br /><br />
             </form>
             </main>
         </div>
