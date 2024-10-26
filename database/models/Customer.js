@@ -18,9 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
       allowNull: false
     },
+    image: DataTypes.STRING,
     phone: DataTypes.STRING,
-    address: DataTypes.STRING,
-    city: DataTypes.STRING,
+    adress: DataTypes.STRING,
+    state: DataTypes.STRING,
     country: DataTypes.STRING,
     Date_Record: {
       type: DataTypes.DATE,
