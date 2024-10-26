@@ -44,7 +44,7 @@ app.use('/products', productsRoute);
 
 app.use((req, res, next) => {
     res.status(404).render('errors/404.ejs', {
-        title: '404 - Página no encontrada'
+        title: '404 - Page not Found'
     });
 });
 
