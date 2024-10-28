@@ -4,9 +4,6 @@ const router = require("express").Router();
 const services = require("../services/dataSource.js");
 const { validationResult } = require("express-validator");
 let db = require("../database/models");
-const { fields } = require("../services/multerUserStorage.js");
-const { ENUM } = require("sequelize");
-const { error } = require("console");
 
 const productsController = {
 	getAllProducts: (req, res) => {
@@ -193,7 +190,7 @@ const productsController = {
 				res.status(500).send("Error al obtener la lista de productos.");
 			});
 	},
-	//busca productos desde el input de busqueda
+	//busca productos desde el input de busqueda del navbar
 	searchProducts: (req, res) => {
 		const { search } = req.params;
 		db.Product.findAll({
@@ -210,7 +207,6 @@ const productsController = {
 			},
 		})
 			.then((wineList) => {
-        console.log(wineList);
 				res.render("products/products.ejs", {
 					title: "Product List",
 					wineList: wineList,

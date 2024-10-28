@@ -68,3 +68,6 @@ button:hover {
     text-decoration: underline;
 }
   
+.is-invalid {
+    color: red;
+}

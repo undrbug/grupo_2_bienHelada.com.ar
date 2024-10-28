@@ -86,9 +86,10 @@ CREATE TABLE `customer` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `phonr` varchar(20) DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
+  `phone` varchar(20) DEFAULT NULL,
   `adress` varchar(255) DEFAULT NULL,
-  `city` varchar(100) DEFAULT NULL,
+  `state` varchar(100) DEFAULT NULL,
   `country` varchar(100) DEFAULT NULL,
   `Date_Record` datetime DEFAULT current_timestamp(),
   `HashPassword` varchar(255) NOT NULL,
@@ -106,9 +107,10 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'Juan','Pérez','juan.perez@example.com','123456789','Calle Falsa 123','Buenos Aires','Argentina','2024-09-06 11:30:44','hashedpassword1',0,1,1),(2,'María','González','maria.gonzalez@example.com','987654321','Avenida Siempre Viva 456','Córdoba','Argentina','2024-09-06 11:30:44','hashedpassword2',1,1,1),(3,'Carlos','Martínez','carlos.martinez@example.com','456789123','Ruta Nacional 7 KM 10','Rosario','Argentina','2024-09-06 11:30:44','hashedpassword3',0,1,0),(4,'Laura','López','laura.lopez@example.com','321654987','Avenida 9 de Julio','Mendoza','Argentina','2024-09-06 11:30:44','hashedpassword4',0,1,1),(5,'Ana','Rodríguez','ana.rodriguez@example.com','789123456','San Martín 999','La Plata','Argentina','2024-09-06 11:30:44','hashedpassword5',1,0,0);
+/*INSERT INTO `customer` VALUES (1,'Juan','Pérez','juan.perez@example.com','123456789','Calle Falsa 123','Buenos Aires','Argentina','2024-09-06 11:30:44','hashedpassword1',0,1,1),(2,'María','González','maria.gonzalez@example.com','987654321','Avenida Siempre Viva 456','Córdoba','Argentina','2024-09-06 11:30:44','hashedpassword2',1,1,1),(3,'Carlos','Martínez','carlos.martinez@example.com','456789123','Ruta Nacional 7 KM 10','Rosario','Argentina','2024-09-06 11:30:44','hashedpassword3',0,1,0),(4,'Laura','López','laura.lopez@example.com','321654987','Avenida 9 de Julio','Mendoza','Argentina','2024-09-06 11:30:44','hashedpassword4',0,1,1),(5,'Ana','Rodríguez','ana.rodriguez@example.com','789123456','San Martín 999','La Plata','Argentina','2024-09-06 11:30:44','hashedpassword5',1,0,0);*/
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
+INSERT INTO `customer` VALUES (1,'Hernan','Gauna','undrbug@gmail.com','123456789','Calle Falsa 123','Buenos Aires','Argentina','2024-09-06 11:30:44','polaco29',1,1,1)
 
 --
 -- Table structure for table `invoice`
@@ -192,7 +194,7 @@ INSERT INTO drinktype VALUES (9, 'IPA');
 INSERT INTO drinktype VALUES (10, 'Whisky');
 INSERT INTO drinktype VALUES (11, 'Ron');
 INSERT INTO drinktype VALUES (12, 'Tequila');
-INSERT INTO drinkje VALUES (13, 'Vodka');
+INSERT INTO drinktype VALUES (13, 'Vodka');
 INSERT INTO drinktype VALUES (14, 'Martini');
 INSERT INTO drinktype VALUES (15, 'Mojito');
 
