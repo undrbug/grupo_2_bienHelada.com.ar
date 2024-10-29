@@ -1,4 +1,14 @@
 <article class="articles">
+  <!-- si wineList viene vacio mostrar una img -->
+  <% if (wineList.length == 0) { %>
+  <div class="article">
+    <br>
+      <h3>Todavia no tenemos productos para mostrarte</h3>
+      <br>
+    <img src="/img/postergif.gif" alt="No hay productos" />
+  </div>
+  <% } %>
+
   <% wineList.forEach(product=> { %>
   <div class="article">
     <a href="/products/productdetail/<%= product.dataValues.ID_Product %>">
