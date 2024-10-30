@@ -2,8 +2,6 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const app = express();
-//const data = require('../data/wines.json');
-//const services = require("../services/dataSource.js");
 let db = require("../database/models");
 
 const mainController = {
