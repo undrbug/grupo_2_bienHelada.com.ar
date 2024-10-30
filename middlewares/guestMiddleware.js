@@ -3,8 +3,6 @@ function guestMiddleware(req, res, next) {
         return res.redirect('/');
     }
     next();
-
-    
 }
 
 module.exports = guestMiddleware;
