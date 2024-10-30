@@ -5,16 +5,20 @@ const uploadUser = require('../services/multerUserStorage.js');
 const validationsRegister = require('../middlewares/validationsResgister.js');
 const validationsLogin = require('../middlewares/validationsLogin.js');
 const guestMiddleware = require('../middlewares/guestMiddleware.js');
+const authMiddleware = require('../middlewares/authMiddleware.js');
+
 
 router.get("/login", guestMiddleware, usersController.login);
 router.post("/login", validationsLogin, usersController.loginCheck);
 router.get("/register", guestMiddleware, usersController.register);
 router.post("/add", uploadUser.single('image'), validationsRegister, usersController.newRegister);
-router.get('/profile', usersController.profile);
-router.get('/logout', usersController.logout);
+router.get('/profile', authMiddleware, usersController.profile);
+router.get('/logout', authMiddleware, usersController.logout);
 
 //falta implementar validaciones!
-router.get("/recuperarpassword", usersController.recuperarPassword);
+
+router.get("/recoverpassword", usersController.recuperarPassword);
+router.post('/sendrecoverymail', usersController.sendForgotPasswordEmail);
 router.get("/restablecerpasword", usersController.restablecerPassword);
 
 module.exports = router;
