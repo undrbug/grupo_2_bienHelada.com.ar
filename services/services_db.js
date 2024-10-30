@@ -18,6 +18,15 @@ const servicesDB = {
         } catch (error) {
             console.log("Error al buscar el usuario", error.message);
         }
+    },
+    updatePassword: async (HashPassword, id) => {
+        try {
+            const user = await db.Customer.update({ HashPassword: HashPassword }, { where: {  ID_Customer: id } });
+            return user;
+            
+        } catch (error) {
+            console.log("Error al buscar el usuario", error.message);
+        }
     }
 
 }

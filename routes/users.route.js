@@ -17,8 +17,9 @@ router.get('/logout', authMiddleware, usersController.logout);
 
 //falta implementar validaciones!
 
-router.get("/recoverpassword", usersController.recuperarPassword);
-router.post('/sendrecoverymail', usersController.sendForgotPasswordEmail);
-router.get("/restablecerpasword", usersController.restablecerPassword);
+router.get("/recoverpassword", usersController.recoverPassword);
+router.post('/sendforgotpasswordemail', usersController.sendForgotPasswordEmail);
+router.get("/resetpassword/:token", usersController.resetPassword);
+router.post('/updatepassword/:id', usersController.updatePassword);
 
 module.exports = router;

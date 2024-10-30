@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const nodemailer = require('nodemailer');
 
-
 const contactController = {
     contact: (req, res) => {
         res.render('contact/contact.ejs', {title: 'Contacto'});
@@ -44,13 +43,8 @@ const contactController = {
             console.log("ERROR: ", error.message);
         }
     },
-    sendForgotPasswordEmail: async (req, res) => {
+    sendRecoveryMail: async (email, subject, messageHtml) => {
         try {
-            const { email } = req.body;
-            const messageHtml = `<h2>Recuperación de contraseña</h2>
-            <h4>Has solicitado recuperar tu contraseña.</h4>
-            <p>Para recuperar tu contraseña, haz click en el siguiente enlace:</p>
-            <a href="${process.env.URL}/users/reset-password/${token}">Recuperar contraseña</a>`;
             const transporter = nodemailer.createTransport({
                 host: process.env.HOST,
                 port: process.env.HOST_PORT,
@@ -66,32 +60,20 @@ const contactController = {
             const mailOptions = {
                 from: process.env.FROM,
                 to: email,
-                subject: 'Recuperación de contraseña',
+                subject: subject,
                 html: messageHtml,
             }
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
-                    console.log(`Error: ${error.message}`);
+                    console.log(error);
                 } else {
                     console.log('Email sent: ' + info.response);
-                    res.redirect("/");
                 }
             })
         } catch (error) {
             console.log("ERROR: ", error.message);
         }
-    },
-    updatePassword: async (req, res) => {
-        try {
-            const { password } = req.body;
-            const hashPassword = bcrypt.hashSync(password, 10);
-            await servicesDB.updatePassword(hashPassword, req.params.id);
-            res.redirect('/');
-        } catch (error) {
-            console.log("ERROR: ", error.message);
-        }
     }
-    
 }
 
 module.exports = contactController;

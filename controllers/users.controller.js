@@ -5,6 +5,7 @@ const db = require('../database/models/index.js');
 const servicesDB = require('../services/services_db.js');
 const contactController = require('../controllers/contact.controller.js');
 const { v4: uuidv4 } = require('uuid');
+const jwt = require('jsonwebtoken');
 
 const usersController = {
     //renderizamos la vista de login
@@ -153,27 +154,48 @@ const usersController = {
         res.clearCookie("userEmail");
         res.redirect('/');
     },
-    recuperarPassword: (req, res) => {
+    //metodo get para renderizar formulario de recuperar contraseña por medio de email
+    recoverPassword: (req, res) => {
         res.render('users/recuperarPassword.ejs', {title: 'Recuperar Password'});
     },
-    restablecerPassword: (req, res) => {
-        res.render('users/restablecerPassword.ejs', {title: 'Restablecer Password'});
-    },
+    //metodo post para enviar email de recuperación de contraseña con token de 1 hora de duración
     sendForgotPasswordEmail: async (req, res) => {
         const { email } = req.body;
         const user = await servicesDB.getByEmail(email);
         if (user) {
-            const token = uuidv4();
-            // await servicesDB.saveToken(token, user.id);
+            const token = jwt.sign({ id: user.ID_Customer }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
             const messageHtml = `<h2>Recuperación de contraseña</h2>
             <h4>Has solicitado recuperar tu contraseña.</h4>
             <p>Para recuperar tu contraseña, haz click en el siguiente enlace:</p>
-            <a href="${process.env.URL}/users/reset-password/${token}">Recuperar contraseña</a>`;
-            contactController.sendEmail(email, "Recuperación de contraseña", messageHtml);
+            <a href="${process.env.URL}/users/resetpassword/${token}">Recuperar contraseña</a>`;
+
+            contactController.sendRecoveryMail(email, "Recuperación de contraseña", messageHtml);
             res.redirect("/");
         } else {
             res.render('users/recuperarPassword.ejs', {title: 'Recuperar Password', error: "El email no está registrado"});
             // res.send("El email no está registrado");
+        }
+    },
+    resetPassword: (req, res) => {
+        jwt.verify(req.params.token, process.env.JWT_SECRET, (err, decoded) => {
+            if (err) {
+                console.log("Error: ", err.message);
+                return res.redirect("/");
+            }
+            res.render('users/restablecerPassword.ejs', {title: 'Restablecer Password', id: decoded.id});
+        });
+        // res.render('users/restablecerPassword.ejs', {title: 'Restablecer Password'});
+    },
+    updatePassword: async (req, res) => {
+        try {
+            const { password } = req.body;
+            const hashPassword = bcrypt.hashSync(password, 10);
+            console.log(req.params.id);
+            await servicesDB.updatePassword(hashPassword, req.params.id);
+            res.redirect('/');
+        } catch (error) {
+            console.log("ERROR: ", error.message);
         }
     }
 }
