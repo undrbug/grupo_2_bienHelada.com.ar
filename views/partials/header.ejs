@@ -9,7 +9,7 @@
                 <ul>    
                     <li><a href="/">Inicio</a></li>
                     <li><a href="/users/login">Ingresar</a></li>
-                    <li><a href="/users/register">Crear cuenta</a></li>
+                    <!-- <li><a href="/users/register">Crear cuenta</a></li> -->
                     <li><a href="/contact">Escribinos</a></li>
                 </ul>
 
@@ -17,7 +17,7 @@
 
                 <ul>
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/products">Nuestos vinos</a></li>
+                    <li><a href="/products">Nuestos productos</a></li>
                     <li><a href="/products/cart">Carrito</a></li>
                     <li><a href="/users/logout">Cerrar Sesion</a></li>
                 </ul>
@@ -33,7 +33,7 @@
             <% if (locals.isLogged) { %>
                 <div class="navbar-user">
                     <a href="/users/profile"><img src="<%= locals.userLogged.image %>" alt="Avatar" class="user-avatar"></a>
-                    <span class="user-name"><%- locals.userLogged.firstName %></span>
+                    <span class="user-name"><%- locals.userLogged.first_name %></span>
                   </div>
             <% } %>
     </div>
