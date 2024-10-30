@@ -3,6 +3,7 @@ const dataCountries = require("../services/dataCountries.js");
 const {validationResult} = require('express-validator');
 const db = require('../database/models/index.js');
 const servicesDB = require('../services/services_db.js');
+const contactController = require('../controllers/contact.controller.js');
 const { v4: uuidv4 } = require('uuid');
 
 const usersController = {
@@ -157,6 +158,23 @@ const usersController = {
     },
     restablecerPassword: (req, res) => {
         res.render('users/restablecerPassword.ejs', {title: 'Restablecer Password'});
+    },
+    sendForgotPasswordEmail: async (req, res) => {
+        const { email } = req.body;
+        const user = await servicesDB.getByEmail(email);
+        if (user) {
+            const token = uuidv4();
+            // await servicesDB.saveToken(token, user.id);
+            const messageHtml = `<h2>Recuperación de contraseña</h2>
+            <h4>Has solicitado recuperar tu contraseña.</h4>
+            <p>Para recuperar tu contraseña, haz click en el siguiente enlace:</p>
+            <a href="${process.env.URL}/users/reset-password/${token}">Recuperar contraseña</a>`;
+            contactController.sendEmail(email, "Recuperación de contraseña", messageHtml);
+            res.redirect("/");
+        } else {
+            res.render('users/recuperarPassword.ejs', {title: 'Recuperar Password', error: "El email no está registrado"});
+            // res.send("El email no está registrado");
+        }
     }
 }
 
