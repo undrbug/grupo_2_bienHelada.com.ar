@@ -15,8 +15,6 @@ router.post("/add", uploadUser.single('image'), validationsRegister, usersContro
 router.get('/profile', authMiddleware, usersController.profile);
 router.get('/logout', authMiddleware, usersController.logout);
 
-//falta implementar validaciones!
-
 router.get("/recoverpassword", usersController.recoverPassword);
 router.post('/sendforgotpasswordemail', usersController.sendForgotPasswordEmail);
 router.get("/resetpassword/:token", usersController.resetPassword);
