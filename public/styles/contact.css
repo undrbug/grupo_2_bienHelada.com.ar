@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;
 }
 
 body {
@@ -33,7 +33,8 @@ body {
     color: #333;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -54,4 +55,15 @@ body {
 
 .contact-form button:hover {
     background-color: #0056b3;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+}
+
+textarea {
+    flex-grow: 1;
+    width: 100%;
 }
