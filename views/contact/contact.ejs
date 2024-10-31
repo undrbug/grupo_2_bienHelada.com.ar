@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include('../partials/head.ejs') %>
-    <script src="/js/contact.js"></script>
+	<%- include('../partials/head.ejs') %>
+	<script src="/js/contact.js"></script>
 
-    <body>
-        <%- include('../partials/header.ejs') %>
+	<body>
+		<%- include('../partials/header.ejs') %>
+		<main class="form-section">
+			<div class="container">
+				<h2>Formulario de contacto</h2>
+				<form action="/contact/send-mail" method="POST">
+					<label for="name">Nombre:</label>
+					<input type="text" id="name" name="name" required />
 
-        <div class="container">
-            <form action="/contact/send-mail" class="contact-form" method="POST">
-            <h3>Formulario de contacto</h3>
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" required rows="6"></textarea>
-                <button type="submit" id="btn-send">Enviar</button>
-            </form>
-        </div>
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" required />
 
-    </body>
+					<label for="message">Mensaje:</label>
+					<textarea
+						id="message"
+						name="message"
+						required
+						rows="10"
+						cols="40"></textarea>
 
-    <%- include('../partials/footer.ejs') %>
+					<input type="submit" id="btn-send value="Enviar">
+				</form>
+			</div>
+		</main>
+	</body>
 
+	<%- include('../partials/footer.ejs') %>
 </html>
