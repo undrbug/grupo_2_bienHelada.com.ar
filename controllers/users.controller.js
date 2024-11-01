@@ -137,7 +137,7 @@ const usersController = {
             };
     
             // Agrega el nuevo usuario a la DB de usuarios
-            db.Customer.create(newUser);
+            await db.Customer.create(newUser);
     
             // Redirige a la página principal después de guardar
             res.redirect("/users/login");
