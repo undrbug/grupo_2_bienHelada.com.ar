@@ -41,7 +41,7 @@ router.delete('/productdel/:id',authMiddleware, productsController.productDel);
 //Vista para modificar producto
 router.get('/productmod/:id',authMiddleware, productsController.productModView);
 //Metodo para modificar producto con su middleware para cargar imagen
-router.put('/productmod/:id',authMiddleware, upload.single('image'), validationsProducts, productsController.productMod);
+router.put('/productmod/:id',authMiddleware, upload.single('Image'), validationsProducts, productsController.productMod);
 
 router.get('/drinklist', productsController.drinkList);
 
