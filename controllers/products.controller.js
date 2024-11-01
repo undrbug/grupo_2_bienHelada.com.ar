@@ -43,49 +43,50 @@ const productsController = {
 			});
 	},
 	productAddView: (req, res) => {
-		res.render("products/productAdd.ejs", { title: "Alta de producto" });
+		db.Drinktype.findAll()
+			.then(function(drinkTypes) { 
+				return res.render("products/productAdd.ejs", {
+					title: "Alta de producto",
+					drinkTypes: drinkTypes,
+				});
+			})
+			.catch(function(error) {
+				console.log(error);
+				res.status(500).send('Error al cargar los tipos de bebida');
+			});
 	},
 	productAdd: (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
-			return res.render("products/productAdd.ejs", {
-				title: "Alta de producto",
-				errors: errors.mapped(),
-				oldData: req.body,
-			});
-		}
-		try {
-			//si no viene imagen se carga una por defecto
-			const image = req.file
-				? `../images/products/${req.file.filename}`
-				: "../images/products/default.jpg";
-			const {
-				name,
-				price,
-				description,
-				bodega,
-				varietal,
-				category,
-				cantidad,
-			} = req.body;
-			let products = services.load();
-			const newProduct = {
-				id: products.length + 1,
-				nombre: name,
-				descripcion: description,
-				precio: price,
-				bodega: bodega,
-				categoria: category,
-				varietal: varietal,
-				cantidad: cantidad,
-				imagen: image,
-			};
-			products.push(newProduct);
-			services.save(products);
-			res.redirect("/products");
-		} catch (error) {
+			db.Drinktype.findAll()
+				.then(function(drinkTypes) {
+					return res.drinkTypes // Asegúrate de pasar drinkTypes aquí
+					});
+				}
+	
+					const image = req.file
+		? `../images/products/${req.file.filename}`
+		: "../images/products/default.jpg";
+				
+
+		db.Product.create({
+			name: req.body.name,
+			drink_description: req.body.drink_description,
+			drink_type: req.body.drink_type,
+			price: req.body.price,
+			Stock: req.body.Stock,
+			brand: req.body.brand,
+			Barcode: req.body.Barcode,
+			Presentation: req.body.presentation,
+			Image: image,
+		})
+		.then(() => {
+			res.redirect("/"); // Redirige a la página principal o donde desees
+		})
+		.catch(error => {
 			console.log(error);
-		}
+			res.status(500).send('Error al crear el producto');
+		});
 	},
 	productDel: (req, res) => {
 		const { id } = req.params;
@@ -115,7 +116,7 @@ const productsController = {
 	//Editar Producto con ID
 	productModView: (req, res) => {
 		const { id } = req.params;
-		const wine = services.findProductById(id);
+		db.Product.findById;
 
 		if (!wine) {
 			return res.status(404).send("Producto no encontrado");
