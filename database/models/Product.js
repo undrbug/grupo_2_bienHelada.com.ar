@@ -60,7 +60,14 @@ module.exports = (sequelize, DataTypes) => {
         through: models.Cart_Product,
         foreignKey: 'ID_Product',
         onDelete: 'CASCADE'
-      });
+      })
+      
+      Product.belongsTo(models.Drinktype,{
+        as: "drinktype",
+        foreignKey:"drink_type"
+      })
+
+
     };
   
     return Product;

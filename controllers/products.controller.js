@@ -29,18 +29,19 @@ const productsController = {
 	},
 	productDetail: (req, res) => {
 		const { id } = req.params;
-		db.Product.findByPk(id)
-			.then((wine) => {
-				console.log(wine); // Puedes verificar los datos en la consola
-				res.render("products/productDetail.ejs", {
-					title: "Product Detail",
-					wine: wine,
-				});
-			})
-			.catch((error) => {
-				console.error("Error al obtener productos:", error.message);
-				res.status(500).send("Error al obtener la lista de productos.");
+		db.Product.findByPk(id, {
+			include: { association: "drinktype" } // Incluye la asociación definida en el modelo
+		})
+		.then((wine) => {
+			res.render("products/productDetail.ejs", {
+				title: "Product Detail",
+				wine: wine // Enviar el objeto completo a la vista
 			});
+		})
+		.catch((error) => {
+			console.error("Error al obtener productos:", error.message);
+			res.status(500).send("Error al obtener la lista de productos.");
+		});
 	},
 	productAddView: (req, res) => {
 		db.Drinktype.findAll()
