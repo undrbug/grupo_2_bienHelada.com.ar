@@ -89,30 +89,24 @@ const productsController = {
 			res.status(500).send('Error al crear el producto');
 		});
 	},
-	productDel: (req, res) => {
-		const { id } = req.params;
-		let products = services.load();
-		productToDelete = products.find((product) => product.id == id);
-		// Obtener la ruta completa de la imagen
-		const imagePath = path.join(
-			__dirname,
-			`../public/images/${productToDelete.imagen}`
-		);
-		// Eliminar la imagen físicamente
-		fs.unlink(imagePath, (err) => {
-			if (err) {
-				console.error("Error al eliminar la imagen:", err);
-			} else {
-				console.log("Imagen eliminada con éxito");
+	productDel: async (req, res) => {
+		try {
+			// Busca y elimina el producto por ID
+			const result = await db.Product.destroy({
+				where: { ID_Product: req.params.id }
+			});
+	
+			// Verifica si se eliminó algún producto
+			if (result === 0) {
+				return res.status(404).send("Producto no encontrado");
 			}
-		});
-		products = products.filter((product) => product.id !== id);
-		services.save(products);
-		// res.render("index.ejs", {
-		//   title: "Bien-Heladas wines&drinks",
-		//   wineList: products,
-		// });
-		res.redirect("/products");
+	
+			// Redirige a la lista de productos
+			res.redirect("/products");
+		} catch (error) {
+			console.error("Error al eliminar el producto:", error);
+			res.status(500).send("Error interno del servidor");
+		}
 	},
 	//Editar Producto con ID
 	productModView: (req, res) => {
