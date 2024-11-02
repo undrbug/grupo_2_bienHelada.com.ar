@@ -14,7 +14,7 @@ const productsController = {
 					wineList: wineList,
 				});
 			})
-			.catch( (error) => {
+			.catch((error) => {
 				console.error("Error al obtener productos:", error.message);
 				res.status(500).send("Error al obtener la lista de productos.");
 			});
@@ -30,45 +30,43 @@ const productsController = {
 	productDetail: (req, res) => {
 		const { id } = req.params;
 		db.Product.findByPk(id, {
-			include: { association: "drinktype" } // Incluye la asociación definida en el modelo
+			include: { association: "drinktype" }, // Incluye la asociación definida en el modelo
 		})
-		.then((wine) => {
-			res.render("products/productDetail.ejs", {
-				title: "Product Detail",
-				wine: wine // Enviar el objeto completo a la vista
+			.then((wine) => {
+				res.render("products/productDetail.ejs", {
+					title: "Product Detail",
+					wine: wine, // Enviar el objeto completo a la vista
+				});
+			})
+			.catch((error) => {
+				console.error("Error al obtener productos:", error.message);
+				res.status(500).send("Error al obtener la lista de productos.");
 			});
-		})
-		.catch((error) => {
-			console.error("Error al obtener productos:", error.message);
-			res.status(500).send("Error al obtener la lista de productos.");
-		});
 	},
 	productAddView: (req, res) => {
 		db.Drinktype.findAll()
-			.then(function(drinkTypes) { 
+			.then(function (drinkTypes) {
 				return res.render("products/productAdd.ejs", {
 					title: "Alta de producto",
 					drinkTypes: drinkTypes,
 				});
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				console.log(error);
-				res.status(500).send('Error al cargar los tipos de bebida');
+				res.status(500).send("Error al cargar los tipos de bebida");
 			});
 	},
 	productAdd: (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
-			db.Drinktype.findAll()
-				.then(function(drinkTypes) {
-					return res.drinkTypes 
-					});
-				}
-	
-					const image = req.file
-		? `../images/products/${req.file.filename}`
-		: "../images/products/default.jpg";
-				
+			db.Drinktype.findAll().then(function (drinkTypes) {
+				return res.drinkTypes;
+			});
+		}
+
+		const image = req.file
+			? `/images/products/${req.file.filename}`
+			: "/images/products/default.jpg";
 
 		db.Product.create({
 			name: req.body.name,
@@ -81,26 +79,26 @@ const productsController = {
 			Presentation: req.body.presentation,
 			Image: image,
 		})
-		.then(() => {
-			res.redirect("/"); // Redirige a la página principal o donde desees
-		})
-		.catch(error => {
-			console.log(error);
-			res.status(500).send('Error al crear el producto');
-		});
+			.then(() => {
+				res.redirect("/"); // Redirige a la página principal o donde desees
+			})
+			.catch((error) => {
+				console.log(error);
+				res.status(500).send("Error al crear el producto");
+			});
 	},
 	productDel: async (req, res) => {
 		try {
 			// Busca y elimina el producto por ID
 			const result = await db.Product.destroy({
-				where: { ID_Product: req.params.id }
+				where: { ID_Product: req.params.id },
 			});
-	
+
 			// Verifica si se eliminó algún producto
 			if (result === 0) {
 				return res.status(404).send("Producto no encontrado");
 			}
-	
+
 			// Redirige a la lista de productos
 			res.redirect("/products");
 		} catch (error) {
@@ -110,63 +108,56 @@ const productsController = {
 	},
 	//Editar Producto con ID
 	productModView: (req, res) => {
-
 		let bebidas = db.Product.findByPk(req.params.id);
 		let tipoBebidas = db.Drinktype.findAll();
-		Promise.all([bebidas, tipoBebidas])
-		.then(function([producto,tipo]){
+		Promise.all([bebidas, tipoBebidas]).then(function ([producto, tipo]) {
 			res.render("products/productMod.ejs", {
 				title: "Product Edit",
 				producto: producto,
-				tipo:tipo
+				tipo: tipo,
 			});
-
-		})
-
-		
+		});
 	},
-
 	productMod: (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
-			db.Drinktype.findAll()
-				.then(function(drinkTypes) {
-					return res.drinkTypes 
-					});
-				}
-	
-					const image = req.file
-		? `../images/products/${req.file.filename}`
-		: "../images/products/default.jpg";
-				
+			db.Drinktype.findAll().then(function (drinkTypes) {
+				return res.drinkTypes;
+			});
+		}
 
-		db.Product.update({
-			name: req.body.name,
-			drink_description: req.body.drink_description,
-			drink_type: req.body.drink_type,
-			price: req.body.price,
-			Stock: req.body.Stock,
-			brand: req.body.brand,
-			Barcode: req.body.Barcode,
-			Presentation: req.body.presentation,
-			Image: image,
-		}, {
-			where:{
+		const image = req.file
+			? `/images/products/${req.file.filename}`
+			: "/images/products/default.jpg";
 
-				ID_Product:req.params.id
+		db.Product.update(
+			{
+				name: req.body.name,
+				drink_description: req.body.drink_description,
+				drink_type: req.body.drink_type.name,
+				price: req.body.price,
+				Stock: req.body.Stock,
+				brand: req.body.brand,
+				Barcode: req.body.Barcode,
+				Presentation: req.body.presentation,
+				Image: image,
+			},
+			{
+				where: {
+					ID_Product: req.params.id,
+				},
 			}
-		})
-		.then(() => {
-			res.redirect("/products")
-			 
-		})
-		.catch(error => {
-			console.log(error);
-			res.status(500).send('Error al crear el producto');
-		});
+		)
+			.then(() => {
+				res.redirect("/products");
+			})
+			.catch((error) => {
+				console.log(error);
+				res.status(500).send("Error al crear el producto");
+			});
 	},
 	//obtner los valores en formato json de la tabla DrinkType (sin vista)
-  //para completar el select de la vista de alta de productos
+	//para completar el select de la vista de alta de productos
 	drinkList: (req, res) => {
 		db.Drinktype.findAll()
 			.then((drinkList) => {
@@ -183,15 +174,19 @@ const productsController = {
 		const { search } = req.params;
 		db.Product.findAll({
 			where: {
-        //buscar por todos los campos de la tabla productos
-        [db.Sequelize.Op.or]: [
-          { name: { [db.Sequelize.Op.like]: `%${search}%` } },
-          { drink_description: { [db.Sequelize.Op.like]: `%${search}%` } },
-          { drink_type: { [db.Sequelize.Op.like]: `%${search}%` } },
-          { Presentation: { [db.Sequelize.Op.like]: `%${search}%` } },
-          { price: { [db.Sequelize.Op.like]: `%${search}%` } },
-          { brand: { [db.Sequelize.Op.like]: `%${search}%` } },
-        ],
+				//buscar por todos los campos de la tabla productos
+				[db.Sequelize.Op.or]: [
+					{ name: { [db.Sequelize.Op.like]: `%${search}%` } },
+					{
+						drink_description: {
+							[db.Sequelize.Op.like]: `%${search}%`,
+						},
+					},
+					{ drink_type: { [db.Sequelize.Op.like]: `%${search}%` } },
+					{ Presentation: { [db.Sequelize.Op.like]: `%${search}%` } },
+					{ price: { [db.Sequelize.Op.like]: `%${search}%` } },
+					{ brand: { [db.Sequelize.Op.like]: `%${search}%` } },
+				],
 			},
 		})
 			.then((wineList) => {
@@ -205,6 +200,51 @@ const productsController = {
 				res.status(500).send("Error al obtener la lista de productos.");
 			});
 	},
+	beer: async (req, res) => {
+		const beer = await db.Product.findAll({
+			where: {
+				drink_description: { [db.Sequelize.Op.like]: `%cerveza%` },
+			},
+		});
+		res.render("products/products.ejs", {
+			title: "Beer List",
+			wineList: beer,
+		});
+	},
+	wine: async (req, res) => {
+		const wine = await db.Product.findAll({
+			where: {
+				drink_description: { [db.Sequelize.Op.like]: `%vino%` },
+			},
+		});
+		res.render("products/products.ejs", {
+			title: "Wine List",
+			wineList: wine,
+		});
+	},
+	highlighted: async (req, res) => {
+		const highlighted = await db.Product.findAll({
+			where: {
+				highlighted: true,
+			},
+		});
+		res.render("products/products.ejs", {
+			title: "Highlighted Products",
+			wineList: highlighted,
+		});
+	},
+	offer: async (req, res) => {
+		const offer = await db.Product.findAll({
+			where: {
+				offer: true,
+			},
+		});
+		res.render("products/products.ejs", {
+			title: "Offer Products",
+			wineList: offer,
+		});
+	}
+
 };
 
 module.exports = productsController;
