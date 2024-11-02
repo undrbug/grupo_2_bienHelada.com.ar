@@ -5,11 +5,12 @@
   <body>
     <%- include('../partials/header.ejs') %>
 
-    <div class="container">
-      <h2>User Profile:</h2>
-      
-      <div class="profile-container">
-        <div class="profile-card">
+    <div class="profile-container">
+      <div class="profile-card">
+        
+        <div class="title">
+          <h1 class="text-center">Perfil de Usuario</h1>  
+        </div>
             <img src="<%= locals.userLogged.image %>" alt="Imagen de <%= locals.userLogged.first_name %>" class="profile-image">
             <h2 class="profile-name"><%= locals.userLogged.last_name %>, <%= locals.userLogged.first_name %></h2>
             <p class="profile-email"><%= locals.userLogged.phone %></p>
@@ -23,7 +24,6 @@
             <% } %>
 
             <p class="profile-email"><%= locals.userLogged.email %></p>
-        </div>
     </div>
 
     </div>

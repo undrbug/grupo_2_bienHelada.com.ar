@@ -121,9 +121,9 @@ nav a:hover {
   margin-right: 10px;
 }
 
-.user-name {
+/* .user-name {
   font-size: 18px;
-}
+} */
 
 /* User Profile */
 .profile-container {
@@ -131,6 +131,7 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 2rem;
 }
 
 .profile-card {
@@ -147,7 +148,7 @@ nav a:hover {
   width: 100px;
   height: 100px;
   border-radius: 100%;
-  margin-bottom: 20px;
+  margin: 1rem;
 }
 
 .profile-name {
