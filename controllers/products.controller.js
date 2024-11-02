@@ -29,153 +29,141 @@ const productsController = {
 	},
 	productDetail: (req, res) => {
 		const { id } = req.params;
-		db.Product.findByPk(id)
-			.then((wine) => {
-				console.log(wine); // Puedes verificar los datos en la consola
-				res.render("products/productDetail.ejs", {
-					title: "Product Detail",
-					wine: wine,
-				});
-			})
-			.catch((error) => {
-				console.error("Error al obtener productos:", error.message);
-				res.status(500).send("Error al obtener la lista de productos.");
+		db.Product.findByPk(id, {
+			include: { association: "drinktype" } // Incluye la asociación definida en el modelo
+		})
+		.then((wine) => {
+			res.render("products/productDetail.ejs", {
+				title: "Product Detail",
+				wine: wine // Enviar el objeto completo a la vista
 			});
+		})
+		.catch((error) => {
+			console.error("Error al obtener productos:", error.message);
+			res.status(500).send("Error al obtener la lista de productos.");
+		});
 	},
 	productAddView: (req, res) => {
-		res.render("products/productAdd.ejs", { title: "Alta de producto" });
+		db.Drinktype.findAll()
+			.then(function(drinkTypes) { 
+				return res.render("products/productAdd.ejs", {
+					title: "Alta de producto",
+					drinkTypes: drinkTypes,
+				});
+			})
+			.catch(function(error) {
+				console.log(error);
+				res.status(500).send('Error al cargar los tipos de bebida');
+			});
 	},
 	productAdd: (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
-			return res.render("products/productAdd.ejs", {
-				title: "Alta de producto",
-				errors: errors.mapped(),
-				oldData: req.body,
-			});
-		}
+			db.Drinktype.findAll()
+				.then(function(drinkTypes) {
+					return res.drinkTypes 
+					});
+				}
+	
+					const image = req.file
+		? `../images/products/${req.file.filename}`
+		: "../images/products/default.jpg";
+				
+
+		db.Product.create({
+			name: req.body.name,
+			drink_description: req.body.drink_description,
+			drink_type: req.body.drink_type,
+			price: req.body.price,
+			Stock: req.body.Stock,
+			brand: req.body.brand,
+			Barcode: req.body.Barcode,
+			Presentation: req.body.presentation,
+			Image: image,
+		})
+		.then(() => {
+			res.redirect("/"); // Redirige a la página principal o donde desees
+		})
+		.catch(error => {
+			console.log(error);
+			res.status(500).send('Error al crear el producto');
+		});
+	},
+	productDel: async (req, res) => {
 		try {
-			//si no viene imagen se carga una por defecto
-			const image = req.file
-				? `../images/products/${req.file.filename}`
-				: "../images/products/default.jpg";
-			const {
-				name,
-				price,
-				description,
-				bodega,
-				varietal,
-				category,
-				cantidad,
-			} = req.body;
-			let products = services.load();
-			const newProduct = {
-				id: products.length + 1,
-				nombre: name,
-				descripcion: description,
-				precio: price,
-				bodega: bodega,
-				categoria: category,
-				varietal: varietal,
-				cantidad: cantidad,
-				imagen: image,
-			};
-			products.push(newProduct);
-			services.save(products);
+			// Busca y elimina el producto por ID
+			const result = await db.Product.destroy({
+				where: { ID_Product: req.params.id }
+			});
+	
+			// Verifica si se eliminó algún producto
+			if (result === 0) {
+				return res.status(404).send("Producto no encontrado");
+			}
+	
+			// Redirige a la lista de productos
 			res.redirect("/products");
 		} catch (error) {
-			console.log(error);
+			console.error("Error al eliminar el producto:", error);
+			res.status(500).send("Error interno del servidor");
 		}
-	},
-	productDel: (req, res) => {
-		const { id } = req.params;
-		let products = services.load();
-		productToDelete = products.find((product) => product.id == id);
-		// Obtener la ruta completa de la imagen
-		const imagePath = path.join(
-			__dirname,
-			`../public/images/${productToDelete.imagen}`
-		);
-		// Eliminar la imagen físicamente
-		fs.unlink(imagePath, (err) => {
-			if (err) {
-				console.error("Error al eliminar la imagen:", err);
-			} else {
-				console.log("Imagen eliminada con éxito");
-			}
-		});
-		products = products.filter((product) => product.id !== id);
-		services.save(products);
-		// res.render("index.ejs", {
-		//   title: "Bien-Heladas wines&drinks",
-		//   wineList: products,
-		// });
-		res.redirect("/products");
 	},
 	//Editar Producto con ID
 	productModView: (req, res) => {
-		const { id } = req.params;
-		const wine = services.findProductById(id);
 
-		if (!wine) {
-			return res.status(404).send("Producto no encontrado");
-		}
+		let bebidas = db.Product.findByPk(req.params.id);
+		let tipoBebidas = db.Drinktype.findAll();
+		Promise.all([bebidas, tipoBebidas])
+		.then(function([producto,tipo]){
+			res.render("products/productMod.ejs", {
+				title: "Product Edit",
+				producto: producto,
+				tipo:tipo
+			});
 
-		res.render("products/productMod.ejs", {
-			title: "Product Edit",
-			wine: wine,
-		});
+		})
+
+		
 	},
 
 	productMod: (req, res) => {
-		const { id } = req.params;
-
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
-			// Buscamos el producto por IDs
-			let wine = services.findProductById(id);
-			return res.render("products/productMod.ejs", {
-				title: "Product Edit",
-				errors: errors.mapped(),
-				wine: wine,
-				oldData: req.body,
-			});
-		}
+			db.Drinktype.findAll()
+				.then(function(drinkTypes) {
+					return res.drinkTypes 
+					});
+				}
+	
+					const image = req.file
+		? `../images/products/${req.file.filename}`
+		: "../images/products/default.jpg";
+				
 
-		const {
-			name,
-			price,
-			description,
-			bodega,
-			varietal,
-			category,
-			cantidad,
-		} = req.body;
-		const image = req.file
-			? `../images/products/${req.file.filename}`
-			: services.findProductById(id).imagen;
-		// if (!product) {
-		//   return res.status(404).send("Producto no encontrado");
-		// }
+		db.Product.update({
+			name: req.body.name,
+			drink_description: req.body.drink_description,
+			drink_type: req.body.drink_type,
+			price: req.body.price,
+			Stock: req.body.Stock,
+			brand: req.body.brand,
+			Barcode: req.body.Barcode,
+			Presentation: req.body.presentation,
+			Image: image,
+		}, {
+			where:{
 
-		// let image = req.file ? `./images/products/${req.file.filename}` : existingImage;
-
-		const updatedProduct = {
-			id: id,
-			nombre: name,
-			descripcion: description,
-			precio: price,
-			bodega: bodega,
-			categoria: category,
-			varietal: varietal,
-			cantidad: cantidad,
-			imagen: image,
-		};
-
-		// services.update(updatedProduct);
-
-		// res.redirect(`/products/productdetail/${numericId}`);
-		res.redirect("/products");
+				ID_Product:req.params.id
+			}
+		})
+		.then(() => {
+			res.redirect("/products")
+			 
+		})
+		.catch(error => {
+			console.log(error);
+			res.status(500).send('Error al crear el producto');
+		});
 	},
 	//obtner los valores en formato json de la tabla DrinkType (sin vista)
   //para completar el select de la vista de alta de productos

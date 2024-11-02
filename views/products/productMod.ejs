@@ -7,12 +7,12 @@
         <section>
             <div class="container">
                 <h2 class="text-center">Modificar producto</h2>
-                <form action="/products/productmod/<%= wine.id%>?_method=put" method="post" enctype="multipart/form-data">
+                <form action="/products/productmod/<%= producto.ID_Product%>?_method=put" method="post" enctype="multipart/form-data">
 
                     <div class="form-group">
                         <label for="name">Nombre del Producto</label>
                         <input type="text" class="form-control" id="name" name="name" 
-                        value="<%= locals.oldData ? oldData.name : wine.nombre %>"
+                        value="<%= locals.oldData ? oldData.name : producto.name %>"
                         >
                         <% if (locals.errors && errors.name) { %>
                             <p class="text-danger"><%- errors.name.msg %></p>
@@ -20,8 +20,8 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Descripción</label>
-                        <textarea class="form-control" id="description" name="description" >
-                            <%= locals.oldData ? oldData.description : wine.descripcion %>
+                        <textarea class="form-control" id="drink_description" name="drink_description" >
+                            <%= locals.oldData ? oldData.description : producto.drink_description %>
                         </textarea>
                         <% if (locals.errors && errors.description) { %>
                             <p class="text-danger"><%- errors.description.msg %></p>
@@ -29,69 +29,41 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Imagen</label>
-                        <img src="/public/<%= wine.imagen%>" alt="<%= wine.nombre %>">
-                        <input type="file" class="form-control" id="image" name="image">
+                        <img src="/public/<%=producto.Image%>" alt="<%= producto.name %>">
+                        <input type="file" class="form-control" id="image" name="Image">
                         <% if (locals.errors && errors.image) { %>
                             <p class="text-danger"><%- errors.image.msg %></p>
                             <% } %>
                     </div>
                     <div class="form-group">
-                        <label for="category">Categoría</label>
-                        <select class="form-control" id="category" name="category">
-                            <option value="1" <%= locals.oldData && (oldData.category == "1") ? 'selected' : wine.categoria %>
-                                >Cervezas</option>
-                            <option value="2" <%= locals.oldData && (oldData.category == "2") ? 'selected' : wine.categoria %>
-                                >Vinos</option>
-                            <option value="3" <%= locals.oldData && (oldData.category == "3") ? 'selected' : wine.categoria %>
-                                >Syrah</option>
-                            <option value="4" <%= locals.oldData && (oldData.category == "4") ? 'selected' : wine.categoria %>
-                                >Whiskys</option>
-                            <option value="5" <%= locals.oldData && (oldData.category == "5") ? 'selected' : wine.categoria %>
-                                >Otros</option>
-                        </select>
+                        
                         <% if (locals.errors && errors.category) { %>
                             <p class="text-danger"><%- errors.category.msg %></p>
                             <% } %>
                     </div>
                     <div class="form-group">
-                        <label for="bodega">Bodega</label>
-                        <input type="text" class="form-control" id="bodega" name="bodega" 
-                            value=" <%= locals.oldData ? oldData.bodega : wine.bodega %>"
+                        <label for="bodega">Marca</label>
+                        <input type="text" class="form-control" id="bodega" name="brand" 
+                            value=" <%= locals.oldData ? oldData.bodega : producto.brand %>"
                         >
                         <% if (locals.errors && errors.bodega) { %>
                             <p class="text-danger"><%- errors.bodega.msg %></p>
                             <% } %>
                     </div>
                     <div class="form-group">
-                        <label for="varietal">Varietal</label>
-                        <select name="varietal" id="varietal">
-                            <option value="1" <%= locals.oldData && (oldData.varietal == "1") ? 'selected' : wine.varietal %>
-                                >Malbec</option>
-                            <option value="2" <%= locals.oldData && (oldData.varietal == "2") ? 'selected' : wine.varietal %>
-                                >Cabernet Sauvignon</option>
-                            <option value="3" <%= locals.oldData && (oldData.varietal == "3") ? 'selected' : wine.varietal %>
-                                >Merlot</option>
-                            <option value="4" <%= locals.oldData && (oldData.varietal == "4") ? 'selected' : wine.varietal %>
-                                >Syrah</option>
-                            <option value="5" <%= locals.oldData && (oldData.varietal == "5") ? 'selected' : wine.varietal %>
-                                >Bonarda</option>
-                            <option value="6" <%= locals.oldData && (oldData.varietal == "6") ? 'selected' : wine.varietal %>
-                                >Chardonnay</option>
-                            <option value="7" <%= locals.oldData && (oldData.varietal == "7") ? 'selected' : wine.varietal %>
-                                >Sauvignon Blanc</option>
-                            <option value="8" <%= locals.oldData && (oldData.varietal == "8") ? 'selected' : wine.varietal %>
-                                >Torrontés</option>
-                            <option value="9" <%= locals.oldData && (oldData.varietal == "9") ? 'selected' : wine.varietal %>
-                                >Otro</option>
+                        <label for="drink_type">Tipo de bebida</label>
+                        <select class="form-control" id="drink_type" name="drink_type">
+                            <% tipo.forEach(drinkType => { %>
+                                <option value="<%= drinkType.dataValues.ID_Drinktype %>">
+                                    <%= drinkType.dataValues.Name %>
+                                </option>
+                            <% }); %>
                         </select>
-                        <% if (locals.errors && errors.varietal) { %>
-                            <p class="text-danger"><%- errors.varietal.msg %></p>
-                            <% } %>
                     </div>
                     <div class="form-group">
                         <label for="cantidad">Cantidad</label>
-                        <input type="number" class="form-control" id="cantidad" name="cantidad" 
-                            value="<%= locals.oldData ? oldData.cantidad : wine.cantidad %>"
+                        <input type="number" class="form-control" id="cantidad" name="Stock" 
+                            value="<%= locals.oldData ? oldData.cantidad : producto.Stock %>"
                         >
                         <% if (locals.errors && errors.cantidad) { %>
                             <p class="text-danger"><%- errors.cantidad.msg %></p>
@@ -100,7 +72,7 @@
                     <div class="form-group">
                         <label for="price">Precio</label>
                         <input type="number" class="form-control" id="price" name="price" 
-                        value="<%= locals.oldData ? oldData.price : wine.precio %>"
+                        value="<%= locals.oldData ? oldData.price : producto.price %>"
                         >
                         <% if (locals.errors && errors.price) { %>
                             <p class="text-danger"><%- errors.price.msg %></p>
