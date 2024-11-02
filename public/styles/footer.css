@@ -1,8 +1,23 @@
+/* Estilos generales para el body */
+body {
+  display: flex;
+  /* Usamos flexbox para organizar el contenido */
+  flex-direction: column;
+  /* Disponer los hijos en columnas */
+  min-height: 100vh;
+  /* Altura mínima del 100% de la ventana */
+  margin: 0;
+  /* Quitar márgenes por defecto */
+}
+
+/* Footer */
 footer {
   width: 100%;
   background-color: #222;
   color: #aaa;
   padding: 2rem 0;
+  margin-top: auto;
+  /* Esto empuja el footer al final del contenido */
 }
 
 .footer-container {
@@ -40,18 +55,19 @@ footer {
 .footer-section ul li {
   margin-bottom: 0.4rem;
   font-size: 0.9rem;
+  list-style: none;
 }
 
 .footer-section a,
 .footer-section ul li a {
-    color: #aaa;
-    text-decoration: none;
+  color: #aaa;
+  text-decoration: none;
 }
 
 .footer-section a:hover,
 .footer-section ul li a:hover {
-    color: #fff;
-    transition: color 0.3s ease;
+  color: #fff;
+  transition: color 0.3s ease;
 }
 
 .footer-bottom {
