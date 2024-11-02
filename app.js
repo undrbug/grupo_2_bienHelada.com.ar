@@ -43,6 +43,7 @@ app.use("/", mainRoute);
 app.use('/users', usersRoute);
 app.use('/products', productsRoute);
 app.use('/contact', contactRoute);
+// app.use('/cart', cartRoute);
 
 app.use((req, res, next) => {
     res.status(404).render('errors/404.ejs', {

@@ -1,40 +1,40 @@
 <article class="articles">
-  <!-- si wineList viene vacio mostrar una img -->
-  <% if (wineList.length == 0) { %>
-  <div class="article">
-    <br>
-      <h3>Todavia no tenemos productos para mostrarte</h3>
-      <br>
-    <img src="/img/postergif.gif" alt="No hay productos" />
-  </div>
-  <% } %>
+	<!-- si wineList viene vacio mostrar una img -->
+	<% if (wineList.length == 0) { %>
+	<div class="article">
+		<br />
+		<h3>Todavia no tenemos productos para mostrarte</h3>
+		<br />
+		<img src="/img/postergif.gif" alt="No hay productos" />
+	</div>
+	<% } %> <% wineList.forEach(product=> { %>
+	<div class="article">
+		<a href="/products/productdetail/<%= product.dataValues.ID_Product %>">
+			<img
+				src="<%= product.dataValues.Image %>"
+				alt="<%= product.dataValues.drink_name %>" />
+			<h3><%= product.dataValues.name %></h3>
 
-  <% wineList.forEach(product=> { %>
-  <div class="article">
-    <a href="/products/productdetail/<%= product.dataValues.ID_Product %>">
-      <img src="../<%= product.dataValues.Image %>" alt="<%= product.dataValues.drink_name %>" />
-      <h3><%= product.dataValues.name %></h3>
-    
-        <p><%= product.dataValues.brand %></p>
-        <p><%= product.dataValues.Presentation %>cm3</p>
+			<p><%= product.dataValues.brand %></p>
+			<p><%= product.dataValues.Presentation %>cm3</p>
 
-        <p class="precio">Precio: $<%= product.dataValues.price %></p>
-     
-      
+			<p class="precio">Precio: $<%= product.dataValues.price %></p>
+			<% if (locals.isLogged) { %> <% if (locals.userLogged.isAdmin) { %>
 
-      <div class="btn-edit-del">
-        <form action="/products/productmod/<%= product.dataValues.ID_Product %>?" method="GET">
-          <button class="edit" type="submit">Editar</button>
-        </form>
-        <form
-          action="/products/productdel/<%= product.dataValues.ID_Product %>?_method=delete"
-          method="POST"
-        >
-          <button class="delete" type="submit">Eliminar</button>
-        </form>
-      </div>
-      
-    </a>
-  </div>
-  <% }) %>
+			<div class="btn-edit-del">
+				<form
+					action="/products/productmod/<%= product.dataValues.ID_Product %>?"
+					method="GET">
+					<button class="edit" type="submit">Editar</button>
+				</form>
+				<form
+					action="/products/productdel/<%= product.dataValues.ID_Product %>?_method=delete"
+					method="POST">
+					<button class="delete" type="submit">Eliminar</button>
+				</form>
+			</div>
+      <% } %> <% } %>
+		</a>
+	</div>
+	<% }) %>
 </article>
