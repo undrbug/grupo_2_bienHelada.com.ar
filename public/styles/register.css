@@ -96,3 +96,7 @@ input[type="email"]:invalid + .erroremail {
 .interests input[type="checkbox"] + label {
     margin-right: 20px;
 }
+
+.is-invalid {
+    border: 2px solid red;
+}
