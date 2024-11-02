@@ -7,3 +7,5 @@ backup.json
 /database/config/config.js
 database/config/config.js
 config.js
+public/images/products/*.jpg
+public/images/products/*.jfif
