@@ -4,7 +4,7 @@
 
     <body>
         <%- include('../partials/header.ejs') %>
-        <section>
+        <main class="form-section">
             <div class="container">
                 <h2 class="text-center">Modificar producto</h2>
                 <form action="/products/productmod/<%= producto.ID_Product%>?_method=put" method="post" enctype="multipart/form-data">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Imagen</label>
-                        <img src="/public/<%=producto.Image%>" alt="<%= producto.name %>">
+                        <img src="<%=producto.Image%>" alt="<%= producto.name %>">
                         <input type="file" class="form-control" id="image" name="Image">
                         <% if (locals.errors && errors.image) { %>
                             <p class="text-danger"><%- errors.image.msg %></p>
@@ -78,11 +78,11 @@
                             <p class="text-danger"><%- errors.price.msg %></p>
                             <% } %>
                     </div>
-                    <button type="submit" class="btn btn-primary">Editar producto</button>
+                    <input type="submit" value="Editar producto" class="btn btn-primary">
                 </form>
             </div>
 
-        </section>
+        </main>
 
 
             <%- include('../partials/footer.ejs') %>
