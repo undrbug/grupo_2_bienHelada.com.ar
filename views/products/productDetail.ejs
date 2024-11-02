@@ -26,19 +26,19 @@
 
                 </div> -->
                 <div class="btn-edit-del">
-                    <form action="/products/productdetail/<%= wine.id%>" method="POST">
+                    <form action="/cart/add/<%= wine.ID_Product%>" method="POST">
                         <button class="add-cart">
                             Agregar al carrito
                         </button>
                     </form>
                     <% if (locals.isLogged) { %>
-                        <% if (locals.userLogged.category=="admin" ) { %>
-                            <form action="/products/productmod/<%= wine.id%>" method="GET">
+                        <% if (locals.userLogged.isAdmin ) { %>
+                            <form action="/products/productmod/<%= wine.ID_Product%>" method="GET">
                                 <button type="submit" class="edit">
                                     Editar
                                 </button>
                             </form>
-                            <form action="/products/productdel/<%= wine.id%>?_method=delete" method="POST">
+                            <form action="/products/productdel/<%= wine.ID_Product%>?_method=delete" method="POST">
                                 <button type="submit" class="delete">
                                     Eliminar
                                 </button>
