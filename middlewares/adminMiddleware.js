@@ -3,7 +3,7 @@ function adminMiddleware(req, res, next) {
         return next(); 
     }
     console.log(`El usuario no tiene permisos de administrador`);
-    return res.redirect('/users/login');
+    return res.redirect('/');
 }
 
 module.exports = adminMiddleware;
