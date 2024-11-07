@@ -24,6 +24,11 @@
             <% } %>
 
             <p class="profile-email"><%= locals.userLogged.email %></p>
+            <div>
+              <a href="/users/edit/<%= locals.userLogged.ID_Customer %>" class="btn btn-primary ">Editar Perfil</a>
+              <!-- volver atras -->
+              <a href="/" class="btn btn-primary">Volver</a>
+            </div>
     </div>
 
     </div>
