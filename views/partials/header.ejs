@@ -6,34 +6,42 @@
         <nav class="header-navbar">
             <% if (!locals.isLogged) { %>
 
-                <ul>    
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/users/login">Ingresar</a></li>
-                    <li><a href="/users/register">Crear cuenta</a></li>
-                </ul>
-
-            <% } else { %>
-
                 <ul>
                     <li><a href="/">Inicio</a></li>
-                    <li><a href="/products">Nuestos vinos</a></li>
-                    <li><a href="/products/cart">Carrito</a></li>
-                    <li><a href="/users/logout">Cerrar Sesion</a></li>
+                    <li><a href="/users/login">Ingresar</a></li>
+                    <!-- <li><a href="/users/register">Crear cuenta</a></li> -->
+                    <li><a href="/contact">Escribinos</a></li>
+                    <li><a href="/products">Nuestos productos</a></li>
+
                 </ul>
-                
-                <% } %>
-            </nav>
-            <div class="search-bar">
-                <form class="header-form">
-                    <input type="text" placeholder="Buscar productos.">
-                    <a href="#"><i class="fas fa-search"></i></a>
-                </form>
+
+                <% } else { %>
+
+                    <ul>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/products">Nuestos productos</a></li>
+
+                        <% if (locals.userLogged.isAdmin) { %>
+                            <li><a href="/products/add">Agregar productos</a></li>
+                        <% } %>
+
+                                <li><a href="/products/cart">Carrito</a></li>
+                                <li><a href="/users/logout">Cerrar Sesion</a></li>
+                    </ul>
+
+                    <% } %>
+        </nav>
+        <div class="search-bar">
+            <form class="header-form">
+                <input type="text" placeholder="Buscar productos" id="input-search">
+                <a href="#"><i class="fas fa-search" id="search"></i></a>
+            </form>
+        </div>
+        <% if (locals.isLogged) { %>
+            <div class="navbar-user">
+                <a href="/users/profile"><img src="<%= locals.userLogged.image %>" alt="Avatar" class="user-avatar"></a>
+                <span class="user-name"><%- locals.userLogged.first_name %></span>
             </div>
-            <% if (locals.isLogged) { %>
-                <div class="navbar-user">
-                    <a href="/users/profile"><img src="<%= locals.userLogged.image %>" alt="Avatar" class="user-avatar"></a>
-                    <span class="user-name"><%- locals.userLogged.firstName %></span>
-                  </div>
             <% } %>
     </div>
     </div>

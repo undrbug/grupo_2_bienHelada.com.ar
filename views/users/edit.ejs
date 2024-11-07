@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('../partials/head.ejs') -%>
+
+    <%- include('../partials/header.ejs') -%>
+
+    <main class="form-section">
+        <div class="container">
+            <form action="/users/update/<%= user.ID_Customer%>?_method=put" method="POST" enctype="multipart/form-data">
+                <h2 class="form-section__title">
+                    Completa los datos para crear una cuenta nueva
+                </h2>
+
+                <label for="firstName">Nombre</label>
+                <input type="text" name="firstName" id="firstName" autofocus
+                placeholder="Nombre" minlength="3" maxlength="15" value="<%=
+                locals.oldData ? oldData.firstName : user.first_name %>"  <% if (locals.errors &&
+                errors.firstName) { %> />
+                <p class="text-danger"><%- errors.firstName.msg %></p>
+                <% } %>
+
+                <label for="lastName">Apellido</label>
+                <input type="text" name="lastName" id="lastName"
+                placeholder="Apellido" minlength="3" maxlength="20" value="<%=
+                locals.oldData ? oldData.lastName : user.last_name %>" /> <% if (locals.errors &&
+                errors.lastName) { %>
+                <p class="text-danger"><%- errors.lastName.msg %></p>
+                <% } %>
+
+                <label for="email">Correo electronico</label>
+                <input type="email" name="email" id="email"
+                placeholder="tu@correo.com" value="<%= locals.oldData ? oldData.email:
+                user.email %>" /> <% if (locals.errors && errors.email) { %>
+                <p class="text-danger"><%- errors.email.msg %></p>
+                <% } %>
+
+                <label for="image">Elegí tu foto de usuario</label>
+                <input type="file" name="image" accept=".jpg,.png" />
+                <% if (locals.errors && errors.image) { %>
+                <p class="text-danger"><%- errors.image.msg %></p>
+                <% } %>
+
+                <label for="phone">Teléfono</label>
+                <input type="tel" name="phone" id="phone"
+                pattern="^\+?[0-9\s\-\(\)]{7,}$" placeholder="+54 11 1234-5678" 
+                value="<%= locals.oldData ? oldData.phone: user.phone %>" />
+                <% if (locals.errors && errors.phone) { %>
+                <p class="text-danger"><%- errors.phone.msg %></p>
+                <% } %>
+
+                <label for="adress">Direccion</label>
+                <input type="text" name="adress" id="adress"
+                placeholder="Av. Siempreviva 742" 
+                value="<%= locals.oldData ? oldData.adress: user.adress %>" />
+                <% if (locals.errors && errors.adress) { %>
+                <p class="text-danger"><%- errors.adress.msg %></p>
+                <% } %>
+
+                <div>
+                    <br>
+                    <label for="country">Pais</label>
+                    <select 
+                        name="country" 
+                        id="country">
+                        <option value="" selected>Seleccione un pais</option>
+                        <% if (listaPaises && listaPaises.length) { %>
+                            <% listaPaises.forEach(pais => { %>
+                                <option value="<%= pais.nombre %>"><%= pais.nombre %></option>
+                            <% }); %>
+                                <option value="<%= user.country%>" selected><%= user.country%></option>
+                        <% } %>
+                    </select>
+                </div>
+                <br>
+                
+                <div>
+                    <label for="state">Provincia</label>
+                    <select 
+                        name="state" 
+                        id="state">
+                        <option value="" selected>Seleccione una provincia</option>
+                        <% if (listaProvincias && listaProvincias.length) { %>
+                            <% listaProvincias.forEach(provincia => { %>
+                            <option value="<%= provincia.nombre %>"><%= provincia.nombre %></option>
+                            <% }); %>
+                            <option value="<%= user.state %>" selected><%= user.state %></option>
+
+                        <% } %>
+                    </select>
+                </div>
+                <br>
+                <br /><br />
+
+                <input type="submit" value="Enviar" />
+                <input type="reset" value="Borrar" />
+                <br /><br />
+            </form>
+            </main>
+        </div>
+    </>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+  <script src="/public/js/register.js"></script>
+</html>

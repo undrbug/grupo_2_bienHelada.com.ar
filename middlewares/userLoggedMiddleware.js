@@ -1,28 +1,30 @@
-const dataUsers = require("../services/dataUsers.js");
+const services_db = require("../services/services_db.js");
 
-function userLoggedMiddleware(req, res, next) {
-  res.locals.isLogged = false;
+async function userLoggedMiddleware(req, res, next) {
+    res.locals.isLogged = false;
 
-  //recuperamos el email del usuario desde la cookie, si es que hay una
-  let userEmail = req.cookies.userEmail;
-  
-  //buscamos al usuario por el email
-  let user = dataUsers.findByEmail(userEmail);
+    if (req.session.userLogged) {
+        res.locals.isLogged = true;
+        res.locals.userLogged = req.session.userLogged;
+        return next();
+    }
 
-  //Si encontramos al usuario, lo guardamos en la sesión
-  if (user) {
-    delete user.password;
-    req.session.userLogged = user;
-  }
+    try {
+        const userEmail = req.cookies.userEmail;
+        if (userEmail) {
+            const user = await services_db.getByEmail(userEmail);
+            if (user) {
+                delete user.password;
+                req.session.userLogged = user;
+                res.locals.isLogged = true;
+                res.locals.userLogged = user;
+            }
+        }
+    } catch (error) {
+        console.error("Error al buscar el usuario:", error.message);
+    }
 
-  //Si hay un usuario logueado, lo pasamos a las vistas
-  if (req.session.userLogged) {
-    res.locals.isLogged = true;
-    //Pasamos a las vistas la información del usuario logueado
-    res.locals.userLogged = req.session.userLogged;
-  }
-
-  next();
+    next();
 }
 
 module.exports = userLoggedMiddleware;

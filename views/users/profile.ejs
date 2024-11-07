@@ -5,16 +5,30 @@
   <body>
     <%- include('../partials/header.ejs') %>
 
-    <div class="container">
-      <h1>User Profile:</h1>
-      
-      <div class="profile-container">
-        <div class="profile-card">
-            <img src="<%= locals.userLogged.image %>" alt="Imagen de <%= locals.userLogged.firstName %>" class="profile-image">
-            <h2 class="profile-name"><%= locals.userLogged.lastName %>, <%= locals.userLogged.firstName %></h2>
-            <p class="profile-email"><%= locals.userLogged.email %></p>
-            <p class="profile-category">Categoría: <%= locals.userLogged.category %></p>
+    <div class="profile-container">
+      <div class="profile-card">
+        
+        <div class="title">
+          <h1 class="text-center">Perfil de Usuario</h1>  
         </div>
+            <img src="<%= locals.userLogged.image %>" alt="Imagen de <%= locals.userLogged.first_name %>" class="profile-image">
+            <h2 class="profile-name"><%= locals.userLogged.last_name %>, <%= locals.userLogged.first_name %></h2>
+            <p class="profile-email"><%= locals.userLogged.phone %></p>
+            <p class="profile-email"><%= locals.userLogged.adress %></p>
+            <p class="profile-email"><%= locals.userLogged.country %></p>
+            <p class="profile-email"><%= locals.userLogged.state %></p>
+            <% if (locals.userLogged.isAdmin) { %>
+              <p class="profile-email">ROL: Administrador</p>
+            <% } else { %>
+              <p class="profile-email">ROL: Usuario</p>
+            <% } %>
+
+            <p class="profile-email"><%= locals.userLogged.email %></p>
+            <div>
+              <a href="/users/edit/<%= locals.userLogged.ID_Customer %>" class="btn btn-primary ">Editar Perfil</a>
+              <!-- volver atras -->
+              <a href="/" class="btn btn-primary">Volver</a>
+            </div>
     </div>
 
     </div>

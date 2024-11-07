@@ -6,9 +6,7 @@
 
 .form-section {
     margin-top: 2rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+
 }
 
 main.registro {
@@ -27,7 +25,6 @@ form input[type="text"],
 form input[type="email"],
 form input[type="password"],
 form input[type="file"] {
-    border: var(--font-color-secondary);
     border-radius: 5px;
     width: 100%;
 }
@@ -53,7 +50,7 @@ form input[type="reset"] {
     margin: 10px 0;
     border: none;
     border-radius: 5px;
-    background-color: #ccc;
+    background-color: #929292;
     color: white;
     cursor: pointer;
     width: 100%;
@@ -98,4 +95,8 @@ input[type="email"]:invalid + .erroremail {
 .profile input[type="radio"] + label,
 .interests input[type="checkbox"] + label {
     margin-right: 20px;
+}
+
+.is-invalid {
+    border: 2px solid red;
 }

@@ -5,7 +5,7 @@
   <body>
     <%- include('../partials/header.ejs') %>
 
-    <section>
+    <main class="form-section">
       <div class="container">
         <h2 class="text-center">Cargar nuevo producto</h2>
         <form
@@ -25,45 +25,45 @@
           <p class="text-danger"><%- errors.name.msg %></p>
           <% } %>
           <div class="form-group">
-            <label for="description">Descripción</label>
+            <label for="drink_description">Descripción</label>
             <textarea
               class="form-control"
               id="description"
-              name="description"
+              name="drink_description"
             ><%= locals.oldData ? oldData.description : '' %></textarea>
             <% if (locals.errors && errors.description) { %>
             <p class="text-danger"><%= errors.description.msg %></p>
             <% } %>
           </div>
           <div class="form-group">
-            <label for="image">Imagen</label>
-            <input type="file" class="form-control" id="image" name="image" />
+            <label for="Image">Imagen</label>
+            <input type="file" class="form-control" id="Image" name="Image" />
             <% if (locals.errors && errors.image) { %>
             <p class="text-danger"><%= errors.image.msg %></p>
             <% } %>
+
+            <div class="form-group">
+              <label for="drink_type">Tipo de bebida</label>
+              <select class="form-control" id="drink_type" name="drink_type">
+                  <% drinkTypes.forEach(drinkType => { %>
+                      <option value="<%= drinkType.dataValues.ID_Drinktype %>">
+                          <%= drinkType.dataValues.Name %>
+                      </option>
+                  <% }); %>
+              </select>
           </div>
           <div class="form-group">
-            <label for="category">Categoría</label>
-            <select class="form-control" id="category" name="category">
-              <option value="1" value="1" <%= locals.oldData && (oldData.category == "1") ? 'selected' : "" %>
-              >Cervezas</option>
-              <option value="2" value="1" <%= locals.oldData && (oldData.category == "2") ? 'selected' : "" %>
-              >Vinos</option>
-              <option value="3" value="1" <%= locals.oldData && (oldData.category == "3") ? 'selected' : "" %>
-              >Espumantes</option>
-              <option value="4" value="1" <%= locals.oldData && (oldData.category == "4") ? 'selected' : "" %>
-              >Whiskys</option>
-              <option value="5" value="1" <%= locals.oldData && (oldData.category == "5") ? 'selected' : "" %>
-              >Otros</option>
-            </select>
-          </div>
+            <label for="presentation">Presentación</label>
+            <input   type="number" class="form-control" id="presentation" name="presentation" required>
+        </div>
+
           <div class="form-group">
-            <label for="bodega">Bodega</label>
+            <label for="bodega">Marca</label>
             <input
               type="text"
               class="form-control <%= locals.errors && errors.bodega ? 'is-invalid' : '' %>"
-              id="bodega"
-              name="bodega"
+              id="brand"
+              name="brand"
               value="<%= locals.oldData ? oldData.bodega : '' %>"
             />
             <% if (locals.errors && errors.bodega) { %>
@@ -71,35 +71,12 @@
             <% } %>
           </div>
           <div class="form-group">
-            <label for="varietal">Varietal</label>
-            <select name="varietal" id="varietal" name="varietal">
-              <option value="1" <%= locals.oldData && (oldData.varietal == "1") ? 'selected' : "" %>
-                >Malbec</option>
-              <option value="2" <%= locals.oldData && (oldData.varietal == "2") ? 'selected' : "" %>
-              >Cabernet Sauvignon</option>
-              <option value="3" <%= locals.oldData && (oldData.varietal == "3") ? 'selected' : "" %>
-              >Merlot</option>
-              <option value="4" <%= locals.oldData && (oldData.varietal == "4") ? 'selected' : "" %>
-              >Syrah</option>
-              <option value="5" <%= locals.oldData && (oldData.varietal == "5") ? 'selected' : "" %>
-              >Bonarda</option>
-              <option value="6" <%= locals.oldData && (oldData.varietal == "6") ? 'selected' : "" %>
-              >Chardonnay</option>
-              <option value="7" <%= locals.oldData && (oldData.varietal == "7") ? 'selected' : "" %>
-              >Sauvignon Blanc</option>
-              <option value="8" <%= locals.oldData && (oldData.varietal == "8") ? 'selected' : "" %>
-              >Torrontés</option>
-              <option value="9" <%= locals.oldData && (oldData.varietal == "9") ? 'selected' : "" %>
-              >Otro</option>
-            </select>
-          </div>
-          <div class="form-group">
             <label for="cantidad">Cantidad</label>
             <input
               type="number"
               class="form-control <%= locals.errors && errors.cantidad ? 'is-invalid' : '' %>"
-              id="cantidad"
-              name="cantidad"
+              id="Stock"
+              name="Stock"
               value="<%= locals.oldData ? oldData.cantidad : '' %>"
             />
             <% if (locals.errors && errors.cantidad) { %>
@@ -119,10 +96,23 @@
             <p class="text-danger"><%= errors.price.msg %></p>
             <% } %>
           </div>
-          <button type="submit" class="btn btn-primary">Cargar producto</button>
+          <div class="form-group">
+            <label for="price">Código</label>
+            <input
+              type="number"
+              class="form-control <%= locals.errors && errors.price ? 'is-invalid' : '' %>"
+              id="Barcode"
+              name="Barcode"
+              value="<%= locals.oldData ? oldData.price: '' %>"
+            />
+            <% if (locals.errors && errors.price) { %>
+            <p class="text-danger"><%= errors.price.msg %></p>
+            <% } %>
+          </div>
+          <input type="submit"  value="Cargar producto">
         </form>
       </div>
-    </section>
+    </main>
 
     <%- include('../partials/footer.ejs') %>
   </body>

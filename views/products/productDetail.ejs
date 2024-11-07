@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <%- include('../partials/head.ejs') %>
-    <link rel="stylesheet" href="/styles/productDetail.css" 
-    <body>
-        <%- include('../partials/header.ejs') %>
+    <link rel="stylesheet" href="/styles/productDetail.css" <body>
+    <%- include('../partials/header.ejs') %>
+        <article class="articles">
+            <div class="article">
+                <img src="../../<%= wine.Image %>" alt="<%= wine.name %>">
+                <h3>
+                    <%= wine.name %>
+                </h3>
+                <p>
+                    <%= wine.drink_description %>
+                </p>
+                <p>
+                    <%= wine.brand %>
+                </p>
+                <p>
+                    $<%= wine.price %>
+                </p>
+                
+                    <p>Type: <%= wine.drinktype ? wine.drinktype.Name : "No type available" %></p>
+                
+                
+                <!-- <div class="btn-edit-del">
 
-        <div class="article">
-            <img src="../<%= wine.imagen %>" alt="<%= wine.nombre %>">
-            <h3>
-                <%= wine.nombre %>
-            </h3>
-            <p>
-                <%= wine.descripcion %>
-            </p>
-            <p>
-                Bodega: <%= wine.bodega %>
-            </p>
-            <p>
-                $<%= wine.precio %>
-            </p>
-
-            <form action="/products/productdetail/<%= wine.id%>" method="POST">
-                <button>
-                    Agregar al carrito
-                </button>
-            </form>
-            <div class="btn-edit-del">
-                <form action="/products/productmod/<%= wine.id%>" method="GET">
-                    <button type="submit">
-                        Editar
-                    </button>
-                </form>
-                <form action="/products/productdel/<%= wine.id%>?_method=delete" method="POST">
-                    <button type="submit">
-                        Eliminar
-                    </button>
-                </form>
+                </div> -->
+                <div class="btn-edit-del">
+                    <form action="/cart/add/<%= wine.ID_Product%>" method="POST">
+                        <button class="add-cart">
+                            Agregar al carrito
+                        </button>
+                    </form>
+                    <% if (locals.isLogged) { %>
+                        <% if (locals.userLogged.isAdmin ) { %>
+                            <form action="/products/productmod/<%= wine.ID_Product%>" method="GET">
+                                <button type="submit" class="edit">
+                                    Editar
+                                </button>
+                            </form>
+                            <form action="/products/productdel/<%= wine.ID_Product%>?_method=delete" method="POST">
+                                <button type="submit" class="delete">
+                                    Eliminar
+                                </button>
+                            </form>
+                        <% } %>
+                    <% } %>
+                </div>
             </div>
-        </div>
-
+        </article>
         </body>
 
         <%- include('../partials/footer.ejs') %>
