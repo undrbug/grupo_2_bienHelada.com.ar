@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
   <%- include('../partials/head.ejs') %>
-
   <body>
     <%- include('../partials/header.ejs') %>
-
+    
+    <script defer src ="/js/prodAddValidation.js"></script>
     <main class="form-section">
       <div class="container">
         <h2 class="text-center">Cargar nuevo producto</h2>
@@ -22,8 +22,9 @@
             value="<%= locals.oldData ? oldData.name : '' %>"
           />
           <% if (locals.errors && errors.name) { %>
-          <p class="text-danger"><%- errors.name.msg %></p>
+          <p class="text-danger" id="fullerror"><%- errors.name.msg %></p>
           <% } %>
+          <p class="text-danger" id="descriptionError"></p>
           <div class="form-group">
             <label for="drink_description">Descripción</label>
             <textarea
@@ -34,6 +35,7 @@
             <% if (locals.errors && errors.description) { %>
             <p class="text-danger"><%= errors.description.msg %></p>
             <% } %>
+            <p class="text-danger" id="descriptionError"></p>
           </div>
           <div class="form-group">
             <label for="Image">Imagen</label>
@@ -41,6 +43,7 @@
             <% if (locals.errors && errors.image) { %>
             <p class="text-danger"><%= errors.image.msg %></p>
             <% } %>
+            <p class="text-danger" id="descriptionError"></p>
 
             <div class="form-group">
               <label for="drink_type">Tipo de bebida</label>
@@ -50,11 +53,13 @@
                           <%= drinkType.dataValues.Name %>
                       </option>
                   <% }); %>
+                  <p class="text-danger" id="descriptionError"></p>
               </select>
           </div>
           <div class="form-group">
             <label for="presentation">Presentación</label>
-            <input   type="number" class="form-control" id="presentation" name="presentation" required>
+            <input   type="number" class="form-control" id="presentation" name="presentation">
+            <p class="text-danger" id="descriptionError"></p>
         </div>
 
           <div class="form-group">
@@ -69,6 +74,7 @@
             <% if (locals.errors && errors.bodega) { %>
             <p class="text-danger"><%= errors.bodega.msg %></p>
             <% } %>
+            <p class="text-danger" id="descriptionError"></p>
           </div>
           <div class="form-group">
             <label for="cantidad">Cantidad</label>
@@ -78,10 +84,12 @@
               id="Stock"
               name="Stock"
               value="<%= locals.oldData ? oldData.cantidad : '' %>"
+              
             />
             <% if (locals.errors && errors.cantidad) { %>
             <p class="text-danger"><%= errors.cantidad.msg %></p>
             <% } %>
+            <p class="text-danger" id="descriptionError"></p>
           </div>
           <div class="form-group">
             <label for="price">Precio</label>
@@ -95,6 +103,7 @@
             <% if (locals.errors && errors.price) { %>
             <p class="text-danger"><%= errors.price.msg %></p>
             <% } %>
+            <p class="text-danger" id="descriptionError"></p>
           </div>
           <div class="form-group">
             <label for="price">Código</label>
@@ -108,6 +117,7 @@
             <% if (locals.errors && errors.price) { %>
             <p class="text-danger"><%= errors.price.msg %></p>
             <% } %>
+            <p class="text-danger" id="descriptionError"></p>
           </div>
           <input type="submit"  value="Cargar producto">
         </form>
