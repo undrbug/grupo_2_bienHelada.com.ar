@@ -73,7 +73,7 @@ const getCountryState = {
 			});
 			return prov;
 		} catch (error) {
-			console.log(`Error al traer lista de provincias: ${error.message}`);
+			console.log(`Error al traer lista de provincias desde getCountryState.getProvinciasJson: ${error.message}`);
 			return [];
 		}
 	},
