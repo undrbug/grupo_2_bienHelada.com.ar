@@ -16,19 +16,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // validacion del nombre
         if (!firstName.value || firstName.value.length < 3 || firstName.value.length > 15) {
-            alert("El nombre debe tener entre 3 y 15 caracteres");
+            alert("El nombre debe tener entre 3 y 15 caracteres.");
             valid = false;
         }
 
         // validacion del apellido
         if (!lastName.value || lastName.value.length < 3 || lastName.value.length > 20) {
-            alert("El apellido debe tener entre 3 y 20 caracteres");
+            alert("El apellido debe tener entre 3 y 20 caracteres.");
             valid = false;
         }
 
         // validacion del correo
         if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
-            alert("Ingrese un correo electrónico válido");
+            alert("Ingrese un correo electrónico válido.");
             valid = false;
         }
 
@@ -42,37 +42,37 @@ document.addEventListener("DOMContentLoaded", function() {
         // validacion del telefono
         const phonePattern = /^\+?[0-9\s\-\(\)]{7,}$/;
         if (!phone.value || !phonePattern.test(phone.value)) {
-            alert("Ingrese un número de teléfono válido");
+            alert("Ingrese un número de teléfono válido.");
             valid = false;
         }
 
         // validacion de la direccion
         if (!address.value) {
-            alert("La dirección es obligatoria");
+            alert("La dirección es obligatoria.");
             valid = false;
         }
 
         // validacion del pais
         if (!country.value) {
-            alert("Seleccione un país");
+            alert("Seleccione un país.");
             valid = false;
         }
 
         // validacion de la provincia
         if (!state.value) {
-            alert("Seleccione una provincia");
+            alert("Seleccione una provincia.");
             valid = false;
         }
 
         // validacion de la contraseña
         if (!password.value || password.value.length < 8) {
-            alert("La contraseña debe tener al menos 8 caracteres");
+            alert("La contraseña debe tener al menos 8 caracteres.");
             valid = false;
         }
 
         // confirmacion de la contraseña
         if (password.value !== rePassword.value) {
-            alert("Las contraseñas no coinciden");
+            alert("Las contraseñas no coinciden.");
             valid = false;
         }
 

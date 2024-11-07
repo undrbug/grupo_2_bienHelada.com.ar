@@ -17,7 +17,9 @@
                         <% if (locals.errors && errors.name) { %>
                             <p class="text-danger"><%- errors.name.msg %></p>
                             <% } %>
+                            <p class="text-danger" style="display: none;"></p>
                     </div>
+                    
                     <div class="form-group">
                         <label for="description">Descripción</label>
                         <textarea class="form-control" id="drink_description" name="drink_description" >
@@ -26,6 +28,7 @@
                         <% if (locals.errors && errors.description) { %>
                             <p class="text-danger"><%- errors.description.msg %></p>
                             <% } %>
+                            <p class="text-danger" style="display: none;"></p>
                     </div>
                     <div class="form-group">
                         <label for="image">Imagen</label>
@@ -34,12 +37,14 @@
                         <% if (locals.errors && errors.image) { %>
                             <p class="text-danger"><%- errors.image.msg %></p>
                             <% } %>
+                            <p class="text-danger" style="display: none;"></p>
                     </div>
                     <div class="form-group">
                         
                         <% if (locals.errors && errors.category) { %>
                             <p class="text-danger"><%- errors.category.msg %></p>
                             <% } %>
+                            <p class="text-danger" style="display: none;"></p>
                     </div>
                     <div class="form-group">
                         <label for="bodega">Marca</label>
@@ -49,6 +54,7 @@
                         <% if (locals.errors && errors.bodega) { %>
                             <p class="text-danger"><%- errors.bodega.msg %></p>
                             <% } %>
+                            <p class="text-danger" style="display: none;"></p>
                     </div>
                     <div class="form-group">
                         <label for="drink_type">Tipo de bebida</label>
@@ -68,6 +74,7 @@
                         <% if (locals.errors && errors.cantidad) { %>
                             <p class="text-danger"><%- errors.cantidad.msg %></p>
                             <% } %>
+                            <p class="text-danger" style="display: none;"></p>
                     </div>
                     <div class="form-group">
                         <label for="price">Precio</label>
@@ -77,6 +84,7 @@
                         <% if (locals.errors && errors.price) { %>
                             <p class="text-danger"><%- errors.price.msg %></p>
                             <% } %>
+                            <p class="text-danger" style="display: none;"></p>
                     </div>
                     <input type="submit" value="Editar producto" class="btn btn-primary">
                 </form>
@@ -91,6 +99,6 @@
             
     </body>
 
-    <script src="/public/js/prodMod.js"></script>
+    <script src="/js/prodMod.js"></script>
 
 </html>
